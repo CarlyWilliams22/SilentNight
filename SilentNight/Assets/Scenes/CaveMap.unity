@@ -1315,6 +1315,7 @@ GameObject:
   - component: {fileID: 1700770636}
   - component: {fileID: 1700770635}
   - component: {fileID: 1700770638}
+  - component: {fileID: 1700770637}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -1387,6 +1388,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1700770637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700770634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555f8b95b48bfc247a32cb4f0bd26213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 3
+  runSpeed: 5
+  sneakSpeed: 1
 --- !u!50 &1700770638
 Rigidbody2D:
   serializedVersion: 4
@@ -1402,7 +1418,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
