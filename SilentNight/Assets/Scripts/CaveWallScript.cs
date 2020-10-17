@@ -25,7 +25,7 @@ public class CaveWallScript : MonoBehaviour
         
         if (a > 0)
         {
-            a -= (float).001;
+            a -= .001f;
             sr.color = new Color(r, g, b, a);
         }
         

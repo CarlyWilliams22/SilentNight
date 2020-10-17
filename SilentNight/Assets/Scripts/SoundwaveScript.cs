@@ -24,10 +24,10 @@ public class SoundwaveScript : MonoBehaviour
     void Update()
     {
         
-            xScale = yScale += (float).01;
+            xScale = yScale += .01f;
             transform.localScale = new Vector3(xScale, yScale, 0);
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, clear);
-            clear -= (float).01 * scale;
+            clear -= .01f * scale;
             if (clear < .0000001)
             {
                 Destroy(gameObject);

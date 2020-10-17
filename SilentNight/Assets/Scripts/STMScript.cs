@@ -42,18 +42,18 @@ public class STMScript : MonoBehaviour
     void walkSoundwave()
     {
         SoundwaveScript s = Instantiate(soundwavePrototype, new Vector2(0, 0), Quaternion.identity);
-        s.setSize((float).45);
+        s.setSize(.45f);
     }
 
     void runSoundwave()
     {
         SoundwaveScript s = Instantiate(soundwavePrototype, new Vector2(0, 0), Quaternion.identity);
-        s.setSize((float).175);
+        s.setSize(.175f);
     }
 
     void clapSoundwave()
     {
         SoundwaveScript s = Instantiate(soundwavePrototype, new Vector2(0, 0), Quaternion.identity);
-        s.setSize((float).1);
+        s.setSize(.1f);
     }
 }
