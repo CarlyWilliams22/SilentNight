@@ -694,7 +694,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &516350577
 GameObject:
@@ -1562,7 +1562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f08b483df42ad841a3669edf856bac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foundPlayer: 0
+  moving: 1
+  playerFound: 0
 --- !u!58 &1537330460
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1611,7 +1612,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1591422983
 CircleCollider2D:
@@ -2085,12 +2086,12 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 0.6
-  endReachedDistance: 0.6
+  slowdownDistance: 0.5
+  pickNextWaypointDist: 0.5
+  endReachedDistance: 0.1
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &2075714165
 MonoBehaviour:
