@@ -52,4 +52,5 @@ public class PlayerScript : MonoBehaviour
         Vector2 vel = new Vector2(x, y);
         rbody.velocity = curSpeed * vel.normalized;
     }
+
 }
