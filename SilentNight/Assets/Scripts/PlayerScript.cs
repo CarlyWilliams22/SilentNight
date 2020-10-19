@@ -23,6 +23,8 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             if(curSpeed == runSpeed)
@@ -52,5 +54,4 @@ public class PlayerScript : MonoBehaviour
         Vector2 vel = new Vector2(x, y);
         rbody.velocity = curSpeed * vel.normalized;
     }
-
 }
