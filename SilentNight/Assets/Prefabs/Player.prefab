@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4936212077152665018}
   - component: {fileID: 4936212077152665019}
   - component: {fileID: 4936212077152665012}
-  - component: {fileID: 4936212077152665013}
   - component: {fileID: 4936212077152665014}
+  - component: {fileID: 8154937307444076577}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -71,19 +71,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4936212077152665013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4936212077152665017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e0f0b50148735d42afaab97ccfdc478, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 5
 --- !u!212 &4936212077152665014
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -135,3 +122,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8154937307444076577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936212077152665017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555f8b95b48bfc247a32cb4f0bd26213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 5
+  runSpeed: 10
+  sneakSpeed: 1
