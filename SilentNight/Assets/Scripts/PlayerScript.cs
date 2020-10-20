@@ -53,5 +53,14 @@ public class PlayerScript : MonoBehaviour
         float y = Input.GetAxis("Vertical");
         Vector2 vel = new Vector2(x, y);
         rbody.velocity = curSpeed * vel.normalized;
+
+        Vector3 mousePos = Input.mousePosition;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+        Vector2 d = new Vector2(
+            mousePos.x - transform.position.x,
+            mousePos.y - transform.position.y);
+
+        transform.up = d;
     }
 }
