@@ -49,10 +49,11 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        Vector2 vel = new Vector2(x, y);
-        rbody.velocity = curSpeed * vel.normalized;
+        float x = curSpeed * Input.GetAxis("Horizontal");
+        float y = curSpeed * Input.GetAxis("Vertical");
+        rbody.velocity = new Vector2(x, y);
+        //Vector2 vel = new Vector2(x, y);
+        //rbody.velocity = curSpeed * vel.normalized;
 
         Vector3 mousePos = Input.mousePosition;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
