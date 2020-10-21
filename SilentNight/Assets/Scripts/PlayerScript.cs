@@ -83,4 +83,11 @@ public class PlayerScript : MonoBehaviour
 
         transform.up = d;
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("DetectionArea"))
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
+    }
 }

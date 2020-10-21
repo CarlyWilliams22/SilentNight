@@ -17,7 +17,6 @@ namespace Pathfinding {
 		/// <summary>The object that the AI should move to</summary>
 		public Transform target;
 		IAstarAI ai;
-		bool once = true;
 
 		void OnEnable () {
 			ai = GetComponent<IAstarAI>();
@@ -30,18 +29,13 @@ namespace Pathfinding {
 
 		void OnDisable () {
 			if (ai != null) ai.onSearchPath -= Update;
-			once = true;
 		}
 
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
-			if (once)
+			if (target != null && ai != null)
             {
-				once = false;
-				if (target != null && ai != null)
-                {
-					ai.destination = target.position;
-                }
+				ai.destination = target.position;
             }
 		}
 	}

@@ -7,61 +7,55 @@ public class FindingThePlayer : MonoBehaviour
 {
     private Patrol patrolScript;
     private AIDestinationSetter destinationScript;
+    private LightMonsterScript monsterScript;
+    private AIPath pathScript;
+    public LightMonsterScript monster;
 
-    public bool moving = true;
-    public bool playerFound = false;
-    bool once = true;
-    Vector3 curPos, lastPos;
+    bool playerFound = false;
+
+    public int chasingSpeed = 6;
+    public int walkingSpeed = 1;
 
     private void Start()
     {
-        patrolScript = this.transform.parent.gameObject.GetComponent<Patrol>();
-        destinationScript = this.transform.parent.GetComponent<AIDestinationSetter>();
+        pathScript = transform.parent.GetChild(0).gameObject.GetComponent<AIPath>();
+        monsterScript = transform.parent.GetChild(0).gameObject.GetComponent<LightMonsterScript>();
+        patrolScript = transform.parent.GetChild(0).gameObject.GetComponent<Patrol>();
+        destinationScript = transform.parent.GetChild(0).GetComponent<AIDestinationSetter>();
     }
 
     private void Update()
     {
-        //Chase the players last known position
-        if (playerFound && once)
+        transform.position = monster.transform.position;
+
+        if (!playerFound)   //Player not found, follow patrol
         {
-            patrolScript.enabled = !patrolScript.enabled;
-            destinationScript.enabled = !destinationScript.enabled;
-            once = false;
+            pathScript.maxSpeed = walkingSpeed;
+            patrolScript.enabled = true;
+            destinationScript.enabled = false;
         }
-        moving = IsThisObjectMoving();
-        //Player is not there, return to patrol
-        if (!moving && !playerFound)
+        else   //Player found, chase them!
         {
-            patrolScript.enabled = !patrolScript.enabled;
-            destinationScript.enabled = !destinationScript.enabled;
+            pathScript.maxSpeed = chasingSpeed;
+            patrolScript.enabled = false;
+            destinationScript.enabled = true;
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        playerFound = true;
-        once = true;
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            playerFound = true;
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        playerFound = false;
-    }
-
-    private bool IsThisObjectMoving()
-    {
-        curPos = gameObject.transform.parent.gameObject.transform.position;
-
-        if (curPos != lastPos)
+        if (collision.gameObject.tag.Equals("Player"))
         {
-            lastPos = curPos;
-            return true;
-        }
-        else
-        {
-            lastPos = curPos;
-            return false;
+            playerFound = false;
         }
     }
 }
