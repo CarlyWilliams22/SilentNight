@@ -7,90 +7,53 @@ using Pathfinding;
 public class LightMonsterScript : MonoBehaviour
 {
     private AIDestinationSetter destinationScript;
-    Transform newLocation;
-
-    //int monsterSpeed = 4;
-    //public PlayerScript player;
-    //const int CHASE_DIST = 5;
-    bool chasing = false;
-    //Rigidbody2D rbody;
-    public bool running = false;
-    float runStartTime;
+    public PlayerScript playerLocation;
+    Transform runAwayLocation;
+    public bool chasing = false;
+    public bool runningAway = false;
+    public float runDistance = 1.1f;
 
     // Start is called before the first frame update
     void Start()
     {
+        runAwayLocation = transform.parent.GetChild(2);
         destinationScript = GetComponent<AIDestinationSetter>();
-        //rbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*Vector2 monsterPos = transform.position;
-        Vector2 playerPos;
-        if (player) {
-            playerPos = player.transform.position;
-        }
-        else
+        if (Mathf.Pow((transform.position.x - runAwayLocation.position.x), 2) < 0.1)
         {
-            playerPos = monsterPos;
+            destinationScript.target = playerLocation.transform;
+            runningAway = false;
         }
-        Vector2 diff = playerPos - monsterPos;
-
-        if (!chasing && !running)
-        {
-            rbody.velocity = monsterSpeed * (rbody.velocity + new Vector2(Random.Range(.1f, 1), Random.Range(.1f, 1))).normalized;
-            //if player is close enough, chase him
-            chasing = diff.magnitude < CHASE_DIST;
-        }
-        if (chasing)
-        {
-            rbody.velocity = monsterSpeed * diff.normalized;
-        }
-        if (running)
-        {
-            //velocity stays the same
-
-            if(Time.time - runStartTime > 30)
-            {
-                running = false;
-            }
-        }*/
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Light"))
         {
+            runningAway = true;
+            chasing = false;
             RunAway();
         }
-        if (gameObject.tag.Equals("Monster") && collision.gameObject.tag.Equals("Player"))
+
+        else if (gameObject.tag.Equals("Monster") && collision.gameObject.tag.Equals("Player"))
         {
             Destroy(collision.transform.parent.gameObject);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag.Equals("Light"))
-        {
-            running = false;
-        }
-    }
-
     private void RunAway()
     {
-        //rbody.velocity = -rbody.velocity;
-        //runStartTime = Time.time;
-        running = true;
-        chasing = false;
-        float playerX = destinationScript.transform.position.x;
-        float playerY = destinationScript.transform.position.y;
+        float playerX = playerLocation.transform.position.x;
+        float playerY = playerLocation.transform.position.y;
         float monsterX = transform.position.x;
         float monsterY = transform.position.y;
         float diffX = playerX - monsterX;
         float diffY = playerY - monsterY;
-        Vector3 runAwayLocation = new Vector3((monsterX - diffX), (monsterY - diffY), 0);
-        destinationScript.target = Instantiate(newLocation, runAwayLocation, Quaternion.identity);
+        runAwayLocation.position = new Vector3((monsterX - diffX) * runDistance, (monsterY - diffY) * runDistance, -1);
+        destinationScript.target = runAwayLocation;
     }
 }
