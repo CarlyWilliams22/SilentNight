@@ -13747,6 +13747,10 @@ PrefabInstance:
       propertyPath: playerLocation
       value: 
       objectReference: {fileID: 8154937307514719637}
+    - target: {fileID: 496517526263187684, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
+      propertyPath: runDistance
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1733939467672017996, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1

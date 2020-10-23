@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -68,11 +69,18 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        float x = curSpeed * Input.GetAxis("Horizontal");
-        float y = curSpeed * Input.GetAxis("Vertical");
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
         rbody.velocity = new Vector2(x, y);
-        //Vector2 vel = new Vector2(x, y);
-        //rbody.velocity = curSpeed * vel.normalized;
+        Vector2 vel = new Vector2(x, y);
+        if(vel.magnitude < 1)
+        {
+            rbody.velocity = curSpeed * vel;
+        }
+        else
+        {
+            rbody.velocity = curSpeed * vel.normalized;
+        }
 
         Vector3 mousePos = Input.mousePosition;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -88,6 +96,18 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.tag.Equals("DetectionArea"))
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
+        
+        //player runs off bridge
+        if (collision.gameObject.tag.Equals("Respawn"))
+        {
+            SceneManager.LoadScene("Level1Scene");
+        }
+
+        //player reaches the cave
+        if (collision.gameObject.tag.Equals("Finish"))
+        {
+            SceneManager.LoadScene("Level2Scene");
         }
     }
 }
