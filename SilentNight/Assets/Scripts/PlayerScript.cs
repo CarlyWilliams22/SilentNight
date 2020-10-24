@@ -101,13 +101,13 @@ public class PlayerScript : MonoBehaviour
         //player runs off bridge
         if (collision.gameObject.tag.Equals("Respawn"))
         {
-            SceneManager.LoadScene("Level1Scene");
+            SceneManager.LoadScene("Level1");
         }
 
         //player reaches the cave
         if (collision.gameObject.tag.Equals("Finish"))
         {
-            SceneManager.LoadScene("Level2Scene");
+            //SceneManager.LoadScene("");
         }
     }
 }
