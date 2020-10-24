@@ -45,3 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 2475852527
+    locked: 0
+  - name: Sentient
+    uniqueID: 2600276831
+    locked: 0
+  - name: Tree
+    uniqueID: 2245469055
+    locked: 0
