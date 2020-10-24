@@ -244,4 +244,4 @@ MonoBehaviour:
   playerLocation: {fileID: 0}
   chasing: 0
   runningAway: 0
-  runDistance: 1.1
+  runDistance: 6

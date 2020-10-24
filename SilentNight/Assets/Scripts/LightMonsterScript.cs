@@ -11,7 +11,7 @@ public class LightMonsterScript : MonoBehaviour
     Transform runAwayLocation;
     public bool chasing = false;
     public bool runningAway = false;
-    public float runDistance = 1.1f;
+    public float runDistance = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -49,11 +49,16 @@ public class LightMonsterScript : MonoBehaviour
     {
         float playerX = playerLocation.transform.position.x;
         float playerY = playerLocation.transform.position.y;
+        Vector2 playerPos = playerLocation.transform.position;
         float monsterX = transform.position.x;
         float monsterY = transform.position.y;
+        Vector2 monsterPos = transform.position;
         float diffX = playerX - monsterX;
         float diffY = playerY - monsterY;
-        runAwayLocation.position = new Vector3((monsterX - diffX) * runDistance, (monsterY - diffY) * runDistance, -1);
+        //runAwayLocation.position = new Vector3((monsterX - diffX) * runDistance, (monsterY - diffY) * runDistance, -1);
+        Vector2 runPos = monsterPos + (monsterPos - playerPos).normalized * runDistance;
+        runAwayLocation.position = runPos;
+        print("player at " + playerPos + ", monster at " + monsterPos + ", running to " + runPos);
         destinationScript.target = runAwayLocation;
     }
 }
