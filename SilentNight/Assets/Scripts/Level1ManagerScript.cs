@@ -10,10 +10,14 @@ public class Level1ManagerScript : MonoBehaviour
     private Scene currentScene;
     public GameObject canvas;
     public PlayerScript player;
+    bool deadDeer, bridge;
+    public Text beginningText, deadDeerText, bridgeText;
+    public GameObject textbox;
 
     // Start is called before the first frame update
     void Start()
     {
+        deadDeer = bridge = false;
         canvas.SetActive(false);
         currentScene = SceneManager.GetActiveScene();
     }
@@ -25,6 +29,32 @@ public class Level1ManagerScript : MonoBehaviour
         {
             canvas.SetActive(true);
         }
+        else
+        {
+            float y = player.gameObject.transform.position.y;
+            float x = player.gameObject.transform.position.x;
+            if ((-34 < y && y < -31 && 32 < x) && !bridge)
+            {
+                textbox.SetActive(true);
+                bridgeText.gameObject.SetActive(true);
+                bridge = true;
+            }
+            if ((-34 < y && y < -31 && 2.5 > x) && !deadDeer)
+            {
+                textbox.SetActive(true);
+                deadDeerText.gameObject.SetActive(true);
+                deadDeer = true;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            beginningText.gameObject.SetActive(false);
+            bridgeText.gameObject.SetActive(false);
+            deadDeerText.gameObject.SetActive(false);
+            textbox.SetActive(false);
+        }
+        
+        
     }
 
     public void LoadMainMenu()
@@ -42,5 +72,10 @@ public class Level1ManagerScript : MonoBehaviour
         {
             SceneManager.LoadScene("Level2");
         }
+    }
+
+    public void nextLevel()
+    {
+        SceneManager.LoadScene("Level2");
     }
 }

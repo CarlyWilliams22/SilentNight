@@ -54,3 +54,6 @@ TagManager:
   - name: Tree
     uniqueID: 2245469055
     locked: 0
+  - name: Textbox
+    uniqueID: 3657340555
+    locked: 0
