@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     public int walkSpeed;
     public int runSpeed;
     public int sneakSpeed;
+    public GameObject gameOverCanvas;
     int curSpeed;
     bool on;
     
@@ -102,7 +103,10 @@ public class PlayerScript : MonoBehaviour
         //player runs off bridge
         if (collision.gameObject.tag.Equals("Respawn"))
         {
-            SceneManager.LoadScene("Level1");
+            Level1ManagerScript  l1sm = FindObjectOfType<Level1ManagerScript>();
+            gameOverCanvas.SetActive(true);
+            l1sm.deathByBridge();
+            Destroy(gameObject);
         }
 
         //player reaches the cave

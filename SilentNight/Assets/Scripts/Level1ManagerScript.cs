@@ -13,11 +13,13 @@ public class Level1ManagerScript : MonoBehaviour
     bool deadDeer, bridge;
     public Text beginningText, deadDeerText, bridgeText;
     public GameObject textbox;
+    bool bridgeDeath;
 
     // Start is called before the first frame update
     void Start()
     {
         deadDeer = bridge = false;
+        bridgeDeath = false;
         canvas.SetActive(false);
         currentScene = SceneManager.GetActiveScene();
     }
@@ -25,7 +27,7 @@ public class Level1ManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!player)
+        if (!player && !bridgeDeath)
         {
             canvas.SetActive(true);
         }
@@ -77,5 +79,10 @@ public class Level1ManagerScript : MonoBehaviour
     public void nextLevel()
     {
         SceneManager.LoadScene("Level2");
+    }
+
+    public void deathByBridge()
+    {
+        bridgeDeath = true;
     }
 }
