@@ -11,7 +11,9 @@ public class PlayerScript : MonoBehaviour
     public int walkSpeed;
     public int runSpeed;
     public int sneakSpeed;
-    public GameObject gameOverCanvas;
+    Animator movement;
+
+    public GameObject bridgeCanvas;
     int curSpeed;
     bool on;
 
@@ -21,13 +23,22 @@ public class PlayerScript : MonoBehaviour
 
     public Level1ManagerScript l1ms;
 
+    GameObject flashlight;
+    AudioSource sound;
+    public AudioClip flashlightOn;
+    public AudioClip flashlightOff;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+        movement = GetComponent<Animator>();
         curSpeed = walkSpeed; //start out walking
+        movement.speed = .3f;
         on = false;
-        transform.GetChild(0).gameObject.SetActive(on);
+        flashlight = transform.GetChild(0).gameObject;
+        flashlight.SetActive(on);
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,15 +52,14 @@ public class PlayerScript : MonoBehaviour
             if (on)
             {
                 on = false;
-                transform.GetChild(0).gameObject.SetActive(on);
+                sound.PlayOneShot(flashlightOff);
             }
             else
             {
                 on = true;
-                transform.GetChild(0).gameObject.SetActive(on);
-
-
+                sound.PlayOneShot(flashlightOn);
             }
+            flashlight.SetActive(on);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -60,6 +70,7 @@ public class PlayerScript : MonoBehaviour
                 walking = true;
                 running = false;
                 sneaking = false;
+                movement.speed = .3f;
             }
             else
             {
@@ -67,6 +78,7 @@ public class PlayerScript : MonoBehaviour
                 running = true;
                 walking = false;
                 sneaking = false;
+                movement.speed = .4f;
             }
         }
 
@@ -78,6 +90,7 @@ public class PlayerScript : MonoBehaviour
                 walking = true;
                 sneaking = false;
                 running = false;
+                movement.speed = .3f;
             }
             else
             {
@@ -85,6 +98,7 @@ public class PlayerScript : MonoBehaviour
                 walking = false;
                 sneaking = true;
                 running = false;
+                movement.speed = .2f;
             }
         }
 
@@ -99,6 +113,11 @@ public class PlayerScript : MonoBehaviour
         else
         {
             rbody.velocity = curSpeed * vel.normalized;
+        }
+
+        if(rbody.velocity == Vector2.zero)
+        {
+            movement.speed = 0;
         }
 
         Vector3 mousePos = Input.mousePosition;
@@ -120,7 +139,7 @@ public class PlayerScript : MonoBehaviour
         //player runs off bridge
         if (collision.gameObject.tag.Equals("Respawn"))
         {
-            gameOverCanvas.SetActive(true);
+            bridgeCanvas.SetActive(true);
             l1ms.deathByBridge();
             Destroy(gameObject);
         }

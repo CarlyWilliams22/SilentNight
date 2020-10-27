@@ -6373,13 +6373,12 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.05
   m_Text: "How to Play:\n\nMove using WASD or the arrow keys\nToggle run by pressing
-    the r button\nToggle sneak by pressing the tab button\nTurn your flashlight on
-    and off my pressing the left mouse button\nControl the direction of your flashlight
-    using the mouse\nFlash your light on the light monsters to scare them away\nWhile
-    in the cave navgate using your soundwaves\nDifferent actions cause different
-    soundwaves\nClapping is the loudest followed by running, walking and then sneaking\nBe
-    careful not to shine your light on the cave monster\nIf the cave monster hears
-    you it will chase sfter you \n "
+    r \nToggle sneak by pressing tab\nTurn your flashlight on and off by clicking
+    the left mouse button\nControl the direction of your flashlight using the mouse\nFlash
+    your light on the light monsters to scare them away\nWhile in the cave, navgate
+    using your soundwaves\nDifferent actions cause different soundwaves\nClapping
+    is the loudest followed by running, walking and then sneaking\nIf the cave monster
+    hears you it will chase after you \n "
 --- !u!222 &2125850441
 CanvasRenderer:
   m_ObjectHideFlags: 0
