@@ -14,7 +14,10 @@ public class PlayerScript : MonoBehaviour
     public GameObject gameOverCanvas;
     int curSpeed;
     bool on;
-    
+
+    public bool running = false;
+    public bool walking = true;
+    public bool sneaking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -52,10 +55,16 @@ public class PlayerScript : MonoBehaviour
             if(curSpeed == runSpeed)
             {
                 curSpeed = walkSpeed;
+                walking = true;
+                running = false;
+                sneaking = false;
             }
             else
             {
                 curSpeed = runSpeed;
+                running = true;
+                walking = false;
+                sneaking = false;
             }
         }
 
@@ -64,10 +73,16 @@ public class PlayerScript : MonoBehaviour
             if (curSpeed == sneakSpeed)
             {
                 curSpeed = walkSpeed;
+                walking = true;
+                sneaking = false;
+                running = false;
             }
             else
             {
                 curSpeed = sneakSpeed;
+                walking = false;
+                sneaking = true;
+                running = false;
             }
         }
 
