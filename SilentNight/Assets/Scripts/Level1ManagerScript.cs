@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Level1ManagerScript : MonoBehaviour
 {
     private Scene currentScene;
-    public GameObject canvas;
+    public GameObject gameOverCanvas;
     public PlayerScript player;
     bool deadDeer, bridge;
     public Text beginningText, deadDeerText, bridgeText;
@@ -20,7 +20,7 @@ public class Level1ManagerScript : MonoBehaviour
     {
         deadDeer = bridge = false;
         bridgeDeath = false;
-        canvas.SetActive(false);
+        gameOverCanvas.SetActive(false);
         currentScene = SceneManager.GetActiveScene();
     }
 
@@ -29,23 +29,26 @@ public class Level1ManagerScript : MonoBehaviour
     {
         if (!player && !bridgeDeath)
         {
-            canvas.SetActive(true);
+            gameOverCanvas.SetActive(true);
         }
         else
         {
-            float y = player.gameObject.transform.position.y;
-            float x = player.gameObject.transform.position.x;
-            if ((-34 < y && y < -31 && 32 < x) && !bridge)
+            if (player)
             {
-                textbox.SetActive(true);
-                bridgeText.gameObject.SetActive(true);
-                bridge = true;
-            }
-            if ((-34 < y && y < -31 && 2.5 > x) && !deadDeer)
-            {
-                textbox.SetActive(true);
-                deadDeerText.gameObject.SetActive(true);
-                deadDeer = true;
+                float y = player.gameObject.transform.position.y;
+                float x = player.gameObject.transform.position.x;
+                if ((-34 < y && y < -31 && 32 < x) && !bridge)
+                {
+                    textbox.SetActive(true);
+                    bridgeText.gameObject.SetActive(true);
+                    bridge = true;
+                }
+                if ((-34 < y && y < -31 && 2.5 > x) && !deadDeer)
+                {
+                    textbox.SetActive(true);
+                    deadDeerText.gameObject.SetActive(true);
+                    deadDeer = true;
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.Space))

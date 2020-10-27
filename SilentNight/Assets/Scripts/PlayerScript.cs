@@ -19,6 +19,8 @@ public class PlayerScript : MonoBehaviour
     public bool walking = true;
     public bool sneaking = false;
 
+    public Level1ManagerScript l1ms;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -118,16 +120,15 @@ public class PlayerScript : MonoBehaviour
         //player runs off bridge
         if (collision.gameObject.tag.Equals("Respawn"))
         {
-            Level1ManagerScript  l1sm = FindObjectOfType<Level1ManagerScript>();
             gameOverCanvas.SetActive(true);
-            l1sm.deathByBridge();
+            l1ms.deathByBridge();
             Destroy(gameObject);
         }
 
         //player reaches the cave
         if (collision.gameObject.tag.Equals("Finish"))
         {
-            //SceneManager.LoadScene("");
+            l1ms.nextLevel();
         }
     }
 }

@@ -2867,7 +2867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d59cb5ef12fa8e84abccbb727689f0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1269876815}
+  gameOverCanvas: {fileID: 1269876815}
   player: {fileID: 8154937307514719637}
   beginningText: {fileID: 1308942030}
   deadDeerText: {fileID: 1271967952}
@@ -21034,27 +21034,13 @@ GameObject:
   - component: {fileID: 1864829685}
   - component: {fileID: 1864829684}
   - component: {fileID: 1864829683}
-  - component: {fileID: 1864829682}
   m_Layer: 0
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1864829682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1864829681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd1b85a63058fdc468a60296e4ce7c59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  l1ms: {fileID: 340592436}
 --- !u!58 &1864829683
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -24292,6 +24278,10 @@ PrefabInstance:
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 1581524476}
+    - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
+      propertyPath: l1ms
+      value: 
+      objectReference: {fileID: 340592436}
     - target: {fileID: 1217591514121696032, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
       propertyPath: m_IsActive
       value: 1

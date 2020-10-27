@@ -25,8 +25,11 @@ public class LightMonsterScript : MonoBehaviour
     {
         if (Mathf.Pow((transform.position.x - runAwayLocation.position.x), 2) < 0.1)
         {
-            destinationScript.target = playerLocation.transform;
-            runningAway = false;
+            if (playerLocation)
+            {
+                destinationScript.target = playerLocation.transform;
+                runningAway = false;
+            }
         }
     }
 
@@ -47,18 +50,21 @@ public class LightMonsterScript : MonoBehaviour
 
     private void RunAway()
     {
-        float playerX = playerLocation.transform.position.x;
-        float playerY = playerLocation.transform.position.y;
-        Vector2 playerPos = playerLocation.transform.position;
-        float monsterX = transform.position.x;
-        float monsterY = transform.position.y;
-        Vector2 monsterPos = transform.position;
-        float diffX = playerX - monsterX;
-        float diffY = playerY - monsterY;
-        //runAwayLocation.position = new Vector3((monsterX - diffX) * runDistance, (monsterY - diffY) * runDistance, -1);
-        Vector2 runPos = monsterPos + (monsterPos - playerPos).normalized * runDistance;
-        runAwayLocation.position = runPos;
-        print("player at " + playerPos + ", monster at " + monsterPos + ", running to " + runPos);
-        destinationScript.target = runAwayLocation;
+        if (playerLocation)
+        {
+            float playerX = playerLocation.transform.position.x;
+            float playerY = playerLocation.transform.position.y;
+            Vector2 playerPos = playerLocation.transform.position;
+            float monsterX = transform.position.x;
+            float monsterY = transform.position.y;
+            Vector2 monsterPos = transform.position;
+            float diffX = playerX - monsterX;
+            float diffY = playerY - monsterY;
+            //runAwayLocation.position = new Vector3((monsterX - diffX) * runDistance, (monsterY - diffY) * runDistance, -1);
+            Vector2 runPos = monsterPos + (monsterPos - playerPos).normalized * runDistance;
+            runAwayLocation.position = runPos;
+            print("player at " + playerPos + ", monster at " + monsterPos + ", running to " + runPos);
+            destinationScript.target = runAwayLocation;
+        }
     }
 }
