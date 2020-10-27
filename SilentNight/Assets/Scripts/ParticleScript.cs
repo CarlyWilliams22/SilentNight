@@ -6,16 +6,18 @@ public class ParticleScript : MonoBehaviour
 {
     ParticleSystem soundWaves;
     ParticleSystem.MainModule main;
-    PlayerScript player;
+    SoundPlayerScript player;
+    float seconds = 0f;
+    float delay = 1f;
 
-    bool walkOnce, runOnce, sneakOnce, playOnce = false;
+    bool isMoving, walkOnce, runOnce, sneakOnce, playOnce, clicked = false;
 
     // Start is called before the first frame update
     void Start()
     {
         soundWaves = GetComponent<ParticleSystem>();
         main = soundWaves.main;
-        player = transform.parent.GetComponent<PlayerScript>();
+        player = transform.parent.GetComponent<SoundPlayerScript>();
         soundWaves.Stop();
     }
 
@@ -33,24 +35,24 @@ public class ParticleScript : MonoBehaviour
             playOnce = false;
         }
 
-        if (player.walking && !walkOnce)
-        {
-            walkOnce = true;
-            runOnce = sneakOnce = false;
-            walk();
-        }
-        else if (player.running && !runOnce)
-        {
-            runOnce = true;
-            walkOnce = sneakOnce = false;
-            run();
-        }
-        else if (player.sneaking && !sneakOnce)
-        {
-            sneakOnce = true;
-            walkOnce = runOnce = false;
-            sneak();
-        }
+            if (player.walking && !walkOnce)
+            {
+                walkOnce = true;
+                runOnce = sneakOnce = false;
+                walk();
+            }
+            else if (player.running && !runOnce)
+            {
+                runOnce = true;
+                walkOnce = sneakOnce = false;
+                run();
+            }
+            else if (player.sneaking && !sneakOnce)
+            {
+                sneakOnce = true;
+                walkOnce = runOnce = false;
+                sneak();
+            }
     }
 
     public void walk()
