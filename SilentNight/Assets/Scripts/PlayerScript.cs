@@ -34,7 +34,6 @@ public class PlayerScript : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
         movement = GetComponent<Animator>();
         curSpeed = walkSpeed; //start out walking
-        movement.speed = .3f;
         on = false;
         flashlight = transform.GetChild(0).gameObject;
         flashlight.SetActive(on);
@@ -70,7 +69,6 @@ public class PlayerScript : MonoBehaviour
                 walking = true;
                 running = false;
                 sneaking = false;
-                movement.speed = .3f;
             }
             else
             {
@@ -78,7 +76,6 @@ public class PlayerScript : MonoBehaviour
                 running = true;
                 walking = false;
                 sneaking = false;
-                movement.speed = .4f;
             }
         }
 
@@ -90,7 +87,6 @@ public class PlayerScript : MonoBehaviour
                 walking = true;
                 sneaking = false;
                 running = false;
-                movement.speed = .3f;
             }
             else
             {
@@ -98,7 +94,6 @@ public class PlayerScript : MonoBehaviour
                 walking = false;
                 sneaking = true;
                 running = false;
-                movement.speed = .2f;
             }
         }
 
@@ -119,6 +114,19 @@ public class PlayerScript : MonoBehaviour
         {
             movement.speed = 0;
         }
+        else if (running)
+        {
+            movement.speed = .4f;
+        }
+        else if (walking)
+        {
+            movement.speed = .3f;
+        }
+        else
+        {
+            movement.speed = .2f;
+        }
+
 
         Vector3 mousePos = Input.mousePosition;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
