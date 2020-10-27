@@ -28,6 +28,10 @@ public class PlayerScript : MonoBehaviour
     public AudioClip flashlightOn;
     public AudioClip flashlightOff;
 
+    SpriteRenderer srender;
+    string lastSprite = "PlayerSpriteSheet_3";
+    public AudioClip footstep;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,13 +42,13 @@ public class PlayerScript : MonoBehaviour
         flashlight = transform.GetChild(0).gameObject;
         flashlight.SetActive(on);
         sound = GetComponent<AudioSource>();
+        srender = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -127,16 +131,29 @@ public class PlayerScript : MonoBehaviour
             movement.speed = .2f;
         }
 
+        if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3"){
+            lastSprite = "PlayerSpriteSheet_1";
+            sound.PlayOneShot(footstep);
+        }
+        if (srender.sprite.name == "PlayerSpriteSheet_3" && lastSprite == "PlayerSpriteSheet_1")
+        {
+            lastSprite = "PlayerSpriteSheet_3";
+            sound.PlayOneShot(footstep);
+        }
+
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
 
         Vector3 mousePos = Input.mousePosition;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
-        Vector2 d = new Vector2(
+        Vector2 d = mousePos - transform.position;/*new Vector2(
             mousePos.x - transform.position.x,
-            mousePos.y - transform.position.y);
+            mousePos.y - transform.position.y);*/
 
         transform.up = d;
     }
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Equals("DetectionArea"))
