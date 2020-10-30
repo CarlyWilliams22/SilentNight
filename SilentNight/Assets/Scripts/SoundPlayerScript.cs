@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 public class SoundPlayerScript : MonoBehaviour
 {
     Rigidbody2D rbody;
-    public ParticleSystem clap;
+    public ParticleSystem particleSystem;
     ParticleSystem.MainModule clapping;
+    AudioSource audioSource;
+    public AudioClip clapSound;
 
     public int walkSpeed;
     public int runSpeed;
     public int sneakSpeed;
-    public GameObject gameOverCanvas;
     int curSpeed;
 
     public bool running = false;
@@ -23,18 +24,17 @@ public class SoundPlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rbody = GetComponent<Rigidbody2D>();
         curSpeed = walkSpeed; //start out walking
-        clapping = clap.main;
+        clapping = particleSystem.main;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
 
-        if (Input.GetKeyDown(KeyCode.R))
+        /*if (Input.GetKeyDown(KeyCode.R))
         {
             if (curSpeed == runSpeed)
             {
@@ -50,7 +50,7 @@ public class SoundPlayerScript : MonoBehaviour
                 walking = false;
                 sneaking = false;
             }
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -70,14 +70,19 @@ public class SoundPlayerScript : MonoBehaviour
             }
         }
 
-        if (!clap.isPlaying)
+        if (!particleSystem.isPlaying)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                clap.Play();
+                audioSource.PlayOneShot(clapSound);
+                particleSystem.Play();
             }
         }
+    }
 
+    // Update is called once per frame
+    void FixedUpdate()
+    {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         rbody.velocity = new Vector2(x, y);
