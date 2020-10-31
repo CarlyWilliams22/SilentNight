@@ -74,7 +74,7 @@ public class ParticleScript : MonoBehaviour
     public void sneak()
     {
         audioSource.pitch = .7f;
-        main.startSpeed = 1;
+        main.startSpeed = .7f;
         main.duration = 1;
     }
 }

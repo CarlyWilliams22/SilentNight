@@ -34,24 +34,6 @@ public class SoundPlayerScript : MonoBehaviour
     {
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
 
-        /*if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (curSpeed == runSpeed)
-            {
-                curSpeed = walkSpeed;
-                walking = true;
-                running = false;
-                sneaking = false;
-            }
-            else
-            {
-                curSpeed = runSpeed;
-                running = true;
-                walking = false;
-                sneaking = false;
-            }
-        }*/
-
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (curSpeed == sneakSpeed)
