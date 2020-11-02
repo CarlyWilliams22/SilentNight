@@ -12,6 +12,7 @@ public class LightMonsterScript : MonoBehaviour
     public bool chasing = false;
     public bool runningAway = false;
     public float runDistance = 3;
+    public AudioClip screech;
 
     // Start is called before the first frame update
     void Start()
@@ -66,5 +67,11 @@ public class LightMonsterScript : MonoBehaviour
             print("player at " + playerPos + ", monster at " + monsterPos + ", running to " + runPos);
             destinationScript.target = runAwayLocation;
         }
+    }
+
+    public void screechPlay()
+    {
+        AudioSource a = GetComponent<AudioSource>();
+        a.PlayOneShot(screech);
     }
 }
