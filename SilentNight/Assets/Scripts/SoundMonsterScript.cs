@@ -40,11 +40,14 @@ public class SoundMonsterScript : MonoBehaviour
 
     private void OnParticleCollision(GameObject collision)
     {
-        patrol.enabled = false;
-        destinationSetter.enabled = true;
-        float x = collision.transform.position.x;
-        float y = collision.transform.position.y;
-        lastKnownPosition.position = new Vector3(x, y, 0);
-        destinationSetter.target = lastKnownPosition;
+        if (collision.gameObject.tag.Equals("Soundwave"))
+        {
+            patrol.enabled = false;
+            destinationSetter.enabled = true;
+            float x = collision.transform.position.x;
+            float y = collision.transform.position.y;
+            lastKnownPosition.position = new Vector3(x, y, 0);
+            destinationSetter.target = lastKnownPosition;
+        }
     }
 }
