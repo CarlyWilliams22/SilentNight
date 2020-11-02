@@ -11,6 +11,7 @@ public class FindingThePlayer : MonoBehaviour
     public LightMonsterScript monster;
 
     bool playerFound = false;
+    bool soundCheck = false;
 
     public int chasingSpeed = 6;
     public int walkingSpeed = 1;
@@ -32,10 +33,16 @@ public class FindingThePlayer : MonoBehaviour
             pathScript.maxSpeed = walkingSpeed;
             patrolScript.enabled = true;
             destinationScript.enabled = false;
+            soundCheck = false;
         }
         else if (playerFound && !monster.runningAway)  //Player found, chase them!
         {
             monster.chasing = true;
+            if (!soundCheck)
+            {
+                monster.screechPlay();
+                soundCheck = true;
+            }
             pathScript.maxSpeed = chasingSpeed;
             patrolScript.enabled = false;
             destinationScript.enabled = true;
