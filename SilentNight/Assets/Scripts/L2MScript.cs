@@ -26,7 +26,7 @@ public class L2MScript : MonoBehaviour
 
     public void Reload()
     {
-        SceneManager.LoadScene("CaveMapTesingGrounds");
+        SceneManager.LoadScene("Level2");
     }
 
     public void Exit() 
