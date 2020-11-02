@@ -6,17 +6,24 @@ using Pathfinding;
 public class SoundMonsterScript : MonoBehaviour
 {
     AIDestinationSetter destinationSetter;
+    Patrol patrol;
     public Transform lastKnownPosition;
 
     // Start is called before the first frame update
     void Start()
     {
         destinationSetter = GetComponent<AIDestinationSetter>();
+        patrol = GetComponent<Patrol>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(transform.position == destinationSetter.target.position)
+        {
+            patrol.enabled = true;
+            destinationSetter.enabled = false;
+        }
         
     }
 
@@ -30,6 +37,8 @@ public class SoundMonsterScript : MonoBehaviour
 
     private void OnParticleCollision(GameObject collision)
     {
+        patrol.enabled = false;
+        destinationSetter.enabled = true;
         float x = collision.transform.position.x;
         float y = collision.transform.position.y;
         lastKnownPosition.position = new Vector3(x, y, 0);
