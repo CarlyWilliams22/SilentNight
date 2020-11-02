@@ -52,6 +52,24 @@ public class SoundPlayerScript : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (curSpeed == runSpeed)
+            {
+                curSpeed = walkSpeed;
+                walking = true;
+                sneaking = false;
+                running = false;
+            }
+            else
+            {
+                curSpeed = runSpeed;
+                walking = false;
+                sneaking = false;
+                running = true;
+            }
+        }
+
         if (!particleSystem.isPlaying)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
