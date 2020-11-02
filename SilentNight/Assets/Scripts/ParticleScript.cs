@@ -61,12 +61,15 @@ public class ParticleScript : MonoBehaviour
     public void walk()
     {
         audioSource.pitch = 1f;
+        audioSource.volume = .7f;
         main.startSpeed = 3;
         main.duration = .7f;
     }
 
     public void run()
     {
+        audioSource.pitch = 1.3f;
+        audioSource.volume = 1;
         main.startSpeed = 6;
         main.duration = .5f;
     }
@@ -74,6 +77,7 @@ public class ParticleScript : MonoBehaviour
     public void sneak()
     {
         audioSource.pitch = .7f;
+        audioSource.volume = .5f;
         main.startSpeed = .7f;
         main.duration = 1;
     }

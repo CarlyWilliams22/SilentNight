@@ -9,6 +9,8 @@ public class SoundMonsterScript : MonoBehaviour
     Patrol patrol;
     public Transform lastKnownPosition;
 
+    public L2MScript l2ms;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class SoundMonsterScript : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
         {
             Destroy(collision.gameObject);
+            l2ms.Death();
         }
     }
 

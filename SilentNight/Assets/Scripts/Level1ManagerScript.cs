@@ -69,14 +69,7 @@ public class Level1ManagerScript : MonoBehaviour
 
     public void RetryLevel()
     {
-        if (currentScene.name.Equals("Level1"))
-        {
-            SceneManager.LoadScene("Level1");
-        }
-        else if (currentScene.name.Equals("Level2"))
-        {
-            SceneManager.LoadScene("Level2");
-        }
+        SceneManager.LoadScene("Level1");
     }
 
     public void nextLevel()
