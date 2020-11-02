@@ -3900,6 +3900,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4670581057499110370, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670581057499110370, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670581057499110370, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670581057499110370, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
+      propertyPath: MaxDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5904964784620628022, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
       propertyPath: targets.Array.size
       value: 10
@@ -6092,6 +6108,22 @@ PrefabInstance:
     - target: {fileID: 3903319578021248566, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670581057499110370, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670581057499110370, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670581057499110370, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670581057499110370, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
+      propertyPath: MaxDistance
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5904964784620628022, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
       propertyPath: targets.Array.data[0]

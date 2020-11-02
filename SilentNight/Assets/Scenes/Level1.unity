@@ -11948,6 +11948,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 5.57
       objectReference: {fileID: 0}
+    - target: {fileID: 5607702080312492631, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607702080312492631, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607702080312492631, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
 --- !u!1 &1099477835
@@ -15076,6 +15088,18 @@ PrefabInstance:
     - target: {fileID: 4898407188010883493, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607702080312492631, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607702080312492631, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607702080312492631, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
+      propertyPath: MaxDistance
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
@@ -24375,6 +24399,18 @@ PrefabInstance:
     - target: {fileID: 5532754522409422932, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607702080312492631, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607702080312492631, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607702080312492631, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
+      propertyPath: MaxDistance
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6962955123851688795, guid: 31009f7783ba353499b6d09612a7a95b, type: 3}
       propertyPath: m_SleepingMode
