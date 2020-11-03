@@ -92,7 +92,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c638375c9ea931048859dee21fb4e534, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,8 +112,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1694690465
   m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c20b272e76a571741a923bdd5312871e, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 6888708756529517008, guid: fb4a8f3ff08d15542a37acc665d4c19d, type: 3}
   m_Color: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,13 +136,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555f8b95b48bfc247a32cb4f0bd26213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
-  runSpeed: 10
+  walkSpeed: 3
+  runSpeed: 6
   sneakSpeed: 1
-  gameOverCanvas: {fileID: 0}
+  bridgeCanvas: {fileID: 0}
   running: 0
   walking: 1
   sneaking: 0
+  l1ms: {fileID: 0}
+  flashlightOn: {fileID: 0}
+  flashlightOff: {fileID: 0}
+  footstep: {fileID: 0}
 --- !u!1 &9143802355542917050
 GameObject:
   m_ObjectHideFlags: 0

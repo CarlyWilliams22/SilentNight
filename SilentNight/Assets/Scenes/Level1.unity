@@ -24904,14 +24904,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
-      propertyPath: walkSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
-      propertyPath: runSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 1581524476}
@@ -25046,18 +25038,6 @@ PrefabInstance:
     - target: {fileID: 4207977717788683843, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
       propertyPath: m_Offset.y
       value: -0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4207977717788683854, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c638375c9ea931048859dee21fb4e534, type: 2}
-    - target: {fileID: 4207977717788683854, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 6888708756529517008, guid: fb4a8f3ff08d15542a37acc665d4c19d, type: 3}
-    - target: {fileID: 4207977717788683854, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6906788056919979212, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
       propertyPath: m_LocalPosition.y
