@@ -7,21 +7,37 @@ using UnityEngine.UI;
 
 public class Level1ManagerScript : MonoBehaviour
 {
-    private Scene currentScene;
     public GameObject gameOverCanvas;
     public PlayerScript player;
-    bool deadDeer, bridge;
-    public Text beginningText, deadDeerText, bridgeText;
+    bool deadDeer, bridge, blockade;
+    public Text beginningText, InstructionsText, Instructions2Text, Instructions3Text;
+    public Text deadDeerText, bridgeText, bridgeReminderText;
     public GameObject textbox;
     bool bridgeDeath;
+    public GameObject caveBlockade;
 
     // Start is called before the first frame update
     void Start()
     {
-        deadDeer = bridge = false;
+        deadDeer = bridge = blockade = false;
         bridgeDeath = false;
         gameOverCanvas.SetActive(false);
-        currentScene = SceneManager.GetActiveScene();
+
+        if(PlayerPrefs.GetInt("firstTimeLevel1") == 1)
+        {
+            Time.timeScale = 0;
+            beginningText.gameObject.SetActive(true);
+            textbox.SetActive(true);
+            PlayerPrefs.SetInt("firstTimeLevel1", 0);
+        }
+
+        if(PlayerPrefs.GetInt("firstTimeBlockade") == 0)
+        {
+            blockade = bridge = true;
+            caveBlockade.SetActive(false);
+        }
+        
+
     }
 
     // Update is called once per frame
@@ -40,23 +56,62 @@ public class Level1ManagerScript : MonoBehaviour
                 if ((-34 < y && y < -31 && 32 < x) && !bridge)
                 {
                     textbox.SetActive(true);
+                    Time.timeScale = 0;
                     bridgeText.gameObject.SetActive(true);
                     bridge = true;
+                    PlayerPrefs.SetInt("firstTimeBlockade", 0);
                 }
                 if ((-34 < y && y < -31 && 2.5 > x) && !deadDeer)
                 {
                     textbox.SetActive(true);
+                    Time.timeScale = 0;
                     deadDeerText.gameObject.SetActive(true);
                     deadDeer = true;
+                }
+                if((y < -33.5 && x > 14 && x < 18) && !blockade)
+                {
+                    textbox.SetActive(true);
+                    Time.timeScale = 0;
+                    bridgeReminderText.gameObject.SetActive(true);
+                    blockade = true;
                 }
             }
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            beginningText.gameObject.SetActive(false);
-            bridgeText.gameObject.SetActive(false);
-            deadDeerText.gameObject.SetActive(false);
-            textbox.SetActive(false);
+            if (beginningText.gameObject.activeInHierarchy)
+            {
+                beginningText.gameObject.SetActive(false);
+                InstructionsText.gameObject.SetActive(true);
+            }
+            else if (InstructionsText.gameObject.activeInHierarchy)
+            {
+                InstructionsText.gameObject.SetActive(false);
+                Instructions2Text.gameObject.SetActive(true);
+            }
+            else if (Instructions2Text.gameObject.activeInHierarchy)
+            {
+                Instructions2Text.gameObject.SetActive(false);
+                Instructions3Text.gameObject.SetActive(true);
+            }
+            else if (bridgeText.gameObject.activeInHierarchy)
+            {
+                blockade = true;
+                bridgeText.gameObject.SetActive(false);
+                caveBlockade.SetActive(false);
+                textbox.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                Instructions3Text.gameObject.SetActive(false);
+                bridgeText.gameObject.SetActive(false);
+                deadDeerText.gameObject.SetActive(false);
+                bridgeReminderText.gameObject.SetActive(false);
+                textbox.SetActive(false);
+                Time.timeScale = 1;
+            }
+            
         }
         
         
@@ -80,5 +135,10 @@ public class Level1ManagerScript : MonoBehaviour
     public void deathByBridge()
     {
         bridgeDeath = true;
+    }
+
+    public void Blockade()
+    {
+
     }
 }

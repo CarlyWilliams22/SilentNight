@@ -13,6 +13,9 @@ public class MMMScript : MonoBehaviour
     {
         titleCanvas.gameObject.SetActive(true);
         instructionCanvas.gameObject.SetActive(false);
+
+        PlayerPrefs.SetInt("firstTimeLevel1", 1);
+        PlayerPrefs.SetInt("firstTimeBlockade", 1);
     }
 
     // Update is called once per frame
