@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: -1968480826019346470
     second: SoundMonsterSpriteSheet_1
+  - first:
+      213: 3002501769190323711
+    second: SoundMonsterSpriteSheet_2
+  - first:
+      213: 4462651690852046689
+    second: SoundMonsterSpriteSheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -132,6 +138,48 @@ TextureImporter:
       bones: []
       spriteID: ad703f14e1d8ea4e0800000000000000
       internalID: -1968480826019346470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoundMonsterSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 150
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff5321e73770ba920800000000000000
+      internalID: 3002501769190323711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoundMonsterSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 150
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 167588591168eed30800000000000000
+      internalID: 4462651690852046689
       vertices: []
       indices: 
       edges: []

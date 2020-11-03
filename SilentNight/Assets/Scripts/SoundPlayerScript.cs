@@ -96,4 +96,12 @@ public class SoundPlayerScript : MonoBehaviour
             rbody.velocity = curSpeed * vel.normalized;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Exit"))
+        {
+            SceneManager.LoadScene("EndScene");
+        }
+    }
 }
