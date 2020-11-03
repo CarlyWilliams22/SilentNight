@@ -99,7 +99,7 @@ public class SoundPlayerScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("Exit"))
+        if (collision.gameObject.tag.Equals("Finish"))
         {
             SceneManager.LoadScene("EndScene");
         }
