@@ -11,6 +11,9 @@ public class SoundMonsterScript : MonoBehaviour
 
     public L2MScript l2ms;
 
+    public AudioClip growl;
+    bool isGrowling = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,18 @@ public class SoundMonsterScript : MonoBehaviour
         {
             patrol.enabled = true;
             destinationSetter.enabled = false;
+        }
+
+        if(!isGrowling && (Random.Range(0f, 100f) < 0.05))
+        {
+            GetComponent<AudioSource>().PlayOneShot(growl);
+            isGrowling = true;
+        }
+
+        if (!GetComponent<AudioSource>().isPlaying)
+        {
+            isGrowling = false;
+
         }
         
     }
