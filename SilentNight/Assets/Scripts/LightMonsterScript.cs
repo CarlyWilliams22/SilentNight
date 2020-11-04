@@ -45,6 +45,7 @@ public class LightMonsterScript : MonoBehaviour
 
         else if (gameObject.tag.Equals("Monster") && collision.gameObject.tag.Equals("Player"))
         {
+            PlayerPrefs.SetInt("Lives", (PlayerPrefs.GetInt("Lives") - 1));
             Destroy(collision.transform.parent.gameObject);
         }
     }

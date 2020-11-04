@@ -18,7 +18,7 @@ public class MMMScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PlayerPrefs.SetInt("Lives", 5);    
     }
     
     public void startButton()

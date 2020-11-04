@@ -7,11 +7,17 @@ using UnityEngine.SceneManagement;
 public class L2MScript : MonoBehaviour
 {
     public GameObject gameOverCanvas, openingDialog, player, monster1, monster2;
-    public Text openingDialogText, instructionText;
+    public Text openingDialogText, instructionText, livesText;
 
     // Update is called once per frame
     void Update()
     {
+
+        livesText.text = "Lives: " + PlayerPrefs.GetInt("Lives").ToString();
+        if (PlayerPrefs.GetInt("Lives") == 0)
+        {
+            gameOver();
+        }
 
         //Opening dialog for Level 2 with instructions and story
         if (Input.GetKeyDown(KeyCode.Space))
@@ -52,5 +58,10 @@ public class L2MScript : MonoBehaviour
     public void Exit() 
     {
         Application.Quit();
+    }
+
+    private void gameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }

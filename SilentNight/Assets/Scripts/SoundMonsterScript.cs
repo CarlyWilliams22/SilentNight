@@ -13,7 +13,8 @@ public class SoundMonsterScript : MonoBehaviour
 
     AudioSource audioSource;
     public AudioClip growl;
-    bool isGrowling = false;
+    bool isGrowling  = false;
+    bool alive;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class SoundMonsterScript : MonoBehaviour
         destinationSetter = GetComponent<AIDestinationSetter>();
         patrol = GetComponent<Patrol>();
         audioSource = GetComponent<AudioSource>();
+        alive = true;
     }
 
     // Update is called once per frame
@@ -54,6 +56,12 @@ public class SoundMonsterScript : MonoBehaviour
         //player dies if monster collides with him
         if (collision.gameObject.tag.Equals("Player"))
         {
+            int currLives = PlayerPrefs.GetInt("Lives");
+            if (alive)
+            {
+                PlayerPrefs.SetInt("Lives", (currLives - 1));
+                alive = false;
+            }
             Destroy(collision.gameObject);
             l2ms.Death();
         }
