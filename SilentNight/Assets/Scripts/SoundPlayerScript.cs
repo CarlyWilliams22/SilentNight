@@ -32,10 +32,10 @@ public class SoundPlayerScript : MonoBehaviour
 
     private void Update()
     {
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
-
+        //toggle sneaking
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            //walk if already sneaking
             if (curSpeed == sneakSpeed)
             {
                 curSpeed = walkSpeed;
@@ -43,7 +43,7 @@ public class SoundPlayerScript : MonoBehaviour
                 sneaking = false;
                 running = false;
             }
-            else
+            else //start sneaking
             {
                 curSpeed = sneakSpeed;
                 walking = false;
@@ -51,7 +51,7 @@ public class SoundPlayerScript : MonoBehaviour
                 running = false;
             }
         }
-/*
+/*  disabled running
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (curSpeed == runSpeed)
@@ -70,6 +70,8 @@ public class SoundPlayerScript : MonoBehaviour
             }
         }
 */
+
+        //clap when left mouse button is clicked and player is not already clapping
         if (!particleSystem.isPlaying)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -85,8 +87,9 @@ public class SoundPlayerScript : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-        rbody.velocity = new Vector2(x, y);
         Vector2 vel = new Vector2(x, y);
+
+        //normalize the velocity unless he is moving slowly
         if (vel.magnitude < 1)
         {
             rbody.velocity = curSpeed * vel;
@@ -97,8 +100,16 @@ public class SoundPlayerScript : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        //camera follows the player
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+    }
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //load the ending screen if the player reaches the end of the maze
         if (collision.gameObject.tag.Equals("Finish"))
         {
             SceneManager.LoadScene("EndScene");

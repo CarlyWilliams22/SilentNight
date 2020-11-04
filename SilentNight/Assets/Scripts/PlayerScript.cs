@@ -12,69 +12,73 @@ public class PlayerScript : MonoBehaviour
     public int runSpeed;
     public int sneakSpeed;
     Animator movement;
-
-    public GameObject bridgeCanvas;
+    
     int curSpeed;
-    bool on;
-
     public bool running = false;
     public bool walking = true;
     public bool sneaking = false;
 
     public Level1ManagerScript l1ms;
+    public GameObject bridgeCanvas;
 
     GameObject flashlight;
+    bool flashlightOn;
     AudioSource sound;
-    public AudioClip flashlightOn;
-    public AudioClip flashlightOff;
+    public AudioClip flashlightOnClip;
+    public AudioClip flashlightOffClip;
 
     SpriteRenderer srender;
     string lastSprite = "PlayerSpriteSheet_3";
     public AudioClip footstep;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
         movement = GetComponent<Animator>();
-        curSpeed = walkSpeed; //start out walking
-        on = false;
-        flashlight = transform.GetChild(0).gameObject;
-        flashlight.SetActive(on);
         sound = GetComponent<AudioSource>();
         srender = GetComponent<SpriteRenderer>();
+
+        curSpeed = walkSpeed; //start out walking
+
+        flashlightOn = false;
+        flashlight = transform.GetChild(0).gameObject;
+        flashlight.SetActive(flashlightOn);
+ 
     }
 
     // Update is called once per frame
     void Update()
     {        
-        
-
+        //toggle flashlight
         if (Input.GetMouseButtonDown(0))
         {
-            if (on)
+            if (flashlightOn)
             {
-                on = false;
-                sound.PlayOneShot(flashlightOff);
+                flashlightOn = false;
+                sound.PlayOneShot(flashlightOffClip);
             }
             else
             {
-                on = true;
-                sound.PlayOneShot(flashlightOn);
+                flashlightOn = true;
+                sound.PlayOneShot(flashlightOnClip);
             }
-            flashlight.SetActive(on);
+            flashlight.SetActive(flashlightOn);
         }
 
+        //toggle running
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if(curSpeed == runSpeed)
+            //walk if already running
+            if(curSpeed == runSpeed) 
             {
                 curSpeed = walkSpeed;
                 walking = true;
                 running = false;
                 sneaking = false;
             }
-            else
+            else //stop running
             {
                 curSpeed = runSpeed;
                 running = true;
@@ -83,8 +87,10 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+        //toggle sneaking
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            //walk if already sneaking
             if (curSpeed == sneakSpeed)
             {
                 curSpeed = walkSpeed;
@@ -92,7 +98,7 @@ public class PlayerScript : MonoBehaviour
                 sneaking = false;
                 running = false;
             }
-            else
+            else //stop sneaking
             {
                 curSpeed = sneakSpeed;
                 walking = false;
@@ -101,20 +107,8 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        rbody.velocity = new Vector2(x, y);
-        Vector2 vel = new Vector2(x, y);
-        if(vel.magnitude < 1)
-        {
-            rbody.velocity = curSpeed * vel;
-        }
-        else
-        {
-            rbody.velocity = curSpeed * vel.normalized;
-        }
-
-        if(rbody.velocity == Vector2.zero)
+        //set player animation speed based on player speed
+        if (rbody.velocity == Vector2.zero)
         {
             movement.speed = 0;
         }
@@ -131,7 +125,9 @@ public class PlayerScript : MonoBehaviour
             movement.speed = .2f;
         }
 
-        if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3"){
+        //sync player footsteps to player animation
+        if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3")
+        {
             lastSprite = "PlayerSpriteSheet_1";
             sound.PlayOneShot(footstep);
         }
@@ -141,27 +137,46 @@ public class PlayerScript : MonoBehaviour
             sound.PlayOneShot(footstep);
         }
 
+        //make the player face the mouse position
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 diff = mousePos - transform.position;
+        transform.up = diff;
+    }
+
+    private void FixedUpdate()
+    {
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+        Vector2 vel = new Vector2(x, y);
+
+        //normalize the velocity unless he is moving slowly
+        if (vel.magnitude < 1)
+        {
+            rbody.velocity = curSpeed * vel;
+        }
+        else
+        {
+            rbody.velocity = curSpeed * vel.normalized;
+        }
+    }
+
+
+    private void LateUpdate()
+    {
+        //camera follows the player
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
-
-        Vector3 mousePos = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-        Vector2 d = mousePos - transform.position;/*new Vector2(
-            mousePos.x - transform.position.x,
-            mousePos.y - transform.position.y);*/
-
-        transform.up = d;
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //ignore collision with monster detection area
         if (collision.gameObject.tag.Equals("DetectionArea"))
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
         
-        //player runs off bridge
+        //player runs off bridge and dies
         if (collision.gameObject.tag.Equals("Respawn"))
         {
             bridgeCanvas.SetActive(true);
@@ -169,7 +184,7 @@ public class PlayerScript : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //player reaches the cave
+        //player reaches the cave and moves on to level 2
         if (collision.gameObject.tag.Equals("Finish"))
         {
             l1ms.nextLevel();

@@ -11,6 +11,7 @@ public class SoundMonsterScript : MonoBehaviour
 
     public L2MScript l2ms;
 
+    AudioSource audioSource;
     public AudioClip growl;
     bool isGrowling = false;
 
@@ -19,24 +20,28 @@ public class SoundMonsterScript : MonoBehaviour
     {
         destinationSetter = GetComponent<AIDestinationSetter>();
         patrol = GetComponent<Patrol>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Go back to patrolling if desetination target reached
         if(transform.position == destinationSetter.target.position)
         {
             patrol.enabled = true;
             destinationSetter.enabled = false;
         }
 
-        if(!isGrowling && (Random.Range(0, 100) < 10))
+        //Growl 5 percent of the time
+        if(!isGrowling && (Random.Range(0, 100) < 5))
         {
-            GetComponent<AudioSource>().PlayOneShot(growl);
+            audioSource.PlayOneShot(growl);
             isGrowling = true;
         }
 
-        if (!GetComponent<AudioSource>().isPlaying)
+        //set isGrowling to false once the audio stops playing
+        if (!audioSource.isPlaying)
         {
             isGrowling = false;
 
@@ -46,6 +51,7 @@ public class SoundMonsterScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //player dies if monster collides with him
         if (collision.gameObject.tag.Equals("Player"))
         {
             Destroy(collision.gameObject);
@@ -55,10 +61,12 @@ public class SoundMonsterScript : MonoBehaviour
 
     private void OnParticleCollision(GameObject collision)
     {
+        //if monster hears the player, stop patrolling and go to his last known position
         if (collision.gameObject.tag.Equals("Soundwave"))
         {
             patrol.enabled = false;
             destinationSetter.enabled = true;
+
             float x = collision.transform.position.x;
             float y = collision.transform.position.y;
             lastKnownPosition.position = new Vector3(x, y, 0);

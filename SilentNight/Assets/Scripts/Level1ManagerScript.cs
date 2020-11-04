@@ -23,21 +23,9 @@ public class Level1ManagerScript : MonoBehaviour
         bridgeDeath = false;
         gameOverCanvas.SetActive(false);
 
-        if(PlayerPrefs.GetInt("firstTimeLevel1") == 1)
-        {
-            Time.timeScale = 0;
-            beginningText.gameObject.SetActive(true);
-            textbox.SetActive(true);
-            PlayerPrefs.SetInt("firstTimeLevel1", 0);
-        }
-
-        if(PlayerPrefs.GetInt("firstTimeBlockade") == 0)
-        {
-            blockade = bridge = true;
-            caveBlockade.SetActive(false);
-        }
-        
-
+        Time.timeScale = 0;
+        beginningText.gameObject.SetActive(true);
+        textbox.SetActive(true);
     }
 
     // Update is called once per frame
@@ -59,7 +47,6 @@ public class Level1ManagerScript : MonoBehaviour
                     Time.timeScale = 0;
                     bridgeText.gameObject.SetActive(true);
                     bridge = true;
-                    PlayerPrefs.SetInt("firstTimeBlockade", 0);
                 }
                 if ((-34 < y && y < -31 && 2.5 > x) && !deadDeer)
                 {

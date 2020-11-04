@@ -24931,6 +24931,14 @@ PrefabInstance:
       propertyPath: footstep
       value: 
       objectReference: {fileID: 8300000, guid: 85875b1417d712745be819c8441c4e10, type: 3}
+    - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
+      propertyPath: flashlightOffClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 46a21ef07ce9f7a4b84a14d3ee53fe3c, type: 3}
+    - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
+      propertyPath: flashlightOnClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e90ee3a955ebf344ea8b82257c005d4e, type: 3}
     - target: {fileID: 1217591514121696032, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
       propertyPath: m_IsActive
       value: 1
