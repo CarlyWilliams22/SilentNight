@@ -30,7 +30,7 @@ public class SoundMonsterScript : MonoBehaviour
             destinationSetter.enabled = false;
         }
 
-        if(!isGrowling && (Random.Range(0f, 100f) < 0.05))
+        if(!isGrowling && (Random.Range(0, 100) < 10))
         {
             GetComponent<AudioSource>().PlayOneShot(growl);
             isGrowling = true;

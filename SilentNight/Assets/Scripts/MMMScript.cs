@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MMMScript : MonoBehaviour
 {
-    public TCScript titleCanvas;
-    public ICScript instructionCanvas;
+    public GameObject titleCanvas, instructionCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        titleCanvas.gameObject.SetActive(true);
-        instructionCanvas.gameObject.SetActive(false);
+        titleCanvas.SetActive(true);
+        instructionCanvas.SetActive(false);
 
         PlayerPrefs.SetInt("firstTimeLevel1", 1);
         PlayerPrefs.SetInt("firstTimeBlockade", 1);
@@ -31,8 +30,8 @@ public class MMMScript : MonoBehaviour
 
     public void instructionButton()
     {
-        titleCanvas.gameObject.SetActive(false);
-        instructionCanvas.gameObject.SetActive(true);
+        titleCanvas.SetActive(false);
+        instructionCanvas.SetActive(true);
     }
 
     public void quitButtion()
@@ -42,7 +41,7 @@ public class MMMScript : MonoBehaviour
 
     public void menuButton()
     {
-        titleCanvas.gameObject.SetActive(true);
-        instructionCanvas.gameObject.SetActive(false);
+        titleCanvas.SetActive(true);
+        instructionCanvas.SetActive(false);
     }
 }

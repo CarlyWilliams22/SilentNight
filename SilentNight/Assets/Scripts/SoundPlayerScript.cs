@@ -51,7 +51,7 @@ public class SoundPlayerScript : MonoBehaviour
                 running = false;
             }
         }
-
+/*
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (curSpeed == runSpeed)
@@ -69,7 +69,7 @@ public class SoundPlayerScript : MonoBehaviour
                 running = true;
             }
         }
-
+*/
         if (!particleSystem.isPlaying)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))

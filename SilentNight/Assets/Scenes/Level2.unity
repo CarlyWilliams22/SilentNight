@@ -1302,10 +1302,8 @@ MonoBehaviour:
 
     Press Tab to Sneak
 
-    Press
-    r to Run
-
-    Left-Click to Clap
+    Left-Click
+    to Clap
 
 
 
@@ -4591,6 +4589,10 @@ PrefabInstance:
       propertyPath: l2ms
       value: 
       objectReference: {fileID: 43558604}
+    - target: {fileID: 7309921256896261435, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
+      propertyPath: MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
 --- !u!1 &1460467094 stripped
@@ -5730,7 +5732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -6311,8 +6313,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076294, y: -101.5}
-  m_SizeDelta: {x: 350.76953, y: 143.2861}
+  m_AnchoredPosition: {x: -0.0000038147, y: -97.888}
+  m_SizeDelta: {x: 420.34467, y: 143.2861}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921245380
 MonoBehaviour:
@@ -6347,12 +6349,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The cave entrance collapsed
+  m_Text: 'Oh no! My flashlight in broken!
 
-    and my flashlight in broken!
+    I can''t go back outside because
+    those monsters will get me
 
-    Looks
-    like I have no choice but to go through the cave.
+    Looks like I have no choice but to go through
+    the cave.
 
 
 
@@ -6979,6 +6982,10 @@ PrefabInstance:
       propertyPath: l2ms
       value: 
       objectReference: {fileID: 43558604}
+    - target: {fileID: 7309921256896261435, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
+      propertyPath: MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 101733868711781493, guid: 9f1c631877342d440ae9003c84cee198, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9f1c631877342d440ae9003c84cee198, type: 3}

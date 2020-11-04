@@ -513,8 +513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689a6eed529b57347ad12ba0be1c8508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleCanvas: {fileID: 1692388452}
-  instructionCanvas: {fileID: 1418227534}
+  titleCanvas: {fileID: 1692388447}
+  instructionCanvas: {fileID: 1418227529}
 --- !u!4 &583450077
 Transform:
   m_ObjectHideFlags: 0
@@ -6567,8 +6567,8 @@ MonoBehaviour:
 
     Use WASD to move
 
-    R to run
-    and tab to sneak
+    Tab to
+    sneak
 
     Left Click to clap'
 --- !u!222 &2125850441
