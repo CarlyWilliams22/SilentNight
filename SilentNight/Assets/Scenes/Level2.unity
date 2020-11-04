@@ -6750,7 +6750,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GAME OVER
+  m_Text: YOU DIED
 --- !u!222 &1971410445
 CanvasRenderer:
   m_ObjectHideFlags: 0

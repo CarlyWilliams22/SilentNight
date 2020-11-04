@@ -20,7 +20,8 @@ public class MMMScript : MonoBehaviour
     void Update()
     {
         //sets inital amount of lives
-        PlayerPrefs.SetInt("Lives", 5);    
+        PlayerPrefs.SetInt("Lives", 5);
+        PlayerPrefs.SetInt("firstTimeBlockade", 1);
     }
     
     /*starts the game from level 1*/

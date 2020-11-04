@@ -181,6 +181,7 @@ public class PlayerScript : MonoBehaviour
         {
             bridgeCanvas.SetActive(true);
             l1ms.deathByBridge();
+            PlayerPrefs.SetInt("Lives", (PlayerPrefs.GetInt("Lives") - 1));
             Destroy(gameObject);
         }
 

@@ -22,10 +22,21 @@ public class Level1ManagerScript : MonoBehaviour
         deadDeer = bridge = blockade = false; //Keep track of what area has been visited
         bridgeDeath = false; //Tracks if player has died from falling of the bridge
         gameOverCanvas.SetActive(false); //Hide the death screen
+        
+        //only show the beginning dialog if first time
+        if (PlayerPrefs.GetInt("Lives") == 5)
+        {
+            Time.timeScale = 0;
+            beginningText.gameObject.SetActive(true); //Show the opening dialog and instructions
+            textbox.SetActive(true); //Background red box for dialog
+        }
 
-        Time.timeScale = 0;
-        beginningText.gameObject.SetActive(true); //Show the opening dialog and instructions
-        textbox.SetActive(true); //Background red box for dialog
+        //don't block path to caves if player visited bridge on previous life
+        if (PlayerPrefs.GetInt("firstTimeBlockade") == 0)
+        {
+            blockade = bridge = true;
+            caveBlockade.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -58,6 +69,7 @@ public class Level1ManagerScript : MonoBehaviour
                     Time.timeScale = 0;
                     bridgeText.gameObject.SetActive(true);
                     bridge = true;
+                    PlayerPrefs.SetInt("firstTimeBlockade", 0);
                 }
 
                 //Show the deer dialog if the player has not been there yet
