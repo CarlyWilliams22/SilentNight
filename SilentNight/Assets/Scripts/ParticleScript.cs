@@ -9,7 +9,7 @@ public class ParticleScript : MonoBehaviour
     SoundPlayerScript player;
     AudioSource audioSource;
 
-    bool walkOnce, runOnce, sneakOnce, playOnce = false;
+    bool walkOnce, sneakOnce, playOnce = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,7 @@ public class ParticleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //plays soundwaves and walking sounds while the player is moving 
         if (player.GetComponent<Rigidbody2D>().velocity.magnitude > 0.1 && !playOnce)
         {
             soundWaves.Play();
@@ -31,33 +32,30 @@ public class ParticleScript : MonoBehaviour
             audioSource.Play();
             playOnce = true;
         }
+        //if player is still no soundwaves
         else if (player.GetComponent<Rigidbody2D>().velocity.magnitude < 0.1)
         {
             soundWaves.Stop();
             audioSource.loop = false;
             playOnce = false;
         }
-
+        //if player is walking make normal soundwaves
         if (player.walking && !walkOnce)
         {
             walkOnce = true;
-            runOnce = sneakOnce = false;
+            sneakOnce = false;
             walk();
         }
-        else if (player.running && !runOnce)
-        {
-            runOnce = true;
-            walkOnce = sneakOnce = false;
-            run();
-        }
+        //if player is sneaking play small soundwaves
         else if (player.sneaking && !sneakOnce)
         {
             sneakOnce = true;
-            walkOnce = runOnce = false;
+            walkOnce = false;
             sneak();
         }
     }
 
+    /*Sets the sound and duration of the walking soundwaves*/
     public void walk()
     {
         audioSource.pitch = 1f;
@@ -66,14 +64,7 @@ public class ParticleScript : MonoBehaviour
         main.duration = .7f;
     }
 
-    public void run()
-    {
-        audioSource.pitch = 1.3f;
-        audioSource.volume = 1;
-        main.startSpeed = 6;
-        main.duration = .5f;
-    }
-
+    /*Sets the sound and duration of the sneaking soundwaves*/
     public void sneak()
     {
         audioSource.pitch = .7f;

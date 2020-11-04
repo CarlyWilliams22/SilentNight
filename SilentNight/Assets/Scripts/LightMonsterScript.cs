@@ -11,7 +11,7 @@ public class LightMonsterScript : MonoBehaviour
     Transform runAwayLocation;
     public bool chasing = false;
     public bool runningAway = false;
-    public float runDistance = 3;
+    public float runDistance = 3;   //how far the monster runs when hit by the flashlight
     public AudioClip screech;
 
     // Start is called before the first frame update
@@ -24,8 +24,10 @@ public class LightMonsterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //checks if it is close to a runaway location
         if (Mathf.Pow((transform.position.x - runAwayLocation.position.x), 2) < 0.1)
         {
+            //checks if it is close to player and will chase if close enough
             if (playerLocation)
             {
                 destinationScript.target = playerLocation.transform;
@@ -36,6 +38,7 @@ public class LightMonsterScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Runs away when hit by flashlight
         if (collision.gameObject.tag.Equals("Light"))
         {
             runningAway = true;
@@ -43,6 +46,7 @@ public class LightMonsterScript : MonoBehaviour
             RunAway();
         }
 
+        //if collides with player takes away one life and destorys the player object
         else if (gameObject.tag.Equals("Monster") && collision.gameObject.tag.Equals("Player"))
         {
             PlayerPrefs.SetInt("Lives", (PlayerPrefs.GetInt("Lives") - 1));
@@ -50,6 +54,7 @@ public class LightMonsterScript : MonoBehaviour
         }
     }
 
+    /*monster runs in opposite direction of the player*/
     private void RunAway()
     {
         if (playerLocation)
@@ -62,7 +67,6 @@ public class LightMonsterScript : MonoBehaviour
             Vector2 monsterPos = transform.position;
             float diffX = playerX - monsterX;
             float diffY = playerY - monsterY;
-            //runAwayLocation.position = new Vector3((monsterX - diffX) * runDistance, (monsterY - diffY) * runDistance, -1);
             Vector2 runPos = monsterPos + (monsterPos - playerPos).normalized * runDistance;
             runAwayLocation.position = runPos;
             print("player at " + playerPos + ", monster at " + monsterPos + ", running to " + runPos);
@@ -70,6 +74,7 @@ public class LightMonsterScript : MonoBehaviour
         }
     }
 
+    //plays sound when it tragets the player
     public void screechPlay()
     {
         AudioSource a = GetComponent<AudioSource>();
