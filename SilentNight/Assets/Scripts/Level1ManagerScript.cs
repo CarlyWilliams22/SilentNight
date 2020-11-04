@@ -19,28 +19,33 @@ public class Level1ManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        deadDeer = bridge = blockade = false;
-        bridgeDeath = false;
-        gameOverCanvas.SetActive(false);
+        deadDeer = bridge = blockade = false; //Keep track of what area has been visited
+        bridgeDeath = false; //Tracks if player has died from falling of the bridge
+        gameOverCanvas.SetActive(false); //Hide the death screen
 
         Time.timeScale = 0;
-        beginningText.gameObject.SetActive(true);
-        textbox.SetActive(true);
+        beginningText.gameObject.SetActive(true); //Show the opening dialog and instructions
+        textbox.SetActive(true); //Background red box for dialog
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //Show game over screen if player dies by the bridge
         if (!player && !bridgeDeath)
         {
             gameOverCanvas.SetActive(true);
         }
         else
         {
+            //While the player is still alive..
             if (player)
             {
                 float y = player.gameObject.transform.position.y;
                 float x = player.gameObject.transform.position.x;
+
+                //Show the bridge dialog if the player has not been there yet
                 if ((-34 < y && y < -31 && 32 < x) && !bridge)
                 {
                     textbox.SetActive(true);
@@ -48,6 +53,8 @@ public class Level1ManagerScript : MonoBehaviour
                     bridgeText.gameObject.SetActive(true);
                     bridge = true;
                 }
+
+                //Show the deer dialog if the player has not been there yet
                 if ((-34 < y && y < -31 && 2.5 > x) && !deadDeer)
                 {
                     textbox.SetActive(true);
@@ -55,7 +62,9 @@ public class Level1ManagerScript : MonoBehaviour
                     deadDeerText.gameObject.SetActive(true);
                     deadDeer = true;
                 }
-                if((y < -33.5 && x > 14 && x < 18) && !blockade)
+
+                //Remind the player to visit the bridge first
+                if ((y < -33.5 && x > 14 && x < 18) && !blockade)
                 {
                     textbox.SetActive(true);
                     Time.timeScale = 0;
@@ -64,8 +73,11 @@ public class Level1ManagerScript : MonoBehaviour
                 }
             }
         }
+
+        //Cycles through the different dialogs
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //Opening dialog + instructions
             if (beginningText.gameObject.activeInHierarchy)
             {
                 beginningText.gameObject.SetActive(false);
@@ -81,6 +93,8 @@ public class Level1ManagerScript : MonoBehaviour
                 Instructions2Text.gameObject.SetActive(false);
                 Instructions3Text.gameObject.SetActive(true);
             }
+
+            //Tells the player to go to the bridge first before the cave
             else if (bridgeText.gameObject.activeInHierarchy)
             {
                 blockade = true;
@@ -89,6 +103,8 @@ public class Level1ManagerScript : MonoBehaviour
                 textbox.SetActive(false);
                 Time.timeScale = 1;
             }
+
+            //Remove bridge dialog from the screen
             else
             {
                 Instructions3Text.gameObject.SetActive(false);
@@ -100,8 +116,6 @@ public class Level1ManagerScript : MonoBehaviour
             }
             
         }
-        
-        
     }
 
     public void LoadMainMenu()
@@ -122,10 +136,5 @@ public class Level1ManagerScript : MonoBehaviour
     public void deathByBridge()
     {
         bridgeDeath = true;
-    }
-
-    public void Blockade()
-    {
-
     }
 }

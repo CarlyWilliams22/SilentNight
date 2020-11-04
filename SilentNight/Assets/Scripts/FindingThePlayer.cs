@@ -10,9 +10,10 @@ public class FindingThePlayer : MonoBehaviour
     private AIPath pathScript;
     public LightMonsterScript monster;
 
-    bool playerFound = false;
+    bool playerFound = false;   //If monster has found player in their range
     bool soundCheck = false;
 
+    //Different speeds for the monster in different states
     public int chasingSpeed = 6;
     public int walkingSpeed = 1;
     public int runningAwaySpeed = 6;
@@ -26,6 +27,7 @@ public class FindingThePlayer : MonoBehaviour
 
     private void Update()
     {
+        //Update the detection areas position to stay with the monster
         transform.position = monster.transform.position;
 
         if (!playerFound && !monster.runningAway)   //Player not found, follow patrol
@@ -38,6 +40,8 @@ public class FindingThePlayer : MonoBehaviour
         else if (playerFound && !monster.runningAway)  //Player found, chase them!
         {
             monster.chasing = true;
+
+            //Screech when the monster found the player
             if (!soundCheck)
             {
                 monster.screechPlay();
@@ -47,6 +51,8 @@ public class FindingThePlayer : MonoBehaviour
             patrolScript.enabled = false;
             destinationScript.enabled = true;
         }
+
+        //Monster is hit by the light source and runs away from the player
         else if (monster.runningAway)
         {
             pathScript.maxSpeed = runningAwaySpeed;
@@ -55,6 +61,8 @@ public class FindingThePlayer : MonoBehaviour
         }
     }
     
+    //Sets the boolean is the player is found if their collider
+    //Enters the detection area of the monster
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
@@ -64,6 +72,8 @@ public class FindingThePlayer : MonoBehaviour
         
     }
 
+    //The player leaves the detection area so the monster
+    //can return to its patrol
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))

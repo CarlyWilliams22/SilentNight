@@ -9,17 +9,15 @@ public class L2MScript : MonoBehaviour
     public GameObject gameOverCanvas, openingDialog, player, monster1, monster2;
     public Text openingDialogText, instructionText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
+
+        //Opening dialog for Level 2 with instructions and story
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
+            //Cycle through the different dialogs
             if (openingDialogText.gameObject.activeInHierarchy)
             {
                 openingDialogText.gameObject.SetActive(false);
@@ -29,6 +27,9 @@ public class L2MScript : MonoBehaviour
             {
                 openingDialog.SetActive(false);
                 instructionText.gameObject.SetActive(false);
+
+                //Activate the moving objects after the player finishes the dialog
+                //"Pauses" the game giving the player time to read
                 player.SetActive(true);
                 monster1.SetActive(true);
                 monster2.SetActive(true);
@@ -37,6 +38,7 @@ public class L2MScript : MonoBehaviour
         }
     }
 
+    //Show the death screen when the player dies
     public void Death()
     {
         gameOverCanvas.SetActive(true);
