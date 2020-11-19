@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ParticleScript : MonoBehaviour
 {
     ParticleSystem soundWaves;
     ParticleSystem.MainModule main;
-    SoundPlayerScript player;
+    Echolocator player;
     AudioSource audioSource;
 
     bool walkOnce, sneakOnce, playOnce = false;
@@ -17,7 +18,14 @@ public class ParticleScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         soundWaves = GetComponent<ParticleSystem>();
         main = soundWaves.main;
-        player = transform.parent.GetComponent<SoundPlayerScript>();
+
+        if (SceneManager.GetActiveScene().name.Equals("Level2")){
+            player = transform.parent.GetComponent<SoundPlayerScript>();
+        }
+        else
+        {
+            player = transform.parent.GetComponent<ComboPlayerScript>();
+        }
         soundWaves.Stop();
     }
 
