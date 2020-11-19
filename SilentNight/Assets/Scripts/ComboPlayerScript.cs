@@ -1,25 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
-using UnityEngine.SceneManagement;
 
-public class PlayerScript : MonoBehaviour
+public class ComboPlayerScript : Echolocator
 {
     Rigidbody2D rbody;
 
-    public int walkSpeed;
-    public int runSpeed;
-    public int sneakSpeed;
+    public int walkSpeed = 2;
+    public int runSpeed = 4;
+    public int sneakSpeed = 1;
     Animator movement;
-    
-    int curSpeed;
-    public bool running = false;
-    public bool walking = true;
-    public bool sneaking = false;
 
-    public Level1ManagerScript l1ms;
-    public GameObject bridgeCanvas;
+    int curSpeed;
+   // public bool running = false;
+  //  public bool walking = true;
+  //  public bool sneaking = false;
 
     GameObject flashlight;
     bool flashlightOn;
@@ -33,6 +28,11 @@ public class PlayerScript : MonoBehaviour
     string lastSprite = "PlayerSpriteSheet_3";
     public AudioClip footstep;
 
+    public bool blinded = false;
+    GameObject soundwaves;
+
+    ParticleSystem clap;
+    public AudioClip clapSound;
 
     // Start is called before the first frame update
     void Start()
@@ -43,18 +43,52 @@ public class PlayerScript : MonoBehaviour
         srender = GetComponent<SpriteRenderer>();
 
         curSpeed = walkSpeed; //start out walking
+        running = sneaking = false;
+        walking = true;
 
         flashlightOn = false;
         flashlight = transform.GetChild(0).gameObject;
         flashlight.SetActive(flashlightOn);
- 
+
+        soundwaves = transform.GetChild(2).gameObject;
+        clap = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (blinded)
+        {
+            soundwaves.SetActive(true);
+            flashlight.SetActive(false);
+            srender.enabled = false;
+        }
+        else
+        {
+            soundwaves.SetActive(false);
+            flashlight.SetActive(true);
+            srender.enabled = true;
 
-        if(flashlightOn && !flashlightDead)
+            //set player animation speed based on player speed
+            if (rbody.velocity == Vector2.zero)
+            {
+                movement.speed = 0;
+            }
+            else if (running)
+            {
+                movement.speed = .4f;
+            }
+            else if (walking)
+            {
+                movement.speed = .3f;
+            }
+            else
+            {
+                movement.speed = .2f;
+            }
+        }
+
+        if (flashlightOn && !flashlightDead)
         {
             batteryLevel -= Time.deltaTime;
             if (batteryLevel <= 0)
@@ -63,9 +97,9 @@ public class PlayerScript : MonoBehaviour
                 flashlight.SetActive(false);
             }
         }
-        
+
         //toggle flashlight
-        if (Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (flashlightOn)
             {
@@ -87,7 +121,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             //walk if already running
-            if(curSpeed == runSpeed) 
+            if (curSpeed == runSpeed)
             {
                 curSpeed = walkSpeed;
                 walking = true;
@@ -123,23 +157,8 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        //set player animation speed based on player speed
-        if (rbody.velocity == Vector2.zero)
-        {
-            movement.speed = 0;
-        }
-        else if (running)
-        {
-            movement.speed = .4f;
-        }
-        else if (walking)
-        {
-            movement.speed = .3f;
-        }
-        else
-        {
-            movement.speed = .2f;
-        }
+        
+
 
         //sync player footsteps to player animation
         if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3")
@@ -157,6 +176,21 @@ public class PlayerScript : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 diff = mousePos - transform.position;
         transform.up = diff;
+
+        //clap when left mouse button is clicked and player is not already clapping
+        if (!clap.isPlaying)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                sound.PlayOneShot(clapSound);
+                clap.Play();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            ShootGun();
+        }
     }
 
     private void FixedUpdate()
@@ -176,35 +210,14 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-
     private void LateUpdate()
     {
         //camera follows the player
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void ShootGun()
     {
-        //ignore collision with monster detection area
-        if (collision.gameObject.tag.Equals("DetectionArea"))
-        {
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
-        }
-        
-        //player runs off bridge and dies
-        if (collision.gameObject.tag.Equals("Respawn"))
-        {
-            bridgeCanvas.SetActive(true);
-            l1ms.deathByBridge();
-            PlayerPrefs.SetInt("Lives", (PlayerPrefs.GetInt("Lives") - 1));
-            Destroy(gameObject);
-        }
 
-        //player reaches the cave and moves on to level 2
-        if (collision.gameObject.tag.Equals("Finish"))
-        {
-            l1ms.nextLevel();
-        }
     }
 }
