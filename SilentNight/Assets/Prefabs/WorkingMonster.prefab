@@ -77,7 +77,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 3
 --- !u!114 &4898407186676040897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 496517526263187684}
-  chasingSpeed: 5
-  walkingSpeed: 2
+  chasingSpeed: 3
+  walkingSpeed: 1
   runningAwaySpeed: 6
 --- !u!1 &4898407188010883492
 GameObject:

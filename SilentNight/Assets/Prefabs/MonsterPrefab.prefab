@@ -220,7 +220,7 @@ MonoBehaviour:
   playerLocation: {fileID: 0}
   chasing: 0
   runningAway: 0
-  runDistance: 5
+  runDistance: 6
   screech: {fileID: 8300000, guid: b6a644d58c4b2cf43b70fb3764fa834f, type: 3}
 --- !u!95 &-7260816393452155974
 Animator:
@@ -278,9 +278,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -313,7 +313,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

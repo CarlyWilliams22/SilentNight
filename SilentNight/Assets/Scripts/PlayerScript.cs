@@ -23,8 +23,6 @@ public class PlayerScript : MonoBehaviour
 
     GameObject flashlight;
     bool flashlightOn;
-    bool flashlightDead = false;
-    float batteryLevel = 40;
     AudioSource sound;
     public AudioClip flashlightOnClip;
     public AudioClip flashlightOffClip;
@@ -52,20 +50,9 @@ public class PlayerScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
-        if(flashlightOn && !flashlightDead)
-        {
-            batteryLevel -= Time.deltaTime;
-            if (batteryLevel <= 0)
-            {
-                flashlightDead = true;
-                flashlight.SetActive(false);
-            }
-        }
-        
+    {        
         //toggle flashlight
-        if (Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
+        if (Input.GetMouseButtonDown(0))
         {
             if (flashlightOn)
             {
@@ -77,10 +64,7 @@ public class PlayerScript : MonoBehaviour
                 flashlightOn = true;
                 sound.PlayOneShot(flashlightOnClip);
             }
-            if (!flashlightDead)
-            {
-                flashlight.SetActive(flashlightOn);
-            }
+            flashlight.SetActive(flashlightOn);
         }
 
         //toggle running
@@ -94,7 +78,7 @@ public class PlayerScript : MonoBehaviour
                 running = false;
                 sneaking = false;
             }
-            else //start running
+            else //stop running
             {
                 curSpeed = runSpeed;
                 running = true;
@@ -114,7 +98,7 @@ public class PlayerScript : MonoBehaviour
                 sneaking = false;
                 running = false;
             }
-            else //start sneaking
+            else //stop sneaking
             {
                 curSpeed = sneakSpeed;
                 walking = false;

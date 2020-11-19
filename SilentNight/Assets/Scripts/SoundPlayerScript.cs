@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
 
-public class SoundPlayerScript : Echolocator
+public class SoundPlayerScript : MonoBehaviour
 {
     Rigidbody2D rbody;
     public ParticleSystem particleSystem;
@@ -17,9 +17,9 @@ public class SoundPlayerScript : Echolocator
     public int sneakSpeed;
     int curSpeed;
 
-   // public bool running = false;
-   // public bool walking = true;
-   // public bool sneaking = false;
+    public bool running = false;
+    public bool walking = true;
+    public bool sneaking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +28,6 @@ public class SoundPlayerScript : Echolocator
         rbody = GetComponent<Rigidbody2D>();
         curSpeed = walkSpeed; //start out walking
         clapping = particleSystem.main;
-
-        running = sneaking = false;
-        walking = true;
     }
 
     private void Update()
