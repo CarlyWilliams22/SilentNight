@@ -34,6 +34,10 @@ public class ComboPlayerScript : Echolocator
     ParticleSystem clap;
     public AudioClip clapSound;
 
+    public GameObject bulletPrefab;
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +70,7 @@ public class ComboPlayerScript : Echolocator
         else
         {
             soundwaves.SetActive(false);
-            flashlight.SetActive(true);
+            flashlight.SetActive(flashlightOn);
             srender.enabled = true;
 
             //set player animation speed based on player speed
@@ -174,8 +178,11 @@ public class ComboPlayerScript : Echolocator
 
         //make the player face the mouse position
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 diff = mousePos - transform.position;
-        transform.up = diff;
+        Vector3 center = transform.position + new Vector3(-.15f, -.0005f, 0);
+        Vector2 diff = mousePos - center;
+        //transform.up = diff;
+        Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, dest, 5 * Time.deltaTime);
 
         //clap when left mouse button is clicked and player is not already clapping
         if (!clap.isPlaying)
@@ -218,6 +225,23 @@ public class ComboPlayerScript : Echolocator
 
     private void ShootGun()
     {
+        GameObject bullet = Instantiate(bulletPrefab);
+        
 
+       // bullet.transform.position = transform.position + Vector3.right;
+        //bullet.transform.RotateAround(transform.position + new Vector3(-.15f,-.005f,0), Vector3.forward, transform.rotation.eulerAngles.z +90);
+
+        print(rbody.rotation);
+        float x = .62f, y = .324f;
+        if(rbody.rotation < 0)
+        {
+            y = -y;
+        }
+        if (Mathf.Abs(rbody.rotation) >= 90)
+        {
+            x = -x;
+        }
+        bullet.transform.position = transform.position + new Vector3(x, y, 0);
+        bullet.GetComponent<Rigidbody2D>().rotation = transform.rotation.eulerAngles.z - 90;
     }
 }

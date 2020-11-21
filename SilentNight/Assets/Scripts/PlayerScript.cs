@@ -156,7 +156,9 @@ public class PlayerScript : MonoBehaviour
         //make the player face the mouse position
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 diff = mousePos - transform.position;
-        transform.up = diff;
+        //transform.up = diff;
+        Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, dest, 5 * Time.deltaTime);
     }
 
     private void FixedUpdate()
