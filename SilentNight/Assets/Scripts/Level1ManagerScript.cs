@@ -11,7 +11,7 @@ public class Level1ManagerScript : MonoBehaviour
     public PlayerScript player;
     bool deadDeer, bridge, blockade;
     public Text beginningText, InstructionsText, Instructions2Text, Instructions3Text;
-    public Text deadDeerText, bridgeText, bridgeReminderText, livesText;
+    public Text deadDeerText, bridgeText, bridgeReminderText;
     public GameObject textbox;
     bool bridgeDeath;
     public GameObject caveBlockade;
@@ -43,7 +43,6 @@ public class Level1ManagerScript : MonoBehaviour
     void Update()
     {
 
-        livesText.text = "Lives: " + PlayerPrefs.GetInt("Lives").ToString();
         if (PlayerPrefs.GetInt("Lives") == 0)
         {
             gameOver();

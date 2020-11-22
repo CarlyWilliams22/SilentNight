@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -22,9 +23,13 @@ public class PlayerScript : MonoBehaviour
     public GameObject bridgeCanvas;
 
     GameObject flashlight;
+    public Slider battery;
     bool flashlightOn;
     bool flashlightDead = false;
-    float batteryLevel = 40;
+    float batteryLevel = 30;
+    int batteryNum = 0;
+    float batteryStart;
+
     AudioSource sound;
     public AudioClip flashlightOnClip;
     public AudioClip flashlightOffClip;
@@ -47,38 +52,48 @@ public class PlayerScript : MonoBehaviour
         flashlightOn = false;
         flashlight = transform.GetChild(0).gameObject;
         flashlight.SetActive(flashlightOn);
+        batteryStart = Time.time;
  
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if(flashlightOn && !flashlightDead)
+        if (flashlightOn)
         {
-            batteryLevel -= Time.deltaTime;
-            if (batteryLevel <= 0)
+            battery.value = batteryLevel - (int)(Time.time - batteryStart);
+        }
+
+        if(batteryLevel - (int)(Time.time - batteryStart) <= 0)
+        {
+            if(batteryNum == 0)
             {
                 flashlightDead = true;
                 flashlight.SetActive(false);
             }
-        }
-        
-        //toggle flashlight
-        if (Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
-        {
-            if (flashlightOn)
-            {
-                flashlightOn = false;
-                sound.PlayOneShot(flashlightOffClip);
-            }
             else
             {
-                flashlightOn = true;
-                sound.PlayOneShot(flashlightOnClip);
+                batteryNum--;
+                NewBattery();
             }
-            if (!flashlightDead)
+
+        }
+
+        //toggle flashlight
+        if (!flashlightDead)
+        {
+            if (Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
             {
+                if (flashlightOn)
+                {
+                    flashlightOn = false;
+                    sound.PlayOneShot(flashlightOffClip);
+                }
+                else
+                {
+                    flashlightOn = true;
+                    sound.PlayOneShot(flashlightOnClip);
+                }
                 flashlight.SetActive(flashlightOn);
             }
         }
@@ -208,5 +223,10 @@ public class PlayerScript : MonoBehaviour
         {
             l1ms.nextLevel();
         }
+    }
+
+    void NewBattery()
+    {
+        batteryStart = Time.time;
     }
 }
