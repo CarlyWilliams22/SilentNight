@@ -27,8 +27,9 @@ public class PlayerScript : MonoBehaviour
     bool flashlightOn;
     bool flashlightDead = false;
     float batteryLevel = 30;
-    int batteryNum = 0;
+    int batteryNum = 2;
     float batteryStart;
+    public Text batteries;
 
     AudioSource sound;
     public AudioClip flashlightOnClip;
@@ -52,19 +53,20 @@ public class PlayerScript : MonoBehaviour
         flashlightOn = false;
         flashlight = transform.GetChild(0).gameObject;
         flashlight.SetActive(flashlightOn);
-        batteryStart = Time.time;
  
     }
 
     // Update is called once per frame
     void Update()
     {
+        batteries.text = "x" + batteryNum.ToString();
+
         if (flashlightOn)
         {
             battery.value = batteryLevel - (int)(Time.time - batteryStart);
         }
 
-        if(batteryLevel - (int)(Time.time - batteryStart) <= 0)
+        if(battery.value == 0)
         {
             if(batteryNum == 0)
             {
@@ -88,9 +90,11 @@ public class PlayerScript : MonoBehaviour
                 {
                     flashlightOn = false;
                     sound.PlayOneShot(flashlightOffClip);
+                    batteryLevel = battery.value;
                 }
                 else
                 {
+                    batteryStart = Time.time;
                     flashlightOn = true;
                     sound.PlayOneShot(flashlightOnClip);
                 }
@@ -228,5 +232,6 @@ public class PlayerScript : MonoBehaviour
     void NewBattery()
     {
         batteryStart = Time.time;
+        batteryLevel = 30;
     }
 }

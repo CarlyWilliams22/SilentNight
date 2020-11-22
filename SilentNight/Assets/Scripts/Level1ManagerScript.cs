@@ -12,6 +12,7 @@ public class Level1ManagerScript : MonoBehaviour
     bool deadDeer, bridge, blockade;
     public Text beginningText, InstructionsText, Instructions2Text, Instructions3Text;
     public Text deadDeerText, bridgeText, bridgeReminderText;
+    public Slider lives;
     public GameObject textbox;
     bool bridgeDeath;
     public GameObject caveBlockade;
@@ -22,6 +23,7 @@ public class Level1ManagerScript : MonoBehaviour
         deadDeer = bridge = blockade = false; //Keep track of what area has been visited
         bridgeDeath = false; //Tracks if player has died from falling of the bridge
         gameOverCanvas.SetActive(false); //Hide the death screen
+
         
         //only show the beginning dialog if first time
         if (PlayerPrefs.GetInt("Lives") == 5)
@@ -42,6 +44,8 @@ public class Level1ManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        lives.value = PlayerPrefs.GetInt("Lives");
 
         if (PlayerPrefs.GetInt("Lives") == 0)
         {

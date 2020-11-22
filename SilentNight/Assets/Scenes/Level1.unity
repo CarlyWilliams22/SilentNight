@@ -3120,6 +3120,7 @@ MonoBehaviour:
   deadDeerText: {fileID: 1271967952}
   bridgeText: {fileID: 1424562664}
   bridgeReminderText: {fileID: 342473565}
+  lives: {fileID: 1603969203}
   textbox: {fileID: 1184451161}
   caveBlockade: {fileID: 716165346}
 --- !u!4 &340592437
@@ -11596,7 +11597,7 @@ GameObject:
   - component: {fileID: 1020927439}
   - component: {fileID: 1020927438}
   m_Layer: 5
-  m_Name: BulletCount
+  m_Name: BatteryCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18529,7 +18530,7 @@ GameObject:
   - component: {fileID: 1433411706}
   - component: {fileID: 1433411705}
   m_Layer: 5
-  m_Name: BatteryCount
+  m_Name: BulletCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27132,6 +27133,10 @@ PrefabInstance:
       propertyPath: battery
       value: 
       objectReference: {fileID: 1518486994}
+    - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
+      propertyPath: batteries
+      value: 
+      objectReference: {fileID: 1020927438}
     - target: {fileID: 1217591514121696032, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
       propertyPath: m_IsActive
       value: 1
