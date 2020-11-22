@@ -35,6 +35,8 @@ public class PlayerScript : MonoBehaviour
     public AudioClip flashlightOnClip;
     public AudioClip flashlightOffClip;
 
+    public GameObject walkingH, runningH, sneakingH;
+
     SpriteRenderer srender;
     string lastSprite = "PlayerSpriteSheet_3";
     public AudioClip footstep;
@@ -59,6 +61,10 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        runningH.SetActive(running);
+        walkingH.SetActive(walking);
+        sneakingH.SetActive(sneaking);
+
         batteries.text = "x" + batteryNum.ToString();
 
         if (flashlightOn)

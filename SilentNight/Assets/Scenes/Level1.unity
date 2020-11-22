@@ -27137,6 +27137,18 @@ PrefabInstance:
       propertyPath: batteries
       value: 
       objectReference: {fileID: 1020927438}
+    - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
+      propertyPath: walkingH
+      value: 
+      objectReference: {fileID: 888443031}
+    - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
+      propertyPath: runningH
+      value: 
+      objectReference: {fileID: 1599011991}
+    - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
+      propertyPath: sneakingH
+      value: 
+      objectReference: {fileID: 1561355939}
     - target: {fileID: 1217591514121696032, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
       propertyPath: m_IsActive
       value: 1
