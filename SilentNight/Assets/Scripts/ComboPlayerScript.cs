@@ -35,6 +35,7 @@ public class ComboPlayerScript : Echolocator
     public AudioClip clapSound;
 
     public GameObject bulletPrefab;
+    public GameObject gunBarrel;
     
 
 
@@ -226,23 +227,13 @@ public class ComboPlayerScript : Echolocator
     private void ShootGun()
     {
         GameObject bullet = Instantiate(bulletPrefab);
-        
+        bullet.transform.position = gunBarrel.transform.position;
+        Rigidbody2D bulletRbody = bullet.GetComponent<Rigidbody2D>();
+        float angle = transform.rotation.eulerAngles.z + 90;
+        bulletRbody.rotation = angle;
+        angle *= Mathf.Deg2Rad;
+        bulletRbody.velocity = new Vector2(10 * Mathf.Cos(angle), 10 * Mathf.Sin(angle));
 
-       // bullet.transform.position = transform.position + Vector3.right;
-        //bullet.transform.RotateAround(transform.position + new Vector3(-.15f,-.005f,0), Vector3.forward, transform.rotation.eulerAngles.z +90);
-
-        print(rbody.rotation);
-        float x = .62f, y = .324f;
-        if(rbody.rotation < 0)
-        {
-            y = -y;
-        }
-        if (Mathf.Abs(rbody.rotation) >= 90)
-        {
-            x = -x;
-        }
-        bullet.transform.position = transform.position + new Vector3(x, y, 0);
-        bullet.GetComponent<Rigidbody2D>().rotation = transform.rotation.eulerAngles.z - 90;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

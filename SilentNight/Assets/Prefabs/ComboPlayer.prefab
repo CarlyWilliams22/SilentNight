@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2322963558003035305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 641306372946953501}
+  m_Layer: 0
+  m_Name: GunBarrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &641306372946953501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322963558003035305}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.24, y: -6.835, z: 0}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4526293397421163355}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2360883997001220264
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,13 +89,11 @@ GameObject:
   - component: {fileID: 4526293397421163354}
   - component: {fileID: 4526293397421163349}
   - component: {fileID: 4526293397421163351}
-  - component: {fileID: 4526293397421163348}
-  - component: {fileID: 4526293397421163350}
   - component: {fileID: 4526293397421163347}
   - component: {fileID: 4526293397421163346}
   - component: {fileID: 4526293397421163345}
   m_Layer: 0
-  m_Name: Player
+  m_Name: ComboPlayer
   m_TagString: Player
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -86,6 +114,7 @@ Transform:
   - {fileID: 9027169316904420775}
   - {fileID: 6616968642968994312}
   - {fileID: 396858859738777770}
+  - {fileID: 641306372946953501}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,49 +206,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4526293397421163348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4526293397421163352}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 555f8b95b48bfc247a32cb4f0bd26213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 2
-  runSpeed: 4
-  sneakSpeed: 1
-  running: 0
-  walking: 1
-  sneaking: 0
-  l1ms: {fileID: 0}
-  bridgeCanvas: {fileID: 0}
-  flashlightOnClip: {fileID: 0}
-  flashlightOffClip: {fileID: 0}
-  footstep: {fileID: 0}
---- !u!114 &4526293397421163350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4526293397421163352}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52f91df77fee6354db14269a746d21bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  running: 0
-  sneaking: 0
-  walking: 1
-  particleSystem: {fileID: 5531492757021172299}
-  clapSound: {fileID: 8300000, guid: e15ce5c94ae68044b8ab3920415f19b2, type: 3}
-  walkSpeed: 2
-  runSpeed: 4
-  sneakSpeed: 1
 --- !u!82 &4526293397421163347
 AudioSource:
   m_ObjectHideFlags: 0
@@ -339,6 +325,7 @@ MonoBehaviour:
   footstep: {fileID: 8300000, guid: 69e6127c0cad9bd42aa87f1403c8e8c6, type: 3}
   blinded: 0
   clapSound: {fileID: 8300000, guid: e15ce5c94ae68044b8ab3920415f19b2, type: 3}
+  bulletPrefab: {fileID: 0}
 --- !u!95 &4526293397421163345
 Animator:
   serializedVersion: 3
