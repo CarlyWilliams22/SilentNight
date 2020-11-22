@@ -58,3 +58,9 @@ TagManager:
   - name: Textbox
     uniqueID: 3657340555
     locked: 0
+  - name: HUD
+    uniqueID: 3959241561
+    locked: 0
+  - name: HudStats
+    uniqueID: 651632959
+    locked: 0
