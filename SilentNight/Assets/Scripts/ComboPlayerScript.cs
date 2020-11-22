@@ -244,4 +244,12 @@ public class ComboPlayerScript : Echolocator
         bullet.transform.position = transform.position + new Vector3(x, y, 0);
         bullet.GetComponent<Rigidbody2D>().rotation = transform.rotation.eulerAngles.z - 90;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Monster"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

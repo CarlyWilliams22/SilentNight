@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &16064750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4526293397421163352, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
+  m_PrefabInstance: {fileID: 6616968642432209487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &133525560
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,9 +137,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 133525561}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg8Effector
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,13 +151,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133525560}
-  m_LocalRotation: {x: -0, y: -0, z: -0.5586322, w: 0.82941556}
+  m_LocalRotation: {x: -0, y: -0, z: -0.37648585, w: 0.9264223}
   m_LocalPosition: {x: 3.1, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 813870482}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -67.923}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -44.232}
 --- !u!1 &203940925
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,9 +167,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 203940926}
-  m_Layer: 0
+  - component: {fileID: 203940927}
+  m_Layer: 8
   m_Name: Leg7
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,14 +182,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203940925}
-  m_LocalRotation: {x: 0, y: 0, z: -0.39425284, w: 0.91900206}
+  m_LocalRotation: {x: 0, y: 0, z: -0.39198697, w: 0.9199708}
   m_LocalPosition: {x: 3.3953655, y: -3.4132032, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 613013921}
   m_Father: {fileID: 1467039355}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -42.309}
+--- !u!61 &203940927
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203940925}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.2697759, y: -0.035123438}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.539551, y: 0.929753}
+  m_EdgeRadius: 0
 --- !u!1 &205605761
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,9 +225,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 205605762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg7Effector
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,13 +239,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205605761}
-  m_LocalRotation: {x: -0, y: -0, z: 0.06712386, w: 0.9977447}
+  m_LocalRotation: {x: -0, y: -0, z: -0.09541654, w: 0.9954375}
   m_LocalPosition: {x: 2.01, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1607274345}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 7.698}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10.951}
 --- !u!1 &218257470
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 352819913}
   - component: {fileID: 352819912}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg5Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,9 +407,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 397410733}
-  m_Layer: 0
+  - component: {fileID: 397410734}
+  m_Layer: 8
   m_Name: Leg1
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -389,14 +422,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397410732}
-  m_LocalRotation: {x: 0, y: 0, z: 0.23261896, w: 0.972568}
+  m_LocalRotation: {x: 0, y: 0, z: 0.18482256, w: 0.98277193}
   m_LocalPosition: {x: 5.2208624, y: 2.8441966, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1893224677}
   m_Father: {fileID: 1467039355}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 18.208}
+--- !u!61 &397410734
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397410732}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.3590584, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.7181163, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &423024790
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 423024791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg2Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,8 +479,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423024790}
-  m_LocalRotation: {x: -0, y: -0, z: 0.9068365, w: -0.4214826}
-  m_LocalPosition: {x: -8.187524, y: -14.309428, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9068365, w: -0.42148262}
+  m_LocalPosition: {x: 18.432365, y: -11.622905, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1291571888}
@@ -441,9 +500,9 @@ GameObject:
   - component: {fileID: 430001477}
   - component: {fileID: 430001476}
   - component: {fileID: 430001481}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FinalBoss
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -540,8 +599,8 @@ MonoBehaviour:
   - {fileID: 833850331}
   - {fileID: 813870482}
   m_Bounds:
-    m_Center: {x: -2.1869097, y: -0.4290161, z: 0}
-    m_Extent: {x: 9.742928, y: 14.269676, z: 0}
+    m_Center: {x: -1.9596529, y: -0.4385643, z: 0}
+    m_Extent: {x: 10.054697, y: 14.281055, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!212 &430001479
@@ -603,7 +662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430001475}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.54, y: 9.32, z: 0}
+  m_LocalPosition: {x: 1.24, y: -1.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1467039355}
@@ -646,9 +705,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 431229368}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg2Effector
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -660,13 +719,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431229367}
-  m_LocalRotation: {x: -0, y: -0, z: -0.042317696, w: 0.99910426}
+  m_LocalRotation: {x: -0, y: -0, z: 0.07346364, w: 0.9972979}
   m_LocalPosition: {x: 2.08, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1622049874}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 355.149}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 368.426}
 --- !u!1 &456575413
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,9 +735,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 456575414}
-  m_Layer: 0
+  - component: {fileID: 456575415}
+  m_Layer: 8
   m_Name: bone_12
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -690,14 +750,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456575413}
-  m_LocalRotation: {x: 0, y: 0, z: -0.23267303, w: 0.97255504}
+  m_LocalRotation: {x: 0, y: 0, z: -0.2680835, w: 0.9633957}
   m_LocalPosition: {x: 5.650248, y: -0.0000031866728, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1413997046}
   m_Father: {fileID: 1437953738}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.076}
+--- !u!61 &456575415
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456575413}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.964875, y: 0.07967837}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.929749, y: 1.0262108}
+  m_EdgeRadius: 0
 --- !u!1 &483863899
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,9 +793,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 483863900}
-  m_Layer: 0
+  - component: {fileID: 483863901}
+  m_Layer: 8
   m_Name: Leg2
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -721,14 +808,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483863899}
-  m_LocalRotation: {x: 0, y: 0, z: 0.37714323, w: 0.9261549}
+  m_LocalRotation: {x: 0, y: 0, z: 0.37093762, w: 0.92865777}
   m_LocalPosition: {x: 3.443579, y: 3.7833047, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1762826753}
   m_Father: {fileID: 1467039355}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 61.394}
+--- !u!61 &483863901
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483863899}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.0715468, y: 0.006772667}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.1430926, y: 1.0135448}
+  m_EdgeRadius: 0
 --- !u!1 &498911537
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 498911539}
   - component: {fileID: 498911538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg6Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,9 +920,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 501029604}
-  m_Layer: 0
+  - component: {fileID: 501029605}
+  m_Layer: 8
   m_Name: Leg8
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -821,14 +935,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501029603}
-  m_LocalRotation: {x: 0, y: 0, z: -0.30421272, w: 0.9526042}
+  m_LocalRotation: {x: 0, y: 0, z: -0.2503694, w: 0.96815044}
   m_LocalPosition: {x: 4.6488976, y: -2.2915592, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 833850331}
   m_Father: {fileID: 1467039355}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -37.911}
+--- !u!61 &501029605
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501029603}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.7832115, y: -0.023851201}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.56642, y: 0.9522972}
+  m_EdgeRadius: 0
 --- !u!1001 &501485007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -895,9 +1035,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 613013921}
-  m_Layer: 0
+  - component: {fileID: 613013922}
+  m_Layer: 8
   m_Name: bone_21
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -909,14 +1050,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613013920}
-  m_LocalRotation: {x: 0, y: 0, z: -0.016308125, w: 0.999867}
+  m_LocalRotation: {x: 0, y: 0, z: 0.00481658, w: 0.99998844}
   m_LocalPosition: {x: 5.106044, y: -0.0000011466561, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1607274345}
   m_Father: {fileID: 203940926}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.086}
+--- !u!61 &613013922
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613013920}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.2188526, y: 0.05270937}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.4377058, y: 0.8922638}
+  m_EdgeRadius: 0
 --- !u!1 &666683311
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,9 +1093,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 666683312}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg1Effector
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -940,13 +1107,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666683311}
-  m_LocalRotation: {x: -0, y: -0, z: 0.58812654, w: 0.808769}
+  m_LocalRotation: {x: -0, y: -0, z: 0.40430045, w: 0.9146263}
   m_LocalPosition: {x: 2.98, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2004810466}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 72.048}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 47.695}
 --- !u!1 &668509554
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +1124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 668509556}
   - component: {fileID: 668509555}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg7Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1025,9 +1192,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 676992922}
-  m_Layer: 0
+  - component: {fileID: 676992923}
+  m_Layer: 8
   m_Name: bone_9
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1039,14 +1207,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676992921}
-  m_LocalRotation: {x: 0, y: 0, z: -0.07054977, w: 0.9975083}
+  m_LocalRotation: {x: 0, y: 0, z: -0.13882285, w: 0.9903172}
   m_LocalPosition: {x: 3.9819725, y: -0.00000065593247, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 900515650}
   m_Father: {fileID: 957502018}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -12.692}
+--- !u!61 &676992923
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676992921}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.5333514, y: 0.10370311}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.066703, y: 0.75034326}
+  m_EdgeRadius: 0
 --- !u!1 &813870481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,9 +1250,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 813870482}
-  m_Layer: 0
+  - component: {fileID: 813870483}
+  m_Layer: 8
   m_Name: bone_25
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1070,14 +1265,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813870481}
-  m_LocalRotation: {x: 0, y: 0, z: 0.56750995, w: 0.82336664}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2972452, w: 0.9548012}
   m_LocalPosition: {x: 3.0732732, y: 0.00000050371403, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 133525561}
   m_Father: {fileID: 833850331}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.487}
+--- !u!61 &813870483
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813870481}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.288704, y: 0.08393499}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.577408, y: 0.49928647}
+  m_EdgeRadius: 0
 --- !u!1 &827163227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,7 +1308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 827163228}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg4Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1101,8 +1322,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827163227}
-  m_LocalRotation: {x: -0, y: -0, z: 0.31622857, w: -0.9486831}
-  m_LocalPosition: {x: 6.3264666, y: -16.705902, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.3162286, w: -0.9486831}
+  m_LocalPosition: {x: 40.537178, y: -11.592804, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1056994367}
@@ -1117,9 +1338,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 833850331}
-  m_Layer: 0
+  - component: {fileID: 833850332}
+  m_Layer: 8
   m_Name: bone_24
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1131,14 +1353,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833850330}
-  m_LocalRotation: {x: 0, y: 0, z: 0.17302158, w: 0.9849181}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2106071, w: 0.97757083}
   m_LocalPosition: {x: 4.136914, y: -0.0000008766274, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 813870482}
   m_Father: {fileID: 501029604}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.259}
+--- !u!61 &833850332
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833850330}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.2855529, y: 0.07279961}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.5711057, y: 0.9243425}
+  m_EdgeRadius: 0
 --- !u!1 &900515649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,9 +1396,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 900515650}
-  m_Layer: 0
+  - component: {fileID: 900515651}
+  m_Layer: 8
   m_Name: bone_10
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1162,14 +1411,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900515649}
-  m_LocalRotation: {x: 0, y: 0, z: -0.38049272, w: 0.924784}
+  m_LocalRotation: {x: 0, y: 0, z: -0.26421496, w: 0.9644639}
   m_LocalPosition: {x: 3.5814574, y: 0.00000031287732, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1179594851}
   m_Father: {fileID: 676992922}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.865}
+--- !u!61 &900515651
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900515649}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.7871146, y: -0.0020924285}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5742292, y: 0.41860408}
+  m_EdgeRadius: 0
 --- !u!1 &925856473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,7 +1454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 925856474}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg7Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1193,8 +1468,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925856473}
-  m_LocalRotation: {x: -0, y: -0, z: 0.9053373, w: 0.4246935}
-  m_LocalPosition: {x: -7.5109596, y: 12.742926, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9053373, w: 0.42469347}
+  m_LocalPosition: {x: 18.486729, y: 10.576296, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 668509556}
@@ -1210,7 +1485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937558843}
   - component: {fileID: 937558842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg1Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1278,9 +1553,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 957502018}
-  m_Layer: 0
+  - component: {fileID: 957502019}
+  m_Layer: 8
   m_Name: Leg3
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1292,14 +1568,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957502017}
-  m_LocalRotation: {x: 0, y: 0, z: 0.69586885, w: 0.718169}
+  m_LocalRotation: {x: 0, y: 0, z: 0.66604453, w: 0.7459121}
   m_LocalPosition: {x: 0.99425113, y: 4.0973945, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 676992922}
   m_Father: {fileID: 1467039355}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 80.439}
+--- !u!61 &957502019
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957502017}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.7553902, y: 0.108189374}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.5107822, y: 1.1229491}
+  m_EdgeRadius: 0
 --- !u!1 &979909340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,7 +1612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 979909342}
   - component: {fileID: 979909341}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg8Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1378,7 +1680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1016526283}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg1Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1392,8 +1694,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016526282}
-  m_LocalRotation: {x: -0, y: -0, z: 0.9916956, w: -0.12860759}
-  m_LocalPosition: {x: -12.571825, y: -3.932682, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9916956, w: -0.12860754}
+  m_LocalPosition: {x: 14.35917, y: -6.2237473, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 937558843}
@@ -1408,7 +1710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1051587867}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg3Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1422,8 +1724,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051587866}
-  m_LocalRotation: {x: -0, y: -0, z: 0.70710593, w: -0.70710766}
-  m_LocalPosition: {x: -2.547627, y: -13.932329, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.707106, w: -0.70710766}
+  m_LocalPosition: {x: 27.494358, y: -14.232358, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1420999507}
@@ -1439,7 +1741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1056994367}
   - component: {fileID: 1056994366}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg4Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1512,9 +1814,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1179594851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg3Effector
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1526,13 +1828,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179594850}
-  m_LocalRotation: {x: -0, y: -0, z: 0.46151564, w: 0.88713205}
+  m_LocalRotation: {x: -0, y: -0, z: 0.44893786, w: 0.89356303}
   m_LocalPosition: {x: 2.04, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 900515650}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 54.97}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 53.351}
 --- !u!1 &1181902321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,7 +1844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1181902322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg8Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1556,8 +1858,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181902321}
-  m_LocalRotation: {x: -0, y: -0, z: 0.99188703, w: 0.12712266}
-  m_LocalPosition: {x: -12.617712, y: 3.608098, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9918871, w: 0.12712263}
+  m_LocalPosition: {x: 14.375496, y: 5.299101, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979909342}
@@ -1572,9 +1874,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1236777963}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg5Effector
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1586,13 +1888,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236777962}
-  m_LocalRotation: {x: -0, y: -0, z: -0.57804996, w: 0.81600136}
+  m_LocalRotation: {x: -0, y: -0, z: -0.6281441, w: 0.77809703}
   m_LocalPosition: {x: 3.1, y: -0.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1686987270}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -70.627}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -77.827}
 --- !u!1 &1291571886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,7 +1905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1291571888}
   - component: {fileID: 1291571887}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg2Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1671,9 +1973,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1302598874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg4Effector
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1685,13 +1987,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302598873}
-  m_LocalRotation: {x: -0, y: -0, z: 0.62099403, w: 0.7838152}
+  m_LocalRotation: {x: -0, y: -0, z: 0.67506754, w: 0.737756}
   m_LocalPosition: {x: 2.96, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1413997046}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 76.778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 84.919}
 --- !u!1 &1305846204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,7 +2003,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1305846205}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg6Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1715,8 +2017,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305846204}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7104975, w: 0.70369977}
-  m_LocalPosition: {x: -1.1768494, y: 14.793372, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.71049756, w: 0.70369977}
+  m_LocalPosition: {x: 27.371855, y: 13.311169, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 498911539}
@@ -1731,9 +2033,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1345644337}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg6Effector
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1745,13 +2047,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345644336}
-  m_LocalRotation: {x: -0, y: -0, z: -0.54143053, w: 0.8407455}
+  m_LocalRotation: {x: -0, y: -0, z: -0.49606785, w: 0.8682838}
   m_LocalPosition: {x: 1.98, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1753215979}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -65.562}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -59.48}
 --- !u!1 &1413997045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,9 +2063,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1413997046}
-  m_Layer: 0
+  - component: {fileID: 1413997047}
+  m_Layer: 8
   m_Name: bone_13
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1775,14 +2078,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413997045}
-  m_LocalRotation: {x: 0, y: 0, z: -0.27927572, w: 0.960211}
+  m_LocalRotation: {x: 0, y: 0, z: -0.2907109, w: 0.95681095}
   m_LocalPosition: {x: 4.3670917, y: -0.0000033936744, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1302598874}
   m_Father: {fileID: 456575414}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.994}
+--- !u!61 &1413997047
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413997045}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.2156906, y: 0.06999874}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.4313812, y: 0.42703438}
+  m_EdgeRadius: 0
 --- !u!1 &1420999505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,7 +2122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420999507}
   - component: {fileID: 1420999506}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg3Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1861,9 +2190,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1437953738}
-  m_Layer: 0
+  - component: {fileID: 1437953739}
+  m_Layer: 8
   m_Name: Leg4
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1875,14 +2205,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437953737}
-  m_LocalRotation: {x: 0, y: 0, z: 0.8911596, w: 0.45369002}
+  m_LocalRotation: {x: 0, y: 0, z: 0.88043046, w: 0.47417533}
   m_LocalPosition: {x: -2.174361, y: 2.52593, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 456575414}
   m_Father: {fileID: 1467039355}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 138.075}
+--- !u!61 &1437953739
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437953737}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.4729798, y: 0.065327585}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.9459596, y: 1.1783694}
+  m_EdgeRadius: 0
 --- !u!1 &1467039354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,9 +2248,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1467039355}
-  m_Layer: 0
+  - component: {fileID: 1467039356}
+  m_Layer: 8
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1906,7 +2263,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467039354}
-  m_LocalRotation: {x: 0, y: 0, z: 0.9999955, w: 0.0029950852}
+  m_LocalRotation: {x: -0, y: -0, z: 0.99999714, w: 0.0024076996}
   m_LocalPosition: {x: 28.60751, y: -0.5396118, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1920,7 +2277,40 @@ Transform:
   - {fileID: 501029604}
   m_Father: {fileID: 430001480}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 179.724}
+--- !u!60 &1467039356
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467039354}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.19964433, y: 3.656402}
+      - {x: -2.9475663, y: 2.120277}
+      - {x: -3.0082343, y: -1.7430911}
+      - {x: -0.72389084, y: -3.5180733}
+      - {x: 4.1570883, y: -3.3786874}
+      - {x: 7.303151, y: -1.5743816}
+      - {x: 7.2758617, y: 1.4395618}
+      - {x: 4.472622, y: 3.209025}
 --- !u!1 &1572483528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,9 +2320,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1572483529}
-  m_Layer: 0
+  - component: {fileID: 1572483530}
+  m_Layer: 8
   m_Name: Leg5
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1944,14 +2335,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572483528}
-  m_LocalRotation: {x: 0, y: 0, z: -0.8781249, w: 0.47843164}
+  m_LocalRotation: {x: 0, y: 0, z: -0.86674094, w: 0.49875855}
   m_LocalPosition: {x: -2.144931, y: -2.3870492, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2117904810}
   m_Father: {fileID: 1467039355}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -127.037}
+--- !u!61 &1572483530
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572483528}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.5741522, y: 0.12239668}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.1483035, y: 1.2447934}
+  m_EdgeRadius: 0
 --- !u!1 &1607274344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,9 +2378,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1607274345}
-  m_Layer: 0
+  - component: {fileID: 1607274346}
+  m_Layer: 8
   m_Name: bone_22
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1975,14 +2393,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607274344}
-  m_LocalRotation: {x: 0, y: 0, z: -0.08114965, w: 0.99670196}
+  m_LocalRotation: {x: 0, y: 0, z: 0.05728879, w: 0.99835765}
   m_LocalPosition: {x: 3.1102796, y: -0.000002896129, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 205605762}
   m_Father: {fileID: 613013921}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 152.442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.304}
+--- !u!61 &1607274346
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607274344}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.7602757, y: 0.011932902}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.520552, y: 0.4340942}
+  m_EdgeRadius: 0
 --- !u!1 &1622049873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,9 +2436,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1622049874}
-  m_Layer: 0
+  - component: {fileID: 1622049875}
+  m_Layer: 8
   m_Name: bone_7
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2006,14 +2451,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622049873}
-  m_LocalRotation: {x: 0, y: 0, z: 0.02712671, w: 0.99963206}
+  m_LocalRotation: {x: 0, y: 0, z: -0.04797959, w: 0.9988483}
   m_LocalPosition: {x: 3.1921077, y: -0.0000005808045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 431229368}
   m_Father: {fileID: 1762826753}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.424}
+--- !u!61 &1622049875
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622049873}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.7547895, y: 0.026331127}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.509579, y: 0.43835837}
+  m_EdgeRadius: 0
 --- !u!1 &1686987269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,9 +2494,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1686987270}
-  m_Layer: 0
+  - component: {fileID: 1686987271}
+  m_Layer: 8
   m_Name: bone_16
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2037,14 +2509,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686987269}
-  m_LocalRotation: {x: 0, y: 0, z: 0.20826575, w: 0.97807235}
+  m_LocalRotation: {x: 0, y: 0, z: 0.21581039, w: 0.97643536}
   m_LocalPosition: {x: 4.300783, y: 0.0000019624772, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1236777963}
   m_Father: {fileID: 2117904810}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.95}
+--- !u!61 &1686987271
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686987269}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.2931938, y: 0.00611981}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.5863886, y: 0.50175965}
+  m_EdgeRadius: 0
 --- !u!1 &1753215978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,9 +2552,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1753215979}
-  m_Layer: 0
+  - component: {fileID: 1753215980}
+  m_Layer: 8
   m_Name: bone_19
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2068,14 +2567,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753215978}
-  m_LocalRotation: {x: 0, y: 0, z: 0.46434587, w: 0.885654}
+  m_LocalRotation: {x: 0, y: 0, z: 0.30902413, w: 0.9510543}
   m_LocalPosition: {x: 3.6209188, y: -0.0000010446984, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1345644337}
   m_Father: {fileID: 1990089530}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 131.55}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -5.332}
+--- !u!61 &1753215980
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753215978}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.73763716, y: 0.0099289045}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.4752736, y: 0.4233274}
+  m_EdgeRadius: 0
 --- !u!1 &1762826752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,9 +2610,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1762826753}
-  m_Layer: 0
+  - component: {fileID: 1762826754}
+  m_Layer: 8
   m_Name: bone_6
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2099,13 +2625,83 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762826752}
-  m_LocalRotation: {x: 0, y: 0, z: 0.06651598, w: 0.9977854}
+  m_LocalRotation: {x: 0, y: 0, z: 0.0319316, w: 0.9994901}
   m_LocalPosition: {x: 4.676276, y: -0.00000057343476, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1622049874}
   m_Father: {fileID: 483863900}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 26.276}
+--- !u!61 &1762826754
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762826752}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.3317697, y: -0.025666699}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.66354, y: 0.8112433}
+  m_EdgeRadius: 0
+--- !u!1 &1793496893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793496895}
+  - component: {fileID: 1793496894}
+  m_Layer: 0
+  m_Name: Level3Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1793496894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793496893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b88573fbc995e248b9b8f1d74b6e2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 16064750}
+--- !u!4 &1793496895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793496893}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.65129, y: -5.169605, z: -81.15446}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1827528870 stripped
 MeshFilter:
@@ -2126,9 +2722,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840915627}
-  m_Layer: 0
+  - component: {fileID: 1840915628}
+  m_Layer: 8
   m_Name: Leg6
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2140,14 +2737,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840915626}
-  m_LocalRotation: {x: 0, y: 0, z: -0.6988796, w: 0.7152394}
+  m_LocalRotation: {x: 0, y: 0, z: -0.6683564, w: 0.74384123}
   m_LocalPosition: {x: 0.96977174, y: -4.012198, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1990089530}
   m_Father: {fileID: 1467039355}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -79.295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -110.83}
+--- !u!61 &1840915628
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840915626}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.8732431, y: -0.050168782}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.746485, y: 1.1003373}
+  m_EdgeRadius: 0
 --- !u!1 &1893224676
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,9 +2780,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1893224677}
-  m_Layer: 0
+  - component: {fileID: 1893224678}
+  m_Layer: 8
   m_Name: bone_3
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2171,14 +2795,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893224676}
-  m_LocalRotation: {x: 0, y: 0, z: -0.060020782, w: 0.99819714}
+  m_LocalRotation: {x: 0, y: 0, z: -0.110362954, w: 0.99389136}
   m_LocalPosition: {x: 3.2627025, y: 0.0000004891998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2004810466}
   m_Father: {fileID: 397410733}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.783}
+--- !u!61 &1893224678
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893224676}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.3709929, y: 0.038614556}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.7419858, y: 0.92277074}
+  m_EdgeRadius: 0
 --- !u!1 &1940356501
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,9 +2903,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1990089530}
-  m_Layer: 0
+  - component: {fileID: 1990089531}
+  m_Layer: 8
   m_Name: bone_18
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2267,14 +2918,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990089529}
-  m_LocalRotation: {x: 0, y: 0, z: 0.08537125, w: 0.9963492}
+  m_LocalRotation: {x: 0, y: 0, z: 0.15804538, w: 0.9874319}
   m_LocalPosition: {x: 4.2373333, y: 0.00000024688873, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1753215979}
   m_Father: {fileID: 1840915627}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -24.14}
+--- !u!61 &1990089531
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990089529}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.562679, y: -0.018640086}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.125358, y: 0.9627192}
+  m_EdgeRadius: 0
 --- !u!1 &2004810465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,9 +2961,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2004810466}
-  m_Layer: 0
+  - component: {fileID: 2004810467}
+  m_Layer: 8
   m_Name: bone_4
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2298,14 +2976,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004810465}
-  m_LocalRotation: {x: 0, y: 0, z: -0.62215585, w: 0.7828935}
-  m_LocalPosition: {x: 3.2263052, y: -0.000000029954354, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.35240942, w: 0.935846}
+  m_LocalPosition: {x: 3.2263052, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 666683312}
   m_Father: {fileID: 1893224677}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.171}
+--- !u!61 &2004810467
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004810465}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.2088093, y: -0.18806602}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.4176185, y: 0.5209578}
+  m_EdgeRadius: 0
 --- !u!1 &2033687899
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,7 +3019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2033687900}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg5Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2329,8 +3033,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033687899}
-  m_LocalRotation: {x: -0, y: -0, z: 0.32964548, w: 0.9441048}
-  m_LocalPosition: {x: 6.8981314, y: 17.777485, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.32964543, w: 0.9441048}
+  m_LocalPosition: {x: 40.548862, y: 10.508823, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 352819913}
@@ -2345,9 +3049,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2117904810}
-  m_Layer: 0
+  - component: {fileID: 2117904811}
+  m_Layer: 8
   m_Name: bone_15
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2359,14 +3064,40 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117904809}
-  m_LocalRotation: {x: 0, y: 0, z: 0.2440993, w: 0.9697502}
+  m_LocalRotation: {x: 0, y: 0, z: 0.27425396, w: 0.96165735}
   m_LocalPosition: {x: 5.689578, y: 0.0000018292059, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1686987270}
   m_Father: {fileID: 1572483529}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 17.048}
+--- !u!61 &2117904811
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117904809}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.9367073, y: 0.07787195}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.8734145, y: 1.1557429}
+  m_EdgeRadius: 0
 --- !u!1001 &6616968642432209487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2392,11 +3123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4526293397421163355, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 4526293397421163355, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15
+      value: -7.3
       objectReference: {fileID: 0}
     - target: {fileID: 4526293397421163355, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
       propertyPath: m_LocalPosition.z
