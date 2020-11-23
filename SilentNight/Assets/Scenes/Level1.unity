@@ -10251,7 +10251,7 @@ Transform:
   m_GameObject: {fileID: 888443031}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 0.75, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 149329018}
   m_RootOrder: 0
@@ -15778,9 +15778,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1299863303}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 5
   m_WholeNumbers: 0
-  m_Value: 0.66
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -20733,7 +20733,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 5
   m_WholeNumbers: 1
-  m_Value: 4
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -27149,6 +27149,14 @@ PrefabInstance:
       propertyPath: sneakingH
       value: 
       objectReference: {fileID: 1561355939}
+    - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
+      propertyPath: stamina
+      value: 
+      objectReference: {fileID: 1267860921}
+    - target: {fileID: 1137554238841828313, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
+      propertyPath: maxStamina
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1217591514121696032, guid: 967753dcca966eb48b5572a6327602a5, type: 3}
       propertyPath: m_IsActive
       value: 1

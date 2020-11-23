@@ -18,6 +18,13 @@ public class PlayerScript : MonoBehaviour
     public bool running = false;
     public bool walking = true;
     public bool sneaking = false;
+    public GameObject walkingH, runningH, sneakingH;
+    public Slider stamina;
+    public float maxStamina = 5;
+    bool currRunnning = false;
+    public bool tired = false;
+    float currStamina;
+    float start;
 
     public Level1ManagerScript l1ms;
     public GameObject bridgeCanvas;
@@ -35,7 +42,6 @@ public class PlayerScript : MonoBehaviour
     public AudioClip flashlightOnClip;
     public AudioClip flashlightOffClip;
 
-    public GameObject walkingH, runningH, sneakingH;
 
     SpriteRenderer srender;
     string lastSprite = "PlayerSpriteSheet_3";
@@ -55,15 +61,16 @@ public class PlayerScript : MonoBehaviour
         flashlightOn = false;
         flashlight = transform.GetChild(0).gameObject;
         flashlight.SetActive(flashlightOn);
- 
+
+        stamina.maxValue = maxStamina;
+        stamina.value = maxStamina;
+        currStamina = maxStamina;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        runningH.SetActive(running);
-        walkingH.SetActive(walking);
-        sneakingH.SetActive(sneaking);
 
         batteries.text = "x" + batteryNum.ToString();
 
@@ -108,8 +115,22 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+        runningH.SetActive(running);
+        walkingH.SetActive(walking);
+        sneakingH.SetActive(sneaking);
+
+
+        if(stamina.value < 0.00001f)
+        {
+            tired = true;
+        }
+        else if(Mathf.Abs(maxStamina - stamina.value) < 0.00001f)
+        {
+            tired = false;
+        }
+
         //toggle running
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && !tired)
         {
             //walk if already running
             if(curSpeed == runSpeed) 
@@ -126,6 +147,14 @@ public class PlayerScript : MonoBehaviour
                 walking = false;
                 sneaking = false;
             }
+        }
+
+        if (tired)
+        {
+            curSpeed = walkSpeed;
+            walking = true;
+            running = false;
+            sneaking = false;
         }
 
         //toggle sneaking
@@ -188,6 +217,28 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (running && rbody.velocity != Vector2.zero)
+        {
+            if (!currRunnning)
+            {
+                start = Time.time;
+                currRunnning = true;
+            }
+            stamina.value = currStamina - ((int)(Time.time - start));
+
+        }
+        else
+        {
+            currRunnning = false;
+            currStamina = stamina.value;
+            if (stamina.value < maxStamina)
+            {
+                stamina.value += .005f;
+            }
+
+        }
+
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         Vector2 vel = new Vector2(x, y);
