@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 133525561}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg8Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 203940926}
   - component: {fileID: 203940927}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg7
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 205605762}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg7Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 352819913}
   - component: {fileID: 352819912}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg5Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 397410733}
   - component: {fileID: 397410734}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg1
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 423024791}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg2Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 430001477}
   - component: {fileID: 430001476}
   - component: {fileID: 430001481}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FinalBoss
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -515,6 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snotShotPrefab: {fileID: 8667129670553127328, guid: 03b97be940728b04dad007f1141f9cf7, type: 3}
+  bullet: {fileID: 3468435622840319555, guid: b160360471177da40a37dc47954f101b, type: 3}
   playerPos: {fileID: 1164505608}
   firePoint: {fileID: 568098177}
   snotSpeed: 5
@@ -703,7 +704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 431229368}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg2Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -734,7 +735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 456575414}
   - component: {fileID: 456575415}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_12
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -792,7 +793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 483863900}
   - component: {fileID: 483863901}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg2
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -850,7 +851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 498911539}
   - component: {fileID: 498911538}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg6Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -919,7 +920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 501029604}
   - component: {fileID: 501029605}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg8
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1033,7 +1034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 568098177}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1048,7 +1049,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568098176}
   m_LocalRotation: {x: -0, y: -0, z: -0.99999714, w: 0.0024076996}
-  m_LocalPosition: {x: 8.35, y: -0.31, z: 0}
+  m_LocalPosition: {x: 9.12, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1467039355}
@@ -1064,7 +1065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 613013921}
   - component: {fileID: 613013922}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_21
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1121,7 +1122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 666683312}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg1Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1152,7 +1153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 668509556}
   - component: {fileID: 668509555}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg7Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1221,7 +1222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 676992922}
   - component: {fileID: 676992923}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_9
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1279,7 +1280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 813870482}
   - component: {fileID: 813870483}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_25
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1336,7 +1337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 827163228}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg4Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1367,7 +1368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 833850331}
   - component: {fileID: 833850332}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_24
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1425,7 +1426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 900515650}
   - component: {fileID: 900515651}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_10
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1482,7 +1483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 925856474}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg7Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1513,7 +1514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937558843}
   - component: {fileID: 937558842}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg1Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1582,7 +1583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957502018}
   - component: {fileID: 957502019}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg3
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1640,7 +1641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 979909342}
   - component: {fileID: 979909341}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg8Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1708,7 +1709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1016526283}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg1Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1738,7 +1739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1051587867}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg3Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1769,7 +1770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1056994367}
   - component: {fileID: 1056994366}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg4Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1842,7 +1843,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1179594851}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg3Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1872,7 +1873,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1181902322}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg8Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1902,7 +1903,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1236777963}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg5Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1933,7 +1934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1291571888}
   - component: {fileID: 1291571887}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg2Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2001,7 +2002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1302598874}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg4Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2031,7 +2032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1305846205}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg6Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2061,7 +2062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1345644337}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg6Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2092,7 +2093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413997046}
   - component: {fileID: 1413997047}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_13
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2150,7 +2151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420999507}
   - component: {fileID: 1420999506}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg3Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2219,7 +2220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437953738}
   - component: {fileID: 1437953739}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg4
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2277,7 +2278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467039355}
   - component: {fileID: 1467039356}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2350,7 +2351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1572483529}
   - component: {fileID: 1572483530}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg5
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2408,7 +2409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1607274345}
   - component: {fileID: 1607274346}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_22
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2466,7 +2467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622049874}
   - component: {fileID: 1622049875}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_7
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2524,7 +2525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1686987270}
   - component: {fileID: 1686987271}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_16
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2582,7 +2583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1753215979}
   - component: {fileID: 1753215980}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_19
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2640,7 +2641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762826753}
   - component: {fileID: 1762826754}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_6
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2751,7 +2752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1840915627}
   - component: {fileID: 1840915628}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg6
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2809,7 +2810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893224677}
   - component: {fileID: 1893224678}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_3
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2937,7 +2938,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1990089530}
   - component: {fileID: 1990089531}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_18
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2995,7 +2996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2004810466}
   - component: {fileID: 2004810467}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_4
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -3052,7 +3053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2033687900}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg5Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3083,7 +3084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2117904810}
   - component: {fileID: 2117904811}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_15
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -3150,9 +3151,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.32
       objectReference: {fileID: 0}
+    - target: {fileID: 2322963558003035305, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2360883997001220264, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360883997001220264, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4526293397421163346, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
       propertyPath: bulletPrefab
@@ -3169,6 +3178,10 @@ PrefabInstance:
     - target: {fileID: 4526293397421163352, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526293397421163352, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4526293397421163355, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3218,6 +3231,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6084407866918806811, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6616968642968994312, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3230,9 +3247,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6616968642968994313, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8555246055401842021, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555246055401842021, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707294536874458352, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9027169316904420775, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
       propertyPath: m_LocalPosition.x

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FinalBossScript : MonoBehaviour
 {
-    public GameObject snotShotPrefab;
+    public GameObject snotShotPrefab, bullet;
     public Transform playerPos, firePoint;
     public int snotSpeed = 5;
 

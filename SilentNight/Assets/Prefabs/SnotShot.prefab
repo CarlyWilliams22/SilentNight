@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8667129670553127335}
   - component: {fileID: 8667129670553127334}
   - component: {fileID: 8667129670553127329}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnotShot
   m_TagString: Monster
   m_Icon: {fileID: 0}
