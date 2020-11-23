@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class L3manager : MonoBehaviour
+public class L3MScript : MonoBehaviour
 {
+    public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +16,9 @@ public class L3manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!player)
+        {
+            SceneManager.LoadScene("Level3");
+        }
     }
 }

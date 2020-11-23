@@ -9,6 +9,7 @@ TagManager:
   - Monster
   - DetectionArea
   - Blockade
+  - Bullet
   layers:
   - Default
   - TransparentFX
