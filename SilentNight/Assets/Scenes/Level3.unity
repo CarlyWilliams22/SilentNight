@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &16064750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4526293397421163352, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
-  m_PrefabInstance: {fileID: 6616968642432209487}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &133525560
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 133525561}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg8Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -151,13 +146,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133525560}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0018801533, w: 0.9999982}
+  m_LocalRotation: {x: -0, y: -0, z: -0.00058735337, w: 0.9999999}
   m_LocalPosition: {x: 3.1, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 813870482}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.215}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.067}
 --- !u!1 &203940925
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 203940926}
   - component: {fileID: 203940927}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg7
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -225,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 205605762}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg7Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -239,13 +234,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205605761}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0031618264, w: 0.99999505}
+  m_LocalRotation: {x: -0, y: -0, z: -0.00058733526, w: 0.9999999}
   m_LocalPosition: {x: 2.01, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1607274345}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.362}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.067}
 --- !u!1 &218257470
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 352819913}
   - component: {fileID: 352819912}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg5Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 397410733}
   - component: {fileID: 397410734}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg1
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -465,7 +460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 423024791}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg2Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +495,7 @@ GameObject:
   - component: {fileID: 430001477}
   - component: {fileID: 430001476}
   - component: {fileID: 430001481}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FinalBoss
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -602,8 +597,8 @@ MonoBehaviour:
   - {fileID: 833850331}
   - {fileID: 813870482}
   m_Bounds:
-    m_Center: {x: 27.378567, y: -0.48381805, z: 0}
-    m_Extent: {x: 13.144028, y: 13.846553, z: 0}
+    m_Center: {x: 27.38051, y: -0.4837284, z: 0}
+    m_Extent: {x: 13.150034, y: 13.846519, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!212 &430001479
@@ -666,7 +661,7 @@ Transform:
   m_GameObject: {fileID: 430001475}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 1.07, y: 12.17, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1467039355}
   - {fileID: 937558843}
@@ -708,7 +703,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 431229368}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg2Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -722,13 +717,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431229367}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0030278505, w: 0.99999547}
+  m_LocalRotation: {x: -0, y: -0, z: -0.00058731844, w: 0.9999999}
   m_LocalPosition: {x: 2.08, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1622049874}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 360.347}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 359.933}
 --- !u!1 &456575413
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 456575414}
   - component: {fileID: 456575415}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_12
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -797,7 +792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 483863900}
   - component: {fileID: 483863901}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg2
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -855,7 +850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 498911539}
   - component: {fileID: 498911538}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg6Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 501029604}
   - component: {fileID: 501029605}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg8
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1038,7 +1033,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 568098177}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1069,7 +1064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 613013921}
   - component: {fileID: 613013922}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_21
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1126,7 +1121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 666683312}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg1Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1140,13 +1135,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666683311}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0019518563, w: 0.9999981}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0005874186, w: 0.9999998}
   m_LocalPosition: {x: 2.98, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2004810466}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.067}
 --- !u!1 &668509554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 668509556}
   - component: {fileID: 668509555}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg7Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1226,7 +1221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 676992922}
   - component: {fileID: 676992923}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_9
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1284,7 +1279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 813870482}
   - component: {fileID: 813870483}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_25
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1298,7 +1293,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813870481}
-  m_LocalRotation: {x: 0, y: 0, z: -0.031232417, w: 0.99951214}
+  m_LocalRotation: {x: 0, y: 0, z: -0.02876602, w: 0.99958616}
   m_LocalPosition: {x: 3.0732732, y: 0.00000050371403, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1341,7 +1336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 827163228}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg4Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1372,7 +1367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 833850331}
   - component: {fileID: 833850332}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_24
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1430,7 +1425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 900515650}
   - component: {fileID: 900515651}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_10
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1444,7 +1439,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900515649}
-  m_LocalRotation: {x: 0, y: 0, z: 0.011953175, w: 0.9999286}
+  m_LocalRotation: {x: 0, y: 0, z: 0.015303136, w: 0.99988294}
   m_LocalPosition: {x: 3.5814574, y: 0.00000031287732, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1487,7 +1482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 925856474}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg7Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1518,7 +1513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937558843}
   - component: {fileID: 937558842}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg1Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1587,7 +1582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957502018}
   - component: {fileID: 957502019}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg3
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1645,7 +1640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 979909342}
   - component: {fileID: 979909341}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg8Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1713,7 +1708,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1016526283}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg1Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1743,7 +1738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1051587867}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg3Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1774,7 +1769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1056994367}
   - component: {fileID: 1056994366}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg4Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1847,7 +1842,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1179594851}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg3Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1861,13 +1856,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179594850}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0027628357, w: 0.9999962}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0005874344, w: 0.9999999}
   m_LocalPosition: {x: 2.04, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 900515650}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.317}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.067}
 --- !u!1 &1181902321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,7 +1872,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1181902322}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg8Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1907,7 +1902,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1236777963}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg5Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1921,13 +1916,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236777962}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0017314921, w: 0.9999985}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0005874484, w: 0.9999999}
   m_LocalPosition: {x: 3.1, y: -0.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1686987270}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.198}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.067}
 --- !u!1 &1291571886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1291571888}
   - component: {fileID: 1291571887}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg2Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2006,7 +2001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1302598874}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg4Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2020,13 +2015,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302598873}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0018296647, w: 0.99999833}
+  m_LocalRotation: {x: -0, y: -0, z: -0.00058743346, w: 0.9999999}
   m_LocalPosition: {x: 2.96, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1413997046}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.21}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.067}
 --- !u!1 &1305846204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,7 +2031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1305846205}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg6Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2066,7 +2061,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1345644337}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg6Effector
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2080,13 +2075,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345644336}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0029445637, w: 0.9999957}
+  m_LocalRotation: {x: -0, y: -0, z: -0.00058727514, w: 0.9999999}
   m_LocalPosition: {x: 1.98, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1753215979}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.337}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.067}
 --- !u!1 &1413997045
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,7 +2092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413997046}
   - component: {fileID: 1413997047}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_13
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2111,7 +2106,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413997045}
-  m_LocalRotation: {x: 0, y: 0, z: 0.053715087, w: 0.9985563}
+  m_LocalRotation: {x: 0, y: 0, z: 0.05612854, w: 0.9984236}
   m_LocalPosition: {x: 4.3670917, y: -0.0000033936744, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2155,7 +2150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420999507}
   - component: {fileID: 1420999506}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg3Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2224,7 +2219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437953738}
   - component: {fileID: 1437953739}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg4
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2238,7 +2233,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437953737}
-  m_LocalRotation: {x: 0, y: 0, z: 0.9338755, w: 0.3575983}
+  m_LocalRotation: {x: 0, y: -0, z: 0.9338755, w: 0.3575983}
   m_LocalPosition: {x: -2.174361, y: 2.52593, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2282,7 +2277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467039355}
   - component: {fileID: 1467039356}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Body
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2355,7 +2350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1572483529}
   - component: {fileID: 1572483530}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg5
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2369,7 +2364,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572483528}
-  m_LocalRotation: {x: 0, y: 0, z: -0.93206865, w: 0.36228192}
+  m_LocalRotation: {x: 0, y: -0, z: -0.93206865, w: 0.36228192}
   m_LocalPosition: {x: -2.144931, y: -2.3870492, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2413,7 +2408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1607274345}
   - component: {fileID: 1607274346}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_22
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2427,7 +2422,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607274344}
-  m_LocalRotation: {x: 0, y: 0, z: -0.008102704, w: 0.9999672}
+  m_LocalRotation: {x: 0, y: 0, z: -0.0043536117, w: 0.9999905}
   m_LocalPosition: {x: 3.1102796, y: -0.000002896129, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2471,7 +2466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622049874}
   - component: {fileID: 1622049875}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_7
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2485,7 +2480,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622049873}
-  m_LocalRotation: {x: 0, y: 0, z: -0.009861085, w: 0.9999514}
+  m_LocalRotation: {x: 0, y: 0, z: -0.00624603, w: 0.9999805}
   m_LocalPosition: {x: 3.1921077, y: -0.0000005808045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2529,7 +2524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1686987270}
   - component: {fileID: 1686987271}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_16
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2543,7 +2538,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686987269}
-  m_LocalRotation: {x: 0, y: 0, z: -0.05455802, w: 0.99851066}
+  m_LocalRotation: {x: 0, y: 0, z: -0.052242387, w: 0.99863446}
   m_LocalPosition: {x: 4.300783, y: 0.0000019624772, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2587,7 +2582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1753215979}
   - component: {fileID: 1753215980}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_19
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2601,7 +2596,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753215978}
-  m_LocalRotation: {x: 0, y: 0, z: -0.02395441, w: 0.9997131}
+  m_LocalRotation: {x: 0, y: 0, z: -0.020423437, w: 0.99979144}
   m_LocalPosition: {x: 3.6209188, y: -0.0000010446984, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2645,7 +2640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762826753}
   - component: {fileID: 1762826754}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_6
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2722,7 +2717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b88573fbc995e248b9b8f1d74b6e2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 16064750}
 --- !u!4 &1793496895
 Transform:
   m_ObjectHideFlags: 0
@@ -2757,7 +2751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1840915627}
   - component: {fileID: 1840915628}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg6
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2815,7 +2809,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893224677}
   - component: {fileID: 1893224678}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_3
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -2943,7 +2937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1990089530}
   - component: {fileID: 1990089531}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_18
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -3001,7 +2995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2004810466}
   - component: {fileID: 2004810467}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_4
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -3015,7 +3009,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004810465}
-  m_LocalRotation: {x: 0, y: 0, z: -0.011169099, w: 0.99993765}
+  m_LocalRotation: {x: 0, y: 0, z: -0.008629948, w: 0.99996275}
   m_LocalPosition: {x: 3.2263052, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3058,7 +3052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2033687900}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Leg5Solver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3089,7 +3083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2117904810}
   - component: {fileID: 2117904811}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: bone_15
   m_TagString: Monster
   m_Icon: {fileID: 0}
