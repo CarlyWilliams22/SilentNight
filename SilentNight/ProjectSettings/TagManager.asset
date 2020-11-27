@@ -65,3 +65,6 @@ TagManager:
   - name: HudStats
     uniqueID: 651632959
     locked: 0
+  - name: PauseMenu
+    uniqueID: 1930586091
+    locked: 0

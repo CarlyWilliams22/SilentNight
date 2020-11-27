@@ -23,8 +23,6 @@ public class PlayerScript : MonoBehaviour
     public float maxStamina = 5;
     bool currRunnning = false;
     public bool tired = false;
-    float currStamina;
-    float start;
 
     public Level1ManagerScript l1ms;
     public GameObject bridgeCanvas;
@@ -34,7 +32,7 @@ public class PlayerScript : MonoBehaviour
     bool flashlightOn;
     bool flashlightDead = false;
     float batteryLevel = 30;
-    int batteryNum = 2;
+    int batteryNum = 0;
     float batteryStart;
     public Text batteries;
 
@@ -46,6 +44,8 @@ public class PlayerScript : MonoBehaviour
     SpriteRenderer srender;
     string lastSprite = "PlayerSpriteSheet_3";
     public AudioClip footstep;
+
+    bool paused;
 
 
     // Start is called before the first frame update
@@ -64,155 +64,157 @@ public class PlayerScript : MonoBehaviour
 
         stamina.maxValue = maxStamina;
         stamina.value = maxStamina;
-        currStamina = maxStamina;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        batteries.text = "x" + batteryNum.ToString();
-
-        if (flashlightOn)
+        if (!paused)
         {
-            battery.value = batteryLevel - (int)(Time.time - batteryStart);
-        }
 
-        if(battery.value == 0)
-        {
-            if(batteryNum == 0)
+            batteries.text = "x" + batteryNum.ToString();
+
+            if (flashlightOn)
             {
-                flashlightDead = true;
-                flashlight.SetActive(false);
-            }
-            else
-            {
-                batteryNum--;
-                NewBattery();
+                battery.value = batteryLevel - (int)(Time.time - batteryStart);
             }
 
-        }
-
-        //toggle flashlight
-        if (!flashlightDead)
-        {
-            if (Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
+            if (battery.value == 0)
             {
-                if (flashlightOn)
+                if (batteryNum == 0)
                 {
-                    flashlightOn = false;
-                    sound.PlayOneShot(flashlightOffClip);
-                    batteryLevel = battery.value;
+                    flashlightDead = true;
+                    flashlight.SetActive(false);
                 }
                 else
                 {
-                    batteryStart = Time.time;
-                    flashlightOn = true;
-                    sound.PlayOneShot(flashlightOnClip);
+                    batteryNum--;
+                    NewBattery();
                 }
-                flashlight.SetActive(flashlightOn);
+
             }
-        }
 
-        runningH.SetActive(running);
-        walkingH.SetActive(walking);
-        sneakingH.SetActive(sneaking);
+            //toggle flashlight
+            if (!flashlightDead)
+            {
+                if (Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
+                {
+                    if (flashlightOn)
+                    {
+                        flashlightOn = false;
+                        sound.PlayOneShot(flashlightOffClip);
+                        batteryLevel = battery.value;
+                    }
+                    else
+                    {
+                        batteryStart = Time.time;
+                        flashlightOn = true;
+                        sound.PlayOneShot(flashlightOnClip);
+                    }
+                    flashlight.SetActive(flashlightOn);
+                }
+            }
+
+            runningH.SetActive(running);
+            walkingH.SetActive(walking);
+            sneakingH.SetActive(sneaking);
 
 
-        if(stamina.value < 0.00001f)
-        {
-            tired = true;
-        }
-        else if(Mathf.Abs(maxStamina - stamina.value) < 0.00001f)
-        {
-            tired = false;
-        }
+            if (stamina.value < 0.00001f)
+            {
+                tired = true;
+            }
+            else if (Mathf.Abs(maxStamina - stamina.value) < 0.00001f)
+            {
+                tired = false;
+            }
 
-        //toggle running
-        if (Input.GetKeyDown(KeyCode.R) && !tired)
-        {
-            //walk if already running
-            if(curSpeed == runSpeed) 
+            //toggle running
+            if (Input.GetKeyDown(KeyCode.R) && !tired)
+            {
+                //walk if already running
+                if (curSpeed == runSpeed)
+                {
+                    curSpeed = walkSpeed;
+                    walking = true;
+                    running = false;
+                    sneaking = false;
+                }
+                else //start running
+                {
+                    curSpeed = runSpeed;
+                    running = true;
+                    walking = false;
+                    sneaking = false;
+                }
+            }
+
+            if (tired)
             {
                 curSpeed = walkSpeed;
                 walking = true;
                 running = false;
                 sneaking = false;
             }
-            else //start running
+
+            //toggle sneaking
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
-                curSpeed = runSpeed;
-                running = true;
-                walking = false;
-                sneaking = false;
+                //walk if already sneaking
+                if (curSpeed == sneakSpeed)
+                {
+                    curSpeed = walkSpeed;
+                    walking = true;
+                    sneaking = false;
+                    running = false;
+                }
+                else //start sneaking
+                {
+                    curSpeed = sneakSpeed;
+                    walking = false;
+                    sneaking = true;
+                    running = false;
+                }
             }
-        }
 
-        if (tired)
-        {
-            curSpeed = walkSpeed;
-            walking = true;
-            running = false;
-            sneaking = false;
-        }
-
-        //toggle sneaking
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            //walk if already sneaking
-            if (curSpeed == sneakSpeed)
+            //set player animation speed based on player speed
+            if (rbody.velocity == Vector2.zero)
             {
-                curSpeed = walkSpeed;
-                walking = true;
-                sneaking = false;
-                running = false;
+                movement.speed = 0;
             }
-            else //start sneaking
+            else if (running)
             {
-                curSpeed = sneakSpeed;
-                walking = false;
-                sneaking = true;
-                running = false;
+                movement.speed = .4f;
             }
-        }
+            else if (walking)
+            {
+                movement.speed = .3f;
+            }
+            else
+            {
+                movement.speed = .2f;
+            }
 
-        //set player animation speed based on player speed
-        if (rbody.velocity == Vector2.zero)
-        {
-            movement.speed = 0;
-        }
-        else if (running)
-        {
-            movement.speed = .4f;
-        }
-        else if (walking)
-        {
-            movement.speed = .3f;
-        }
-        else
-        {
-            movement.speed = .2f;
-        }
+            //sync player footsteps to player animation
+            if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3")
+            {
+                lastSprite = "PlayerSpriteSheet_1";
+                sound.PlayOneShot(footstep);
+            }
+            if (srender.sprite.name == "PlayerSpriteSheet_3" && lastSprite == "PlayerSpriteSheet_1")
+            {
+                lastSprite = "PlayerSpriteSheet_3";
+                sound.PlayOneShot(footstep);
+            }
 
-        //sync player footsteps to player animation
-        if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3")
-        {
-            lastSprite = "PlayerSpriteSheet_1";
-            sound.PlayOneShot(footstep);
+            //make the player face the mouse position
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 diff = mousePos - transform.position;
+            //transform.up = diff;
+            Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, dest, 5 * Time.deltaTime);
         }
-        if (srender.sprite.name == "PlayerSpriteSheet_3" && lastSprite == "PlayerSpriteSheet_1")
-        {
-            lastSprite = "PlayerSpriteSheet_3";
-            sound.PlayOneShot(footstep);
-        }
-
-        //make the player face the mouse position
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 diff = mousePos - transform.position;
-        //transform.up = diff;
-        Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, dest, 5 * Time.deltaTime);
     }
 
     private void FixedUpdate()
@@ -222,7 +224,6 @@ public class PlayerScript : MonoBehaviour
         {
             if (!currRunnning)
             {
-                start = Time.time;
                 currRunnning = true;
             }
             stamina.value -= .005f;
@@ -231,7 +232,6 @@ public class PlayerScript : MonoBehaviour
         else
         {
             currRunnning = false;
-            currStamina = stamina.value;
             if (stamina.value < maxStamina)
             {
                 stamina.value += .005f;
@@ -290,5 +290,15 @@ public class PlayerScript : MonoBehaviour
     {
         batteryStart = Time.time;
         batteryLevel = 30;
+    }
+
+    public void pause()
+    {
+        paused = true;
+    }
+
+    public void unpause()
+    {
+        paused = false;
     }
 }

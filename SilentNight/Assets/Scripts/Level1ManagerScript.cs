@@ -13,8 +13,8 @@ public class Level1ManagerScript : MonoBehaviour
     public Text beginningText, InstructionsText, Instructions2Text, Instructions3Text;
     public Text deadDeerText, bridgeText, bridgeReminderText;
     public Slider lives;
-    public GameObject textbox;
-    bool bridgeDeath;
+    public GameObject textbox, lhhud, rhhud, pauseMenu;
+    bool bridgeDeath, paused = false;
     public GameObject caveBlockade;
 
     // Start is called before the first frame update
@@ -44,6 +44,27 @@ public class Level1ManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (paused)
+        {
+            Time.timeScale = 0;
+            lhhud.SetActive(false);
+            rhhud.SetActive(false);
+            pauseMenu.SetActive(true);
+
+        }
+        else
+        {
+            Time.timeScale = 1;
+            lhhud.SetActive(true);
+            rhhud.SetActive(true);
+            pauseMenu.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            paused = true;
+            player.pause();
+        }
 
         lives.value = PlayerPrefs.GetInt("Lives");
 
@@ -162,5 +183,16 @@ public class Level1ManagerScript : MonoBehaviour
     public void deathByBridge()
     {
         bridgeDeath = true;
+    }
+
+    public void Play()
+    {
+        paused = false;
+        player.unpause();
+    }
+
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
