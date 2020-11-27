@@ -225,7 +225,7 @@ public class PlayerScript : MonoBehaviour
                 start = Time.time;
                 currRunnning = true;
             }
-            stamina.value = currStamina - ((int)(Time.time - start));
+            stamina.value -= .005f;
 
         }
         else
