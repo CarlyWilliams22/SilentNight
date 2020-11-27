@@ -112,6 +112,8 @@ public class MeshGenerator : MonoBehaviour {
 				edgePoints[i] = new Vector2(vertices[outline[i]].x,vertices[outline[i]].z);
 			}
 			edgeCollider.points = edgePoints;
+
+			edgeCollider.edgeRadius = .05f;
 		}
 
 	}
