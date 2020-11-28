@@ -60,10 +60,15 @@ public class Level1ManagerScript : MonoBehaviour
             pauseMenu.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !paused)
         {
             paused = true;
             player.pause();
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && paused)
+        {
+            paused = false;
+            player.unpause();
         }
 
         lives.value = PlayerPrefs.GetInt("Lives");
