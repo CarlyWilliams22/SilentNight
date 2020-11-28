@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour
 {
     Rigidbody2D rbody;
+    public LevelLoaderScript levelLoader;
 
     public int walkSpeed;
     public int runSpeed;
@@ -282,7 +283,7 @@ public class PlayerScript : MonoBehaviour
         //player reaches the cave and moves on to level 2
         if (collision.gameObject.tag.Equals("Finish"))
         {
-            l1ms.nextLevel();
+            levelLoader.LoadNextLevel();
         }
     }
 

@@ -11,6 +11,7 @@ public class SoundPlayerScript : Echolocator
     ParticleSystem.MainModule clapping;
     AudioSource audioSource;
     public AudioClip clapSound;
+    public LevelLoaderScript levelLoader;
 
     public int walkSpeed;
     public int runSpeed;
@@ -54,25 +55,6 @@ public class SoundPlayerScript : Echolocator
                 running = false;
             }
         }
-/*  disabled running
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (curSpeed == runSpeed)
-            {
-                curSpeed = walkSpeed;
-                walking = true;
-                sneaking = false;
-                running = false;
-            }
-            else
-            {
-                curSpeed = runSpeed;
-                walking = false;
-                sneaking = false;
-                running = true;
-            }
-        }
-*/
 
         //clap when left mouse button is clicked and player is not already clapping
         if (!particleSystem.isPlaying)
@@ -115,7 +97,7 @@ public class SoundPlayerScript : Echolocator
         //load the ending screen if the player reaches the end of the maze
         if (collision.gameObject.tag.Equals("Finish"))
         {
-            SceneManager.LoadScene("EndScene");
+            levelLoader.LoadNextLevel();
         }
     }
 }
