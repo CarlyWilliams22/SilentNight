@@ -18,9 +18,10 @@ public class SoundPlayerScript : Echolocator
     public int sneakSpeed;
     int curSpeed;
 
-   // public bool running = false;
-   // public bool walking = true;
-   // public bool sneaking = false;
+    public GameObject walkingH, sneakingH;
+
+    bool paused = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,68 +37,89 @@ public class SoundPlayerScript : Echolocator
 
     private void Update()
     {
-        //toggle sneaking
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (!paused)
         {
-            //walk if already sneaking
-            if (curSpeed == sneakSpeed)
+            //toggle sneaking
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
-                curSpeed = walkSpeed;
-                walking = true;
-                sneaking = false;
-                running = false;
+                //walk if already sneaking
+                if (curSpeed == sneakSpeed)
+                {
+                    curSpeed = walkSpeed;
+                    walking = true;
+                    sneaking = false;
+                    running = false;
+                }
+                else //start sneaking
+                {
+                    curSpeed = sneakSpeed;
+                    walking = false;
+                    sneaking = true;
+                    running = false;
+                }
             }
-            else //start sneaking
+
+            //clap when left mouse button is clicked and player is not already clapping
+            if (!particleSystem.isPlaying)
             {
-                curSpeed = sneakSpeed;
-                walking = false;
-                sneaking = true;
-                running = false;
+                if (Input.GetKeyDown(KeyCode.C))
+                    //clap when left mouse button is clicked and player is not already clapping
+                    if (!particleSystem.isPlaying)
+                    {
+                        if (Input.GetKeyDown(KeyCode.Mouse0))
+                        {
+                            audioSource.PlayOneShot(clapSound);
+                            particleSystem.Play();
+                        }
+                    }
+
+                walkingH.SetActive(walking);
+                sneakingH.SetActive(sneaking);
             }
         }
+    }
 
-        //clap when left mouse button is clicked and player is not already clapping
-        if (!particleSystem.isPlaying)
+        // Update is called once per frame
+        void FixedUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            float x = Input.GetAxis("Horizontal");
+            float y = Input.GetAxis("Vertical");
+            Vector2 vel = new Vector2(x, y);
+
+            //normalize the velocity unless he is moving slowly
+            if (vel.magnitude < 1)
             {
-                audioSource.PlayOneShot(clapSound);
-                particleSystem.Play();
+                rbody.velocity = curSpeed * vel;
+            }
+            else
+            {
+                rbody.velocity = curSpeed * vel.normalized;
             }
         }
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        Vector2 vel = new Vector2(x, y);
-
-        //normalize the velocity unless he is moving slowly
-        if (vel.magnitude < 1)
+        private void LateUpdate()
         {
-            rbody.velocity = curSpeed * vel;
+            //camera follows the player
+            Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
         }
-        else
+
+
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            rbody.velocity = curSpeed * vel.normalized;
+            //load the ending screen if the player reaches the end of the maze
+            if (collision.gameObject.tag.Equals("Finish"))
+            {
+                levelLoader.LoadNextLevel();
+            }
         }
-    }
 
-    private void LateUpdate()
-    {
-        //camera follows the player
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //load the ending screen if the player reaches the end of the maze
-        if (collision.gameObject.tag.Equals("Finish"))
+        public void pause()
         {
-            levelLoader.LoadNextLevel();
+            paused = true;
         }
-    }
+
+        public void unpause()
+        {
+            paused = false;
+        }
 }

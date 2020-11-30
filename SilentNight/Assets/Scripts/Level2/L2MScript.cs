@@ -6,14 +6,44 @@ using UnityEngine.SceneManagement;
 
 public class L2MScript : MonoBehaviour
 {
-    public GameObject gameOverCanvas, openingDialog, player, monster1, monster2;
-    public Text openingDialogText, instructionText, livesText;
+    public GameObject gameOverCanvas, openingDialog, monster1, monster2, lhhud, rhhud, pauseMenu;
+    public Text openingDialogText, instructionText;
+    public SoundPlayerScript player;
+    bool paused = false;
+    public Slider lives;
 
     // Update is called once per frame
     void Update()
     {
 
-        livesText.text = "Lives: " + PlayerPrefs.GetInt("Lives").ToString();
+        if (paused)
+        {
+            Time.timeScale = 0;
+            lhhud.SetActive(false);
+            rhhud.SetActive(false);
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            lhhud.SetActive(true);
+            rhhud.SetActive(true);
+            pauseMenu.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !paused)
+        {
+            paused = true;
+            player.pause();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && paused)
+        {
+            paused = false;
+            player.unpause();
+        }
+
+        lives.value = PlayerPrefs.GetInt("Lives");
+
         if (PlayerPrefs.GetInt("Lives") == 0)
         {
             gameOver();
@@ -36,7 +66,7 @@ public class L2MScript : MonoBehaviour
 
                 //Activate the moving objects after the player finishes the dialog
                 //"Pauses" the game giving the player time to read
-                player.SetActive(true);
+                player.gameObject.SetActive(true);
                 monster1.SetActive(true);
                 monster2.SetActive(true);
             }
@@ -63,5 +93,16 @@ public class L2MScript : MonoBehaviour
     private void gameOver()
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    public void Play()
+    {
+        paused = false;
+        player.unpause();
+    }
+
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
