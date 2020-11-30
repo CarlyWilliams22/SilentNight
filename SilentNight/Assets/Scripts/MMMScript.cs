@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MMMScript : MonoBehaviour
 {
-    public GameObject titleCanvas, instructionsCanvas, acheivementsCanvas;
+    public GameObject titleCanvas, instructionsCanvas, achievementsCanvas;
 
     // Start is called before the first frame update
     //game starts with menu up and instructions down
@@ -13,7 +13,7 @@ public class MMMScript : MonoBehaviour
     {
         titleCanvas.SetActive(true);
         instructionsCanvas.SetActive(false);
-        acheivementsCanvas.SetActive(false);
+        achievementsCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,17 +31,17 @@ public class MMMScript : MonoBehaviour
     }
 
     /*takes down the menu and puts the game's instructions on the screen*/
-    public void instructionButton()
+    public void instructionsButton()
     {
         titleCanvas.SetActive(false);
         instructionsCanvas.SetActive(true);
     }
 
     /*takes down the menu and puts the game's acheivements on the screen*/
-    public void acheivementsButton()
+    public void achievementsButton()
     {
         titleCanvas.SetActive(false);
-        acheivementsCanvas.SetActive(true);
+        achievementsCanvas.SetActive(true);
     }
 
 
@@ -55,7 +55,7 @@ public class MMMScript : MonoBehaviour
     public void menuButton()
     {
         instructionsCanvas.SetActive(false);
-        acheivementsCanvas.SetActive(false);
+        achievementsCanvas.SetActive(false);
         titleCanvas.SetActive(true);
     }
 }

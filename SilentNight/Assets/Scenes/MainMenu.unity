@@ -203,12 +203,12 @@ GameObject:
   - component: {fileID: 159724207}
   - component: {fileID: 159724206}
   m_Layer: 5
-  m_Name: AcheivementsCanvas
+  m_Name: AchievementsCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &159724206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,8 +626,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleCanvas: {fileID: 1692388447}
-  instructionsCanvas: {fileID: 0}
-  acheivementsCanvas: {fileID: 159724205}
+  instructionsCanvas: {fileID: 1418227529}
+  achievementsCanvas: {fileID: 159724205}
 --- !u!4 &583450077
 Transform:
   m_ObjectHideFlags: 0
@@ -1281,7 +1281,7 @@ GameObject:
   - component: {fileID: 1180002023}
   - component: {fileID: 1180002022}
   m_Layer: 5
-  m_Name: AcheivementsButton
+  m_Name: AchievementsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1352,7 +1352,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 583450076}
         m_TargetAssemblyTypeName: MMMScript, Assembly-CSharp
-        m_MethodName: acheivementsButton
+        m_MethodName: achievementsButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1717,7 +1717,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 583450076}
         m_TargetAssemblyTypeName: MMMScript, Assembly-CSharp
-        m_MethodName: instructionButton
+        m_MethodName: instructionsButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1784,7 +1784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1418227530
 MonoBehaviour:
   m_ObjectHideFlags: 0
