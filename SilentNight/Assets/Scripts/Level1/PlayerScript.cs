@@ -214,7 +214,7 @@ public class PlayerScript : MonoBehaviour
             Vector2 diff = mousePos - transform.position;
             //transform.up = diff;
             Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, dest, 5 * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, dest, 6 * Time.deltaTime);
         }
     }
 
@@ -259,7 +259,7 @@ public class PlayerScript : MonoBehaviour
     private void LateUpdate()
     {
         //camera follows the player
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y - 1, -10);
     }
 
 

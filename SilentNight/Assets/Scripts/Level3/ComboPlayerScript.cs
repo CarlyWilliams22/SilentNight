@@ -188,7 +188,7 @@ public class ComboPlayerScript : Echolocator
         //clap when left mouse button is clicked and player is not already clapping
         if (!clap.isPlaying)
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 sound.PlayOneShot(clapSound);
                 clap.Play();
@@ -240,7 +240,8 @@ public class ComboPlayerScript : Echolocator
     {
         if (collision.gameObject.tag.Equals("Monster"))
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            PlayerPrefs.SetInt("damage", PlayerPrefs.GetInt("damage") - 1);
         }
     }
 }

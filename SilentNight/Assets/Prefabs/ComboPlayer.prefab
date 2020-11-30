@@ -174,7 +174,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c638375c9ea931048859dee21fb4e534, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -325,7 +325,8 @@ MonoBehaviour:
   footstep: {fileID: 8300000, guid: 69e6127c0cad9bd42aa87f1403c8e8c6, type: 3}
   blinded: 0
   clapSound: {fileID: 8300000, guid: e15ce5c94ae68044b8ab3920415f19b2, type: 3}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 3468435622840319555, guid: b160360471177da40a37dc47954f101b, type: 3}
+  gunBarrel: {fileID: 2322963558003035305}
 --- !u!95 &4526293397421163345
 Animator:
   serializedVersion: 3
