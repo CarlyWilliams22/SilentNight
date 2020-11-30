@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -344,7 +344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 288.6, y: -2.7002}
+  m_AnchoredPosition: {x: 222.28, y: 0.00028086}
   m_SizeDelta: {x: 293.1361, y: 436.12042}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1266163879
@@ -428,8 +428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -179.67, y: -83}
-  m_SizeDelta: {x: 552.6643, y: 305.10974}
+  m_AnchoredPosition: {x: -144, y: -0.0000038147}
+  m_SizeDelta: {x: 451.02832, y: 249.13629}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1422263972
 MonoBehaviour:
@@ -478,8 +478,8 @@ CanvasGroup:
   m_GameObject: {fileID: 1422263970}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &1782622612
 GameObject:
@@ -663,9 +663,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 288.6, y: -2.7}
+  m_AnchoredPosition: {x: 151, y: 5.1841}
   m_SizeDelta: {x: 293.13232, y: 436.1209}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.25683084, y: 0.5118868}
 --- !u!114 &1981050581
 MonoBehaviour:
   m_ObjectHideFlags: 0
