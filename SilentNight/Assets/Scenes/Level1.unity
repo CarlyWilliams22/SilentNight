@@ -507,9 +507,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Press Space to turn the flashlight on and off\nUse the mouse to move the
-    flashlight and scare away the monsters\nWatch out, you only have 1 battery!\n\n
-    \nHit Enter to start"
+  m_Text: 'Press Space to turn the flashlight on and off
+
+    Use the mouse to move
+    the flashlight and scare away the monsters
+
+    Watch out, you only have 1 battery!
+
+
+
+    Hit
+    Enter to start'
 --- !u!222 &50501128
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6291,7 +6299,6 @@ Transform:
   - {fileID: 149329018}
   - {fileID: 113282362}
   - {fileID: 1830744956}
-  m_Children: []
   m_Father: {fileID: 1100116561}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6337,11 +6344,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 208dbb4fc372b184699def65f34e6a9f, type: 3}
   m_Color: {r: 0.7490196, g: 0.7137255, b: 0.7137255, a: 1}
-  m_SortingLayerID: -637626741
-  m_SortingLayer: 4
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 208dbb4fc372b184699def65f34e6a9f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -15140,7 +15142,6 @@ Transform:
   - {fileID: 1969010382}
   - {fileID: 1401690636}
   - {fileID: 55499134}
-  m_Children: []
   m_Father: {fileID: 1100116561}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15186,11 +15187,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6dc36b39e77da1d4097f9e9d2d4926ba, type: 3}
   m_Color: {r: 0.745283, g: 0.7136436, b: 0.7136436, a: 1}
-  m_SortingLayerID: -637626741
-  m_SortingLayer: 4
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6dc36b39e77da1d4097f9e9d2d4926ba, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -18354,7 +18350,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 37e832b70f643bd469c20855263b6602, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -18916,7 +18912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
