@@ -29,6 +29,9 @@ public class ComboPlayerScript : Echolocator
     float batteryStart;
     public Text batteries;
 
+    public Text bullets;
+    int bulletNum = 5;
+
     AudioSource sound;
     public AudioClip flashlightOnClip;
     public AudioClip flashlightOffClip;
@@ -78,6 +81,7 @@ public class ComboPlayerScript : Echolocator
         {
 
             batteries.text = "x" + batteryNum.ToString();
+            bullets.text = "x" + bulletNum.ToString();
 
             if (flashlightOn)
             {
@@ -261,7 +265,7 @@ public class ComboPlayerScript : Echolocator
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && (bulletNum != 0))
             {
                 ShootGun();
             }
@@ -320,6 +324,7 @@ public class ComboPlayerScript : Echolocator
         bulletRbody.rotation = angle;
         angle *= Mathf.Deg2Rad;
         bulletRbody.velocity = new Vector2(10 * Mathf.Cos(angle), 10 * Mathf.Sin(angle));
+        bulletNum--;
 
     }
 
