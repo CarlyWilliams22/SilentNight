@@ -59,7 +59,7 @@ public class SoundPlayerScript : Echolocator
         //clap when left mouse button is clicked and player is not already clapping
         if (!particleSystem.isPlaying)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 audioSource.PlayOneShot(clapSound);
                 particleSystem.Play();

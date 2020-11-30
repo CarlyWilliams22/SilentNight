@@ -99,7 +99,7 @@ public class PlayerScript : MonoBehaviour
             //toggle flashlight
             if (!flashlightDead)
             {
-                if (Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     if (flashlightOn)
                     {

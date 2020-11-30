@@ -122,7 +122,7 @@ public class Level1ManagerScript : MonoBehaviour
         }
 
         //Cycles through the different dialogs
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return)) //hit enter
         {
             //Opening dialog + instructions
             if (beginningText.gameObject.activeInHierarchy)
@@ -134,11 +134,6 @@ public class Level1ManagerScript : MonoBehaviour
             {
                 InstructionsText.gameObject.SetActive(false);
                 Instructions2Text.gameObject.SetActive(true);
-            }
-            else if (Instructions2Text.gameObject.activeInHierarchy)
-            {
-                Instructions2Text.gameObject.SetActive(false);
-                Instructions3Text.gameObject.SetActive(true);
             }
 
             //Tells the player to go to the bridge first before the cave
@@ -154,7 +149,7 @@ public class Level1ManagerScript : MonoBehaviour
             //Remove bridge dialog from the screen
             else
             {
-                Instructions3Text.gameObject.SetActive(false);
+                Instructions2Text.gameObject.SetActive(false);
                 bridgeText.gameObject.SetActive(false);
                 deadDeerText.gameObject.SetActive(false);
                 bridgeReminderText.gameObject.SetActive(false);

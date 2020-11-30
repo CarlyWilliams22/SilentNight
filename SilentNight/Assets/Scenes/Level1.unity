@@ -467,12 +467,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 998253633}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70.8}
-  m_SizeDelta: {x: 202.01099, y: 69.53976}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 115}
+  m_SizeDelta: {x: 420, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &50501127
 MonoBehaviour:
@@ -496,22 +496,20 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Click the left mouse button to turn the flashlight on and off
-
-
-    Hit
-    Space to Continue'
+  m_Text: "Press Space to turn the flashlight on and off\nUse the mouse to move the
+    flashlight and scare away the monsters\nWatch out, you only have 1 battery!\n\n
+    \nHit Enter to start"
 --- !u!222 &50501128
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -575,7 +573,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 651632959
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 65996a69a2d894a4a85d5847e803a1d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -986,7 +984,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 651632959
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 65c6648a7e4d88142867571da4fd9d09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1378,7 +1376,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 651632959
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5d0be4da269951347bda6f4b9dc7b689, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3285,7 +3283,7 @@ MonoBehaviour:
   beginningText: {fileID: 1308942030}
   InstructionsText: {fileID: 1028539975}
   Instructions2Text: {fileID: 50501127}
-  Instructions3Text: {fileID: 1982804457}
+  Instructions3Text: {fileID: 0}
   deadDeerText: {fileID: 1271967952}
   bridgeText: {fileID: 1424562664}
   bridgeReminderText: {fileID: 342473565}
@@ -3499,10 +3497,10 @@ RectTransform:
   m_Father: {fileID: 998253633}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70.8}
-  m_SizeDelta: {x: 202.01099, y: 69.53976}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 115}
+  m_SizeDelta: {x: 420, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &342473565
 MonoBehaviour:
@@ -3526,12 +3524,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3540,7 +3538,8 @@ MonoBehaviour:
   m_Text: '"This isn''t the way to the bridge!"
 
 
-    Hit Space to Continue'
+
+    Hit Enter to continue'
 --- !u!222 &342473566
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6333,7 +6332,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -335725735
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 208dbb4fc372b184699def65f34e6a9f, type: 3}
   m_Color: {r: 0.7490196, g: 0.7137255, b: 0.7137255, a: 1}
@@ -6864,8 +6863,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -637626741
-  m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingLayer: 6
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c49a7a135481c264e8a4cdd44646fe15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10466,7 +10465,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 651632959
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 466083bd62456784f96bf558a6f681f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10698,6 +10697,10 @@ PrefabInstance:
     - target: {fileID: 5970697723303300869, guid: fc1707b106102d34bb4c000b7541a9d4, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970697723303300869, guid: fc1707b106102d34bb4c000b7541a9d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5990577797621693541, guid: fc1707b106102d34bb4c000b7541a9d4, type: 3}
       propertyPath: m_Layer
@@ -11660,12 +11663,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1308942029}
-  - {fileID: 1424562666}
-  - {fileID: 1271967950}
-  - {fileID: 342473564}
   - {fileID: 1028539974}
   - {fileID: 50501126}
-  - {fileID: 1982804456}
+  - {fileID: 342473564}
+  - {fileID: 1424562666}
+  - {fileID: 1271967950}
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12137,12 +12139,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 998253633}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70.8}
-  m_SizeDelta: {x: 242.011, y: 69.53976}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 115}
+  m_SizeDelta: {x: 420, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1028539975
 MonoBehaviour:
@@ -12166,12 +12168,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -12179,11 +12181,14 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Use WASD or the arrow keys to move
 
-    Toggle sneaking using tab and
-    running using R
+    Press Tab to sneak and R to run
+
+    If
+    you run too long, you will run out of energy!
 
 
-    Hit Space to Continue'
+
+    Hit Enter to continue'
 --- !u!222 &1028539976
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14674,7 +14679,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -637626741
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 10245b0c21ed2dd4c83df8eeedeaf6ae, type: 3}
   m_Color: {r: 0.122641504, g: 0.01214845, b: 0.01214845, a: 0.5254902}
@@ -15170,7 +15175,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -335725735
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6dc36b39e77da1d4097f9e9d2d4926ba, type: 3}
   m_Color: {r: 0.745283, g: 0.7136436, b: 0.7136436, a: 1}
@@ -16276,12 +16281,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 998253633}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70.8}
-  m_SizeDelta: {x: 202.011, y: 69.53976}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 115}
+  m_SizeDelta: {x: 420, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1271967951
 CanvasRenderer:
@@ -16313,22 +16318,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '"One of those things did this... I have to get out of here."
-
-
-    Hit
-    Space to Continue'
+  m_Text: "\"One of those things did this... \nI have to get out of here.\"\n\n\nHit
+    Enter to continue"
 --- !u!1 &1277231542
 GameObject:
   m_ObjectHideFlags: 0
@@ -17048,10 +17050,10 @@ RectTransform:
   m_Father: {fileID: 998253633}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70.8}
-  m_SizeDelta: {x: 202.01099, y: 69.53976}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 115}
+  m_SizeDelta: {x: 420, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1308942030
 MonoBehaviour:
@@ -17075,21 +17077,25 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '"What was that?!? I need to get out of here!"
+  m_Text: '"What was that?!? I need to get out of here!
+
+    I know, I''ll head to
+    the bridge!"
 
 
-    Hit Space to Continue'
+
+    Hit Enter to continue'
 --- !u!222 &1308942031
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18333,7 +18339,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 651632959
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 37e832b70f643bd469c20855263b6602, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18751,22 +18757,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '"What happened to the bridge!?! I need to find another way out of here...
-    maybe I can find a way out through the caves."
-
-
-    Hit Space to Continue'
+  m_Text: "\"What happened to the bridge!?! \nI need to find another way out of here...
+    maybe I can find a way out through the caves.\"\n\n\nHit Enter to continue"
 --- !u!222 &1424562665
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18787,12 +18790,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 998253633}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -62.8}
-  m_SizeDelta: {x: 202.011, y: 86.063034}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 115}
+  m_SizeDelta: {x: 420, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1433090035
 PrefabInstance:
@@ -19692,7 +19695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -110}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 195.694, y: 43.38528}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499246688
@@ -20569,7 +20572,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 651632959
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0ed09cb43876154479021b26ee2687b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -21114,7 +21117,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 651632959
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cb21e740153114e4789830b228e6fae9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -22390,7 +22393,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -21.692}
+  m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 195.69397, y: 43.385277}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1719309770
@@ -23606,7 +23609,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 651632959
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4cf6ac1ef3014564b84dd76dcfb74e22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -25665,89 +25668,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3127875744267193338, guid: b94cf9c40f7bf3e44b62a5a374cb6911, type: 3}
   m_PrefabInstance: {fileID: 1590840372}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1982804455
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1982804456}
-  - component: {fileID: 1982804458}
-  - component: {fileID: 1982804457}
-  m_Layer: 5
-  m_Name: Instructions3Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1982804456
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982804455}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 998253633}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70.8}
-  m_SizeDelta: {x: 202.01099, y: 69.53976}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1982804457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982804455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.9716981, g: 0.9671146, b: 0.9671146, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: 'Use the mouse to control the direction of the flashlight and scare away
-    the monsters
-
-
-    Hit Space to Continue'
---- !u!222 &1982804458
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982804455}
-  m_CullTransparentMesh: 0
 --- !u!1 &1984549116
 GameObject:
   m_ObjectHideFlags: 0

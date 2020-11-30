@@ -20,7 +20,7 @@ public class L2MScript : MonoBehaviour
         }
 
         //Opening dialog for Level 2 with instructions and story
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return)) //hit enter
         {
 
             //Cycle through the different dialogs
