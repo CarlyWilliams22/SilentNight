@@ -23,7 +23,7 @@ public class L2MScript : MonoBehaviour
             rhhud.SetActive(false);
             pauseMenu.SetActive(true);
         }
-        else
+        else if(!paused && !openingDialog.active)
         {
             Time.timeScale = 1;
             lhhud.SetActive(true);
