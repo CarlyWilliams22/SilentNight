@@ -9,6 +9,7 @@ public class L3MScript : MonoBehaviour
     public ComboPlayerScript player;
     public Slider lives;
     public GameObject lhhud, rhhud, pauseMenu;
+    public LevelLoaderScript levelLoader;
     bool paused = false;
 
     // Start is called before the first frame update
@@ -52,12 +53,12 @@ public class L3MScript : MonoBehaviour
 
         if (PlayerPrefs.GetInt("damage") <= 0)
         {
-            SceneManager.LoadScene("Level3");
+            levelLoader.LoadNextLevel("Level3");
         }
 
         if(PlayerPrefs.GetInt("hits") >= 3)
         {
-            SceneManager.LoadScene("EndScene");
+            levelLoader.LoadNextLevel("EndScene");
         }
     }
 

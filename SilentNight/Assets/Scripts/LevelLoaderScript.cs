@@ -8,15 +8,25 @@ public class LevelLoaderScript : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1f;
 
-    public void LoadNextLevel()
+    public void LoadNextLevel(string nextLevel)
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        StartCoroutine(LoadLevel(nextLevel));
+    }
+
+    public void LoadMenu()
+    {
+        StartCoroutine(LoadLevel("MainMenu"));
+    }
+
+    public void LoadLevel1()
+    {
+        StartCoroutine(LoadLevel("Level1"));
     }
     
-    IEnumerator LoadLevel(int levelIndex)
+    IEnumerator LoadLevel(string levelName)
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(levelName);
     }
 }

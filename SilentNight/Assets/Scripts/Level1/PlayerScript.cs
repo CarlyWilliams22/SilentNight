@@ -283,7 +283,7 @@ public class PlayerScript : MonoBehaviour
         //player reaches the cave and moves on to level 2
         if (collision.gameObject.tag.Equals("Finish"))
         {
-            levelLoader.LoadNextLevel();
+            levelLoader.LoadNextLevel("Level2");
         }
     }
 

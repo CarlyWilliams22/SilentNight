@@ -19762,9 +19762,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 340592436}
-        m_TargetAssemblyTypeName: Level1ManagerScript, Assembly-CSharp
-        m_MethodName: QuitToMenu
+      - m_Target: {fileID: 27856724}
+        m_TargetAssemblyTypeName: LevelLoaderScript, Assembly-CSharp
+        m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

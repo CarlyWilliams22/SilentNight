@@ -109,7 +109,7 @@ public class SoundPlayerScript : Echolocator
             //load the ending screen if the player reaches the end of the maze
             if (collision.gameObject.tag.Equals("Finish"))
             {
-                levelLoader.LoadNextLevel();
+                levelLoader.LoadNextLevel("Level3");
             }
         }
 
