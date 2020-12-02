@@ -292,7 +292,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &43558606
 AudioSource:
@@ -608,8 +608,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 115}
-  m_SizeDelta: {x: 420, y: 150}
+  m_AnchoredPosition: {x: 0, y: 21.693}
+  m_SizeDelta: {x: 139.703, y: 62.40718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &109809059
 MonoBehaviour:
@@ -644,16 +644,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Walking makes sound that the monsters can hear
-
-    Press Tab to Sneak
-
-    Press
-    c to Clap
-
-
-
-    Hit Enter to continue'
+  m_Text: Quit
 --- !u!222 &109809060
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2501,6 +2492,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2383456712658419634, guid: fc1707b106102d34bb4c000b7541a9d4, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5970697723303300869, guid: fc1707b106102d34bb4c000b7541a9d4, type: 3}
       propertyPath: m_Name
       value: LevelLoader
@@ -3046,9 +3041,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43558604}
-        m_TargetAssemblyTypeName: L2MScript, Assembly-CSharp
-        m_MethodName: QuitToMenu
+      - m_Target: {fileID: 584187930}
+        m_TargetAssemblyTypeName: LevelLoaderScript, Assembly-CSharp
+        m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4126,9 +4121,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43558604}
-        m_TargetAssemblyTypeName: L2MScript, Assembly-CSharp
-        m_MethodName: Exit
+      - m_Target: {fileID: 584187930}
+        m_TargetAssemblyTypeName: LevelLoaderScript, Assembly-CSharp
+        m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5251,9 +5246,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 43558604}
-        m_TargetAssemblyTypeName: L2MScript, Assembly-CSharp
-        m_MethodName: Reload
+      - m_Target: {fileID: 584187930}
+        m_TargetAssemblyTypeName: LevelLoaderScript, Assembly-CSharp
+        m_MethodName: LoadLevel2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5661,7 +5656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 115}
+  m_AnchoredPosition: {x: 0, y: 289}
   m_SizeDelta: {x: 420, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1972067297
@@ -5686,7 +5681,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -5697,17 +5692,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Oh no! My flashlight is out of batteries!
-
-    I can''t go back outside
-    because those monsters will get me!
-
-    Looks like I have no choice but to go
-    through the cave.
-
-
-
-    Hit Enter to continue'
+  m_Text: Paused
 --- !u!222 &1972067298
 CanvasRenderer:
   m_ObjectHideFlags: 0

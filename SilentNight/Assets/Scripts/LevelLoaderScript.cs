@@ -22,7 +22,17 @@ public class LevelLoaderScript : MonoBehaviour
     {
         StartCoroutine(LoadLevel("Level1"));
     }
-    
+
+    public void LoadLevel2()
+    {
+        StartCoroutine(LoadLevel("Level2"));
+    }
+
+    public void LoadLevel3()
+    {
+        StartCoroutine(LoadLevel("Level3"));
+    }
+
     IEnumerator LoadLevel(string levelName)
     {
         transition.SetTrigger("Start");

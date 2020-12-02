@@ -4570,9 +4570,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1793496894}
-        m_TargetAssemblyTypeName: L3MScript, Assembly-CSharp
-        m_MethodName: QuitToMenu
+      - m_Target: {fileID: 1857491486}
+        m_TargetAssemblyTypeName: LevelLoaderScript, Assembly-CSharp
+        m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
