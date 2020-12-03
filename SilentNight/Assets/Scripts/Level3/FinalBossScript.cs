@@ -12,7 +12,7 @@ public class FinalBossScript : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("ShootSnot", 2f, 2f);
+        InvokeRepeating("ShootSnot", 5f, 2f);
     }
 
     // Update is called once per frame

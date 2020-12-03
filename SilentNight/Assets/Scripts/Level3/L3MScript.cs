@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class L3MScript : MonoBehaviour
 {
     public ComboPlayerScript player;
+    public Animator playerAnimator;
     public Slider lives;
     public GameObject lhhud, rhhud, pauseMenu;
     public LevelLoaderScript levelLoader;
+    public PlayableDirector timeline;
     bool paused = false;
 
     // Start is called before the first frame update
@@ -17,36 +20,35 @@ public class L3MScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("damage", 3);
         PlayerPrefs.SetInt("hits", 0);
+        lhhud.SetActive(false);
+        rhhud.SetActive(false);
+        player.enabled = false;
+        playerAnimator.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(paused)
+        if (timeline.state != PlayState.Playing)
         {
-            Time.timeScale = 0;
-            lhhud.SetActive(false);
-            rhhud.SetActive(false);
-            pauseMenu.SetActive(true);
-
-        }
-        else
-        {
-            Time.timeScale = 1;
+            player.enabled = true;
+            playerAnimator.enabled = true;
             lhhud.SetActive(true);
             rhhud.SetActive(true);
-            pauseMenu.SetActive(false);
-        }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !paused)
-        {
-            paused = true;
-            player.pause();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && paused)
-        {
-            paused = false;
-            player.unpause();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                paused = !paused;
+            }
+
+            if (paused)
+            {
+                ActivatePauseMenu();
+            }
+            else
+            {
+                DeactivatePauseMenu();
+            }
         }
 
         lives.value = PlayerPrefs.GetInt("Lives");
@@ -65,7 +67,6 @@ public class L3MScript : MonoBehaviour
     public void Play()
     {
         paused = false;
-        player.unpause();
     }
 
     public void QuitToMenu()
@@ -73,4 +74,19 @@ public class L3MScript : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    void ActivatePauseMenu()
+    {
+        lhhud.SetActive(false);
+        rhhud.SetActive(false);
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    void DeactivatePauseMenu()
+    {
+        lhhud.SetActive(true);
+        rhhud.SetActive(true);
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
 }

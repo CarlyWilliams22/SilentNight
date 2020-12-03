@@ -77,198 +77,195 @@ public class ComboPlayerScript : Echolocator
     // Update is called once per frame
     void Update()
     {
-        if (!paused)
+
+        batteries.text = "x" + batteryNum.ToString();
+        bullets.text = "x" + bulletNum.ToString();
+
+        if (flashlightOn)
         {
+            battery.value = batteryLevel - (int)(Time.time - batteryStart);
+        }
 
-            batteries.text = "x" + batteryNum.ToString();
-            bullets.text = "x" + bulletNum.ToString();
-
-            if (flashlightOn)
+        if (battery.value == 0)
+        {
+            if (batteryNum == 0)
             {
-                battery.value = batteryLevel - (int)(Time.time - batteryStart);
-            }
-
-            if (battery.value == 0)
-            {
-                if (batteryNum == 0)
-                {
-                    flashlightDead = true;
-                    flashlight.SetActive(false);
-                }
-                else
-                {
-                    batteryNum--;
-                    NewBattery();
-                }
-
-            }
-
-            if (blinded)
-            {
-                soundwaves.SetActive(true);
+                flashlightDead = true;
                 flashlight.SetActive(false);
-                srender.enabled = false;
             }
             else
             {
-                soundwaves.SetActive(false);
-                flashlight.SetActive(flashlightOn);
-                srender.enabled = true;
-
-                //set player animation speed based on player speed
-                if (rbody.velocity == Vector2.zero)
-                {
-                    movement.speed = 0;
-                }
-                else if (running)
-                {
-                    movement.speed = .4f;
-                }
-                else if (walking)
-                {
-                    movement.speed = .3f;
-                }
-                else
-                {
-                    movement.speed = .2f;
-                }
+                batteryNum--;
+                NewBattery();
             }
 
-            if (flashlightOn && !flashlightDead)
-            {
-                batteryLevel -= Time.deltaTime;
-                if (batteryLevel <= 0)
-                {
-                    flashlightDead = true;
-                }
-            }
+        }
 
-            if (!flashlightDead)
+        if (blinded)
+        {
+            soundwaves.SetActive(true);
+            flashlight.SetActive(false);
+            srender.enabled = false;
+        }
+        else
+        {
+            soundwaves.SetActive(false);
+            flashlight.SetActive(flashlightOn);
+            srender.enabled = true;
+
+            //set player animation speed based on player speed
+            if (rbody.velocity == Vector2.zero)
             {
-                //toggle flashlight
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (flashlightOn)
-                    {
-                        flashlightOn = false;
-                        sound.PlayOneShot(flashlightOffClip);
-                        batteryLevel = battery.value;
-                    }
-                    else
-                    {
-                        batteryStart = Time.time;
-                        flashlightOn = true;
-                        sound.PlayOneShot(flashlightOnClip);
-                    }
-                    if (!flashlightDead)
-                    {
-                        flashlight.SetActive(flashlightOn);
-                    }
-                }
+                movement.speed = 0;
+            }
+            else if (running)
+            {
+                movement.speed = .4f;
+            }
+            else if (walking)
+            {
+                movement.speed = .3f;
             }
             else
             {
-                flashlight.SetActive(false);
+                movement.speed = .2f;
             }
+        }
 
-            runningH.SetActive(running);
-            walkingH.SetActive(walking);
-            sneakingH.SetActive(sneaking);
-
-            if (stamina.value < 0.00001f)
+        if (flashlightOn && !flashlightDead)
+        {
+            batteryLevel -= Time.deltaTime;
+            if (batteryLevel <= 0)
             {
-                tired = true;
+                flashlightDead = true;
             }
-            else if (Mathf.Abs(maxStamina - stamina.value) < 0.00001f)
-            {
-                tired = false;
-            }
+        }
 
-            //toggle running
-            if (Input.GetKeyDown(KeyCode.R) && !tired)
+        if (!flashlightDead)
+        {
+            //toggle flashlight
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                //walk if already running
-                if (curSpeed == runSpeed)
+                if (flashlightOn)
                 {
-                    curSpeed = walkSpeed;
-                    walking = true;
-                    running = false;
-                    sneaking = false;
+                    flashlightOn = false;
+                    sound.PlayOneShot(flashlightOffClip);
+                    batteryLevel = battery.value;
                 }
-                else //start running
+                else
                 {
-                    curSpeed = runSpeed;
-                    running = true;
-                    walking = false;
-                    sneaking = false;
+                    batteryStart = Time.time;
+                    flashlightOn = true;
+                    sound.PlayOneShot(flashlightOnClip);
+                }
+                if (!flashlightDead)
+                {
+                    flashlight.SetActive(flashlightOn);
                 }
             }
+        }
+        else
+        {
+            flashlight.SetActive(false);
+        }
 
-            if (tired)
+        runningH.SetActive(running);
+        walkingH.SetActive(walking);
+        sneakingH.SetActive(sneaking);
+
+        if (stamina.value < 0.00001f)
+        {
+            tired = true;
+        }
+        else if (Mathf.Abs(maxStamina - stamina.value) < 0.00001f)
+        {
+            tired = false;
+        }
+
+        //toggle running
+        if (Input.GetKeyDown(KeyCode.R) && !tired)
+        {
+            //walk if already running
+            if (curSpeed == runSpeed)
             {
                 curSpeed = walkSpeed;
                 walking = true;
                 running = false;
                 sneaking = false;
             }
-
-            //toggle sneaking
-            if (Input.GetKeyDown(KeyCode.Tab))
+            else //start running
             {
-                //walk if already sneaking
-                if (curSpeed == sneakSpeed)
-                {
-                    curSpeed = walkSpeed;
-                    walking = true;
-                    sneaking = false;
-                    running = false;
-                }
-                else //start sneaking
-                {
-                    curSpeed = sneakSpeed;
-                    walking = false;
-                    sneaking = true;
-                    running = false;
-                }
+                curSpeed = runSpeed;
+                running = true;
+                walking = false;
+                sneaking = false;
             }
+        }
 
+        if (tired)
+        {
+            curSpeed = walkSpeed;
+            walking = true;
+            running = false;
+            sneaking = false;
+        }
 
-
-
-            //sync player footsteps to player animation
-            if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3")
+        //toggle sneaking
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            //walk if already sneaking
+            if (curSpeed == sneakSpeed)
             {
-                lastSprite = "PlayerSpriteSheet_1";
-                sound.PlayOneShot(footstep);
+                curSpeed = walkSpeed;
+                walking = true;
+                sneaking = false;
+                running = false;
             }
-            if (srender.sprite.name == "PlayerSpriteSheet_3" && lastSprite == "PlayerSpriteSheet_1")
+            else //start sneaking
             {
-                lastSprite = "PlayerSpriteSheet_3";
-                sound.PlayOneShot(footstep);
+                curSpeed = sneakSpeed;
+                walking = false;
+                sneaking = true;
+                running = false;
             }
+        }
 
-            //make the player face the mouse position
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 center = transform.position + new Vector3(-.15f, -.0005f, 0);
-            Vector2 diff = mousePos - center;
-            //transform.up = diff;
-            Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, dest, 5 * Time.deltaTime);
 
-            //clap when left mouse button is clicked and player is not already clapping
-            if (!clap.isPlaying)
+
+
+        //sync player footsteps to player animation
+        if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3")
+        {
+            lastSprite = "PlayerSpriteSheet_1";
+            sound.PlayOneShot(footstep);
+        }
+        if (srender.sprite.name == "PlayerSpriteSheet_3" && lastSprite == "PlayerSpriteSheet_1")
+        {
+            lastSprite = "PlayerSpriteSheet_3";
+            sound.PlayOneShot(footstep);
+        }
+
+        //make the player face the mouse position
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 center = transform.position + new Vector3(-.15f, -.0005f, 0);
+        Vector2 diff = mousePos - center;
+        //transform.up = diff;
+        Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, dest, 5 * Time.deltaTime);
+
+        //clap when left mouse button is clicked and player is not already clapping
+        if (!clap.isPlaying)
+        {
+            if (Input.GetKeyDown(KeyCode.C))
             {
-                if (Input.GetKeyDown(KeyCode.C))
-                {
-                    sound.PlayOneShot(clapSound);
-                    clap.Play();
-                }
+                sound.PlayOneShot(clapSound);
+                clap.Play();
             }
+        }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0) && (bulletNum != 0))
-            {
-                ShootGun();
-            }
+        if (Input.GetKeyDown(KeyCode.Mouse0) && (bulletNum != 0))
+        {
+            ShootGun();
         }
     }
 
@@ -341,15 +338,5 @@ public class ComboPlayerScript : Echolocator
     {
         batteryStart = Time.time;
         batteryLevel = 30;
-    }
-
-    public void pause()
-    {
-        paused = true;
-    }
-
-    public void unpause()
-    {
-        paused = false;
     }
 }
