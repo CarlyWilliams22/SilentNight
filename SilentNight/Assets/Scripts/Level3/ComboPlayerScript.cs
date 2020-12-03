@@ -265,6 +265,7 @@ public class ComboPlayerScript : Echolocator
             ShootGun();
         }
     }
+
     private void FixedUpdate()
     {
 

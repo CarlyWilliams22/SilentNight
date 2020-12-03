@@ -9,7 +9,7 @@ public class L2MScript : MonoBehaviour
     public GameObject gameOverCanvas, openingDialog, monster1, monster2, lhhud, rhhud, pauseMenu;
     public Text openingDialogText, instructionText;
     public SoundPlayerScript player;
-    bool paused = false;
+    bool paused, once = false;
     public Slider lives;
 
     // Update is called once per frame
@@ -18,28 +18,29 @@ public class L2MScript : MonoBehaviour
 
         if (paused)
         {
-            Time.timeScale = 0;
-            lhhud.SetActive(false);
-            rhhud.SetActive(false);
-            pauseMenu.SetActive(true);
+            if (!once)
+            {
+                once = true;
+                player.enabled = false;
+                Time.timeScale = 0;
+                lhhud.SetActive(false);
+                rhhud.SetActive(false);
+                pauseMenu.SetActive(true);
+            }
         }
-        else if(!paused && !openingDialog.active)
+        else
         {
+            once = false;
+            player.enabled = true;
             Time.timeScale = 1;
             lhhud.SetActive(true);
             rhhud.SetActive(true);
             pauseMenu.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !paused)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            paused = true;
-            player.pause();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && paused)
-        {
-            paused = false;
-            player.unpause();
+            paused = !paused;
         }
 
         lives.value = PlayerPrefs.GetInt("Lives");
@@ -70,7 +71,6 @@ public class L2MScript : MonoBehaviour
                 monster1.SetActive(true);
                 monster2.SetActive(true);
             }
-            
         }
     }
 
@@ -98,11 +98,5 @@ public class L2MScript : MonoBehaviour
     public void Play()
     {
         paused = false;
-        player.unpause();
-    }
-
-    public void QuitToMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 }

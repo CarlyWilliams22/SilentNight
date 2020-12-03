@@ -13,7 +13,7 @@ public class L3MScript : MonoBehaviour
     public GameObject lhhud, rhhud, pauseMenu;
     public LevelLoaderScript levelLoader;
     public PlayableDirector timeline;
-    bool paused = false;
+    bool paused, once, setup = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +31,14 @@ public class L3MScript : MonoBehaviour
     {
         if (timeline.state != PlayState.Playing)
         {
-            player.enabled = true;
-            playerAnimator.enabled = true;
-            lhhud.SetActive(true);
-            rhhud.SetActive(true);
+            if (!setup)
+            {
+                setup = true;
+                player.enabled = true;
+                playerAnimator.enabled = true;
+                lhhud.SetActive(true);
+                rhhud.SetActive(true);
+            }
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -43,11 +47,24 @@ public class L3MScript : MonoBehaviour
 
             if (paused)
             {
-                ActivatePauseMenu();
+                if (!once)
+                {
+                    once = true;
+                    lhhud.SetActive(false);
+                    rhhud.SetActive(false);
+                    pauseMenu.SetActive(true);
+                    player.enabled = false;
+                    Time.timeScale = 0;
+                }
             }
             else
             {
-                DeactivatePauseMenu();
+                once = false;
+                lhhud.SetActive(true);
+                rhhud.SetActive(true);
+                pauseMenu.SetActive(false);
+                player.enabled = true;
+                Time.timeScale = 1;
             }
         }
 
@@ -67,26 +84,5 @@ public class L3MScript : MonoBehaviour
     public void Play()
     {
         paused = false;
-    }
-
-    public void QuitToMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-    void ActivatePauseMenu()
-    {
-        lhhud.SetActive(false);
-        rhhud.SetActive(false);
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0;
-    }
-
-    void DeactivatePauseMenu()
-    {
-        lhhud.SetActive(true);
-        rhhud.SetActive(true);
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1;
     }
 }
