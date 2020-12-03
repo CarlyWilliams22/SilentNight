@@ -15,6 +15,7 @@ public class LevelLoaderScript : MonoBehaviour
 
     public void LoadMenu()
     {
+        Time.timeScale = 1;
         StartCoroutine(LoadLevel("MainMenu"));
     }
 

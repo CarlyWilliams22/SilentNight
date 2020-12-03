@@ -9,12 +9,13 @@ public class Level1ManagerScript : MonoBehaviour
 {
     public GameObject gameOverCanvas, m1, m2, m3;
     public PlayerScript player;
+    public Animator playerAnimator;
     bool deadDeer, bridge, blockade;
     public Text beginningText, InstructionsText, Instructions2Text, Instructions3Text;
     public Text deadDeerText, bridgeText, bridgeReminderText;
     public Slider lives;
     public GameObject textbox, lhhud, rhhud, pauseMenu;
-    bool bridgeDeath, faded, paused = false;
+    bool bridgeDeath, faded, paused, dialog, once = false;
     public GameObject caveBlockade;
 
     // Start is called before the first frame update
@@ -23,14 +24,19 @@ public class Level1ManagerScript : MonoBehaviour
         deadDeer = bridge = blockade = false; //Keep track of what area has been visited
         bridgeDeath = false; //Tracks if player has died from falling of the bridge
         gameOverCanvas.SetActive(false); //Hide the death screen
-
+        player.enabled = false;
+        playerAnimator.enabled = false;
 
         //only show the beginning dialog if first time
         if (PlayerPrefs.GetInt("Lives") == 5)
         {
-            //Time.timeScale = 0;
+            dialog = true;
             beginningText.gameObject.SetActive(true); //Show the opening dialog and instructions
             textbox.SetActive(true); //Background red box for dialog
+        } else
+        {
+            player.enabled = true;
+            playerAnimator.enabled = true;
         }
 
         //don't block path to caves if player visited bridge on previous life
@@ -57,32 +63,32 @@ public class Level1ManagerScript : MonoBehaviour
             m2.SetActive(true);
             m3.SetActive(true);
 
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                paused = !paused;
+            }
 
             if (paused)
             {
-                lhhud.SetActive(false);
-                rhhud.SetActive(false);
-                pauseMenu.SetActive(true);
-
-            }
-            else
+                if (!once)
+                {
+                    once = true;
+                    Time.timeScale = 0;
+                    player.enabled = false;
+                    lhhud.SetActive(false);
+                    rhhud.SetActive(false);
+                    pauseMenu.SetActive(true);
+                }
+            } else
             {
+                once = false;
+                Time.timeScale = 1;
+                if (!dialog)
+                {
+                    player.enabled = true;
+                }
                 lhhud.SetActive(true);
                 rhhud.SetActive(true);
                 pauseMenu.SetActive(false);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Escape) && !paused)
-            {
-                Time.timeScale = 0;
-                paused = true;
-                player.pause();
-            }
-            else if (Input.GetKeyDown(KeyCode.Escape) && paused)
-            {
-                Time.timeScale = 1;
-                paused = false;
-                player.unpause();
             }
 
             lives.value = PlayerPrefs.GetInt("Lives");
@@ -168,6 +174,9 @@ public class Level1ManagerScript : MonoBehaviour
                     deadDeerText.gameObject.SetActive(false);
                     bridgeReminderText.gameObject.SetActive(false);
                     textbox.SetActive(false);
+                    player.enabled = true;
+                    playerAnimator.enabled = true;
+                    dialog = false;
                     Time.timeScale = 1;
                 }
 
@@ -180,21 +189,6 @@ public class Level1ManagerScript : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-    public void RetryLevel()
-    {
-        SceneManager.LoadScene("Level1");
-    }
-
-    public void nextLevel()
-    {
-        SceneManager.LoadScene("Level2");
-    }
-
     public void deathByBridge()
     {
         bridgeDeath = true;
@@ -203,12 +197,6 @@ public class Level1ManagerScript : MonoBehaviour
     public void Play()
     {
         paused = false;
-        player.unpause();
-    }
-
-    public void QuitToMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 
     void waitForFade()

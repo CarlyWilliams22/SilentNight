@@ -71,151 +71,146 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!paused)
+ 
+        batteries.text = "x" + batteryNum.ToString();
+
+        if (flashlightOn)
         {
+            battery.value = batteryLevel - (int)(Time.time - batteryStart);
+        }
 
-            batteries.text = "x" + batteryNum.ToString();
-
-            if (flashlightOn)
+        if (battery.value == 0)
+        {
+            if (batteryNum == 0)
             {
-                battery.value = batteryLevel - (int)(Time.time - batteryStart);
+                flashlightDead = true;
+                flashlight.SetActive(false);
+            }
+            else
+            {
+                batteryNum--;
+                NewBattery();
             }
 
-            if (battery.value == 0)
+        }
+
+        //toggle flashlight
+        if (!flashlightDead)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (batteryNum == 0)
+                if (flashlightOn)
                 {
-                    flashlightDead = true;
-                    flashlight.SetActive(false);
+                    flashlightOn = false;
+                    sound.PlayOneShot(flashlightOffClip);
+                    batteryLevel = battery.value;
                 }
                 else
                 {
-                    batteryNum--;
-                    NewBattery();
+                    batteryStart = Time.time;
+                    flashlightOn = true;
+                    sound.PlayOneShot(flashlightOnClip);
                 }
-
+                flashlight.SetActive(flashlightOn);
             }
+        }
 
-            //toggle flashlight
-            if (!flashlightDead)
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (flashlightOn)
-                    {
-                        flashlightOn = false;
-                        sound.PlayOneShot(flashlightOffClip);
-                        batteryLevel = battery.value;
-                    }
-                    else
-                    {
-                        batteryStart = Time.time;
-                        flashlightOn = true;
-                        sound.PlayOneShot(flashlightOnClip);
-                    }
-                    flashlight.SetActive(flashlightOn);
-                }
-            }
+        runningH.SetActive(running);
+        walkingH.SetActive(walking);
+        sneakingH.SetActive(sneaking);
 
-            runningH.SetActive(running);
-            walkingH.SetActive(walking);
-            sneakingH.SetActive(sneaking);
+        if (stamina.value < 0.00001f)
+        {
+            tired = true;
+        }
+        else if (Mathf.Abs(maxStamina - stamina.value) < 0.00001f)
+        {
+            tired = false;
+        }
 
-
-            if (stamina.value < 0.00001f)
-            {
-                tired = true;
-            }
-            else if (Mathf.Abs(maxStamina - stamina.value) < 0.00001f)
-            {
-                tired = false;
-            }
-
-            //toggle running
-            if (Input.GetKeyDown(KeyCode.R) && !tired)
-            {
-                //walk if already running
-                if (curSpeed == runSpeed)
-                {
-                    curSpeed = walkSpeed;
-                    walking = true;
-                    running = false;
-                    sneaking = false;
-                }
-                else //start running
-                {
-                    curSpeed = runSpeed;
-                    running = true;
-                    walking = false;
-                    sneaking = false;
-                }
-            }
-
-            if (tired)
+        //toggle running
+        if (Input.GetKeyDown(KeyCode.R) && !tired)
+        {
+            //walk if already running
+            if (curSpeed == runSpeed)
             {
                 curSpeed = walkSpeed;
                 walking = true;
                 running = false;
                 sneaking = false;
             }
-
-            //toggle sneaking
-            if (Input.GetKeyDown(KeyCode.Tab))
+            else //start running
             {
-                //walk if already sneaking
-                if (curSpeed == sneakSpeed)
-                {
-                    curSpeed = walkSpeed;
-                    walking = true;
-                    sneaking = false;
-                    running = false;
-                }
-                else //start sneaking
-                {
-                    curSpeed = sneakSpeed;
-                    walking = false;
-                    sneaking = true;
-                    running = false;
-                }
+                curSpeed = runSpeed;
+                running = true;
+                walking = false;
+                sneaking = false;
             }
-
-            //set player animation speed based on player speed
-            if (rbody.velocity == Vector2.zero)
-            {
-                movement.speed = 0;
-            }
-            else if (running)
-            {
-                movement.speed = .4f;
-            }
-            else if (walking)
-            {
-                movement.speed = .3f;
-            }
-            else
-            {
-                movement.speed = .2f;
-            }
-
-            //sync player footsteps to player animation
-            if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3")
-            {
-                lastSprite = "PlayerSpriteSheet_1";
-                sound.PlayOneShot(footstep);
-            }
-            if (srender.sprite.name == "PlayerSpriteSheet_3" && lastSprite == "PlayerSpriteSheet_1")
-            {
-                lastSprite = "PlayerSpriteSheet_3";
-                sound.PlayOneShot(footstep);
-            }
-
-            //make the player face the mouse position
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 diff = mousePos - transform.position;
-            //transform.up = diff;
-            Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
-            transform.rotation = Quaternion.Slerp(transform.rotation, dest, 6 * Time.deltaTime);
         }
+
+        if (tired)
+        {
+            curSpeed = walkSpeed;
+            walking = true;
+            running = false;
+            sneaking = false;
+        }
+
+        //toggle sneaking
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            //walk if already sneaking
+            if (curSpeed == sneakSpeed)
+            {
+                curSpeed = walkSpeed;
+                walking = true;
+                sneaking = false;
+                running = false;
+            }
+            else //start sneaking
+            {
+                curSpeed = sneakSpeed;
+                walking = false;
+                sneaking = true;
+                running = false;
+            }
+        }
+
+        //set player animation speed based on player speed
+        if (rbody.velocity == Vector2.zero)
+        {
+            movement.speed = 0;
+        }
+        else if (running)
+        {
+            movement.speed = .4f;
+        }
+        else if (walking)
+        {
+            movement.speed = .3f;
+        }
+        else
+        {
+            movement.speed = .2f;
+        }
+
+        //sync player footsteps to player animation
+        if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3")
+        {
+            lastSprite = "PlayerSpriteSheet_1";
+            sound.PlayOneShot(footstep);
+        }
+        if (srender.sprite.name == "PlayerSpriteSheet_3" && lastSprite == "PlayerSpriteSheet_1")
+        {
+            lastSprite = "PlayerSpriteSheet_3";
+            sound.PlayOneShot(footstep);
+        }
+
+        //make the player face the mouse position
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 diff = mousePos - transform.position;
+        Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, dest, 6 * Time.deltaTime);
     }
 
     private void FixedUpdate()
@@ -255,13 +250,11 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-
     private void LateUpdate()
     {
         //camera follows the player
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y - 1, -10);
     }
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -291,15 +284,5 @@ public class PlayerScript : MonoBehaviour
     {
         batteryStart = Time.time;
         batteryLevel = 30;
-    }
-
-    public void pause()
-    {
-        paused = true;
-    }
-
-    public void unpause()
-    {
-        paused = false;
     }
 }

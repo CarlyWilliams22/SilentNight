@@ -230,9 +230,6 @@ public class ComboPlayerScript : Echolocator
             }
         }
 
-
-
-
         //sync player footsteps to player animation
         if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3")
         {
@@ -268,7 +265,6 @@ public class ComboPlayerScript : Echolocator
             ShootGun();
         }
     }
-
     private void FixedUpdate()
     {
 
