@@ -68,3 +68,6 @@ TagManager:
   - name: PauseMenu
     uniqueID: 1930586091
     locked: 0
+  - name: Achievements
+    uniqueID: 389601207
+    locked: 0

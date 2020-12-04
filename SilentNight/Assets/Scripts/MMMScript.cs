@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MMMScript : MonoBehaviour
 {
-    public GameObject titleCanvas, instructionsCanvas, achievementsCanvas;
+    public GameObject titleCanvas, instructionsCanvas, achievementsCanvas, trophyRoom;
 
     // Start is called before the first frame update
     //game starts with menu up and instructions down
@@ -42,6 +42,7 @@ public class MMMScript : MonoBehaviour
     {
         titleCanvas.SetActive(false);
         achievementsCanvas.SetActive(true);
+        trophyRoom.SetActive(true);
     }
 
 
@@ -56,6 +57,7 @@ public class MMMScript : MonoBehaviour
     {
         instructionsCanvas.SetActive(false);
         achievementsCanvas.SetActive(false);
+        trophyRoom.SetActive(false);
         titleCanvas.SetActive(true);
     }
 }

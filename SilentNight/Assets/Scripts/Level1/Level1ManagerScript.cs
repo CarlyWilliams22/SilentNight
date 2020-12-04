@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Level1ManagerScript : MonoBehaviour
 {
-    public GameObject gameOverCanvas, m1, m2, m3;
+    public GameObject gameOverCanvas, m1, m2, m3, achievementBox, achievement4txt, achievement5txt;
     public LightPlayerScript player;
     public Animator playerAnimator;
     bool deadDeer, bridge, blockade;
@@ -21,6 +21,10 @@ public class Level1ManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //TODO remove these when done testing achievements
+        PlayerPrefs.SetInt("Trophy4", 0);
+        PlayerPrefs.SetInt("Trophy5", 0);
+
         deadDeer = bridge = blockade = false; //Keep track of what area has been visited
         bridgeDeath = false; //Tracks if player has died from falling of the bridge
         gameOverCanvas.SetActive(false); //Hide the death screen
@@ -84,7 +88,10 @@ public class Level1ManagerScript : MonoBehaviour
                 Time.timeScale = 1;
                 if (!dialog)
                 {
-                    player.enabled = true;
+                    if (player)
+                    {
+                        player.enabled = true;
+                    }
                 }
                 lhhud.SetActive(true);
                 rhhud.SetActive(true);
@@ -128,6 +135,13 @@ public class Level1ManagerScript : MonoBehaviour
                         Time.timeScale = 0;
                         deadDeerText.gameObject.SetActive(true);
                         deadDeer = true;
+                        if (PlayerPrefs.GetInt("Trophy4") == 0)
+                        {
+                            PlayerPrefs.SetInt("Trophy4", 1);
+                            achievementBox.SetActive(true);
+                            achievement4txt.SetActive(true);
+                            Invoke("resetBox", 3);
+                        }
                     }
 
                     //Remind the player to visit the bridge first
@@ -192,6 +206,13 @@ public class Level1ManagerScript : MonoBehaviour
     public void deathByBridge()
     {
         bridgeDeath = true;
+        if (PlayerPrefs.GetInt("Trophy5") == 0)
+        {
+            PlayerPrefs.SetInt("Trophy5", 1);
+            achievementBox.SetActive(true);
+            achievement5txt.SetActive(true);
+            Invoke("resetBox", 3);
+        }
     }
 
     public void Play()
@@ -203,5 +224,10 @@ public class Level1ManagerScript : MonoBehaviour
     {
         faded = true;
         Time.timeScale = 0;
+    }
+
+    void resetBox()
+    {
+        achievementBox.SetActive(false);
     }
 }

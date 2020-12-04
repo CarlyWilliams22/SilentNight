@@ -6,15 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class L2MScript : MonoBehaviour
 {
-    public GameObject gameOverCanvas, openingDialog, monster1, monster2, lhhud, rhhud, pauseMenu;
+    public GameObject gameOverCanvas, openingDialog, monster1, monster2, lhhud, rhhud, pauseMenu, achievementBox, achievement1txt;
     public Text openingDialogText, instructionText;
     public SoundPlayerScript player;
     bool paused, once = false;
     public Slider lives;
 
+    //TODO remove when done testing
+    private void Start()
+    {
+        PlayerPrefs.SetInt("Trophy1", 0);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(PlayerPrefs.GetInt("Trophy1") == 0)
+        {
+            PlayerPrefs.SetInt("Trophy1", 1);
+            achievementBox.SetActive(true);
+            achievement1txt.SetActive(true);
+        }
 
         if (paused)
         {
