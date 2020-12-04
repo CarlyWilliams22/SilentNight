@@ -253,7 +253,7 @@ public class LightPlayerScript : MonoBehaviour
     private void LateUpdate()
     {
         //camera follows the player
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y - 1, -10);
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

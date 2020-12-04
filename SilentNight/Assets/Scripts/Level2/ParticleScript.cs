@@ -7,7 +7,7 @@ public class ParticleScript : MonoBehaviour
 {
     ParticleSystem soundWaves;
     ParticleSystem.MainModule main;
-    Echolocator player;
+    public Echolocator player;
     AudioSource audioSource;
 
     bool walkOnce, sneakOnce, playOnce = false;
@@ -19,13 +19,13 @@ public class ParticleScript : MonoBehaviour
         soundWaves = GetComponent<ParticleSystem>();
         main = soundWaves.main;
 
-        if (SceneManager.GetActiveScene().name.Equals("Level2")){
+      /*  if (SceneManager.GetActiveScene().name.Equals("Level2")){
             player = transform.parent.GetComponent<SoundPlayerScript>();
         }
         else
         {
             player = transform.parent.GetComponent<ComboPlayerScript>();
-        }
+        }*/
         soundWaves.Stop();
     }
 

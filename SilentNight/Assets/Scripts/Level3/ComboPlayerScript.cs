@@ -37,7 +37,7 @@ public class ComboPlayerScript : Echolocator
     public AudioClip flashlightOffClip;
 
     SpriteRenderer srender;
-    string lastSprite = "PlayerSpriteSheet_3";
+    string lastSprite = "PlayerWithGunSpriteSheet_2";
     public AudioClip footstep;
 
     public bool blinded = false;
@@ -231,14 +231,14 @@ public class ComboPlayerScript : Echolocator
         }
 
         //sync player footsteps to player animation
-        if (srender.sprite.name == "PlayerSpriteSheet_1" && lastSprite == "PlayerSpriteSheet_3")
+        if (srender.sprite.name == "PlayerWithGunSpriteSheet_1" && lastSprite == "PlayerWithGunSpriteSheet_2")
         {
-            lastSprite = "PlayerSpriteSheet_1";
+            lastSprite = "PlayerWithGunSpriteSheet_1";
             sound.PlayOneShot(footstep);
         }
-        if (srender.sprite.name == "PlayerSpriteSheet_3" && lastSprite == "PlayerSpriteSheet_1")
+        if (srender.sprite.name == "PlayerWithGunSpriteSheet_2" && lastSprite == "PlayerWithGunSpriteSheet_1")
         {
-            lastSprite = "PlayerSpriteSheet_3";
+            lastSprite = "PlayerWithGunSpriteSheet_2";
             sound.PlayOneShot(footstep);
         }
 
