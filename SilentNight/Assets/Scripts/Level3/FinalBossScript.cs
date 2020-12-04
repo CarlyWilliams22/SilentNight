@@ -9,9 +9,12 @@ public class FinalBossScript : MonoBehaviour
     public int snotSpeed = 5;
 
     Animator animator;
+    public AudioSource audio;
+    public AudioClip death;
 
     private void Start()
     {
+        audio = GetComponent<AudioSource>();
         InvokeRepeating("ShootSnot", 5f, 2f);
     }
 

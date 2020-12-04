@@ -14,7 +14,8 @@ public class L3MScript : MonoBehaviour
     public LevelLoaderScript levelLoader;
     public PlayableDirector timeline;
     public AudioClip achievement;
-    bool paused, once, setup = false;
+    public FinalBossScript boss;
+    bool paused, once, setup, playOnce = false;
 
     // Start is called before the first frame update
     void Start()
@@ -87,8 +88,11 @@ public class L3MScript : MonoBehaviour
             levelLoader.LoadNextLevel("Level3");
         }
 
-        if(PlayerPrefs.GetInt("hits") >= 3)
+        if(PlayerPrefs.GetInt("hits") >= 3 && !playOnce)
         {
+            playOnce = true;
+            boss.CancelInvoke();    //Stop shooting cuz its dead
+            boss.audio.PlayOneShot(boss.death);
             levelLoader.LoadNextLevel("EndScene");
         }
     }
