@@ -11,6 +11,7 @@ public class L2MScript : MonoBehaviour
     public SoundPlayerScript player;
     bool paused, once = false;
     public Slider lives;
+    public AudioClip achievement;
 
     //TODO remove when done testing
     private void Start()
@@ -26,6 +27,7 @@ public class L2MScript : MonoBehaviour
             PlayerPrefs.SetInt("Trophy1", 1);
             achievementBox.SetActive(true);
             achievement1txt.SetActive(true);
+            GetComponent<AudioSource>().PlayOneShot(achievement);
         }
 
         if (paused)

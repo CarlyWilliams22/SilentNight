@@ -17,6 +17,7 @@ public class Level1ManagerScript : MonoBehaviour
     public GameObject textbox, lhhud, rhhud, pauseMenu;
     bool bridgeDeath, faded, paused, dialog, once = false;
     public GameObject caveBlockade;
+    public AudioClip achievement;
 
     // Start is called before the first frame update
     void Start()
@@ -140,6 +141,7 @@ public class Level1ManagerScript : MonoBehaviour
                             PlayerPrefs.SetInt("Trophy4", 1);
                             achievementBox.SetActive(true);
                             achievement4txt.SetActive(true);
+                            GetComponent<AudioSource>().PlayOneShot(achievement);
                             Invoke("resetBox", 3);
                         }
                     }
@@ -211,6 +213,7 @@ public class Level1ManagerScript : MonoBehaviour
             PlayerPrefs.SetInt("Trophy5", 1);
             achievementBox.SetActive(true);
             achievement5txt.SetActive(true);
+            GetComponent<AudioSource>().PlayOneShot(achievement);
             Invoke("resetBox", 3);
         }
     }

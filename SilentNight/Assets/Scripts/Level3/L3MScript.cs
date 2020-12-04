@@ -13,6 +13,7 @@ public class L3MScript : MonoBehaviour
     public GameObject lhhud, rhhud, pauseMenu, achievementBox, achievement2txt;
     public LevelLoaderScript levelLoader;
     public PlayableDirector timeline;
+    public AudioClip achievement;
     bool paused, once, setup = false;
 
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class L3MScript : MonoBehaviour
             PlayerPrefs.SetInt("Trophy2", 1);
             achievementBox.SetActive(true);
             achievement2txt.SetActive(true);
+            GetComponent<AudioSource>().PlayOneShot(achievement);
         }
     }
 
