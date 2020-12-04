@@ -3310,6 +3310,7 @@ MonoBehaviour:
   rhhud: {fileID: 558438473}
   pauseMenu: {fileID: 1042337634}
   caveBlockade: {fileID: 716165346}
+  lls: {fileID: 27856724}
 --- !u!4 &340592437
 Transform:
   m_ObjectHideFlags: 0
