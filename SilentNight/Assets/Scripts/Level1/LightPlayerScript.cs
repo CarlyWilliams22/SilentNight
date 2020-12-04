@@ -5,7 +5,7 @@ using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerScript : MonoBehaviour
+public class LightPlayerScript : MonoBehaviour
 {
     Rigidbody2D rbody;
     public LevelLoaderScript levelLoader;
@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour
     AudioSource sound;
     public AudioClip flashlightOnClip;
     public AudioClip flashlightOffClip;
-
+    
 
     SpriteRenderer srender;
     string lastSprite = "PlayerSpriteSheet_3";

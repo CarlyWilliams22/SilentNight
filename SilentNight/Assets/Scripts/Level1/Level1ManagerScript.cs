@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Level1ManagerScript : MonoBehaviour
 {
     public GameObject gameOverCanvas, m1, m2, m3;
-    public PlayerScript player;
+    public LightPlayerScript player;
     public Animator playerAnimator;
     bool deadDeer, bridge, blockade;
     public Text beginningText, InstructionsText, Instructions2Text, Instructions3Text;

@@ -7,7 +7,7 @@ using Pathfinding;
 public class LightMonsterScript : MonoBehaviour
 {
     private AIDestinationSetter destinationScript;
-    public PlayerScript playerLocation;
+    public LightPlayerScript playerLocation;
     Transform runAwayLocation;
     public bool chasing = false;
     public bool runningAway = false;
