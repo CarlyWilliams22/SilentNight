@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class SoundPlayerScript : Echolocator
 {
     Rigidbody2D rbody;
-    public ParticleSystem particleSystem;
+    public ParticleSystem clap;
     ParticleSystem.MainModule clapping;
     AudioSource audioSource;
     public AudioClip clapSound;
@@ -26,7 +26,7 @@ public class SoundPlayerScript : Echolocator
         audioSource = GetComponent<AudioSource>();
         rbody = GetComponent<Rigidbody2D>();
         curSpeed = walkSpeed; //start out walking
-        clapping = particleSystem.main;
+        clapping = clap.main;
 
         running = sneaking = false;
         walking = true;
@@ -54,23 +54,21 @@ public class SoundPlayerScript : Echolocator
             }
         }
 
-        //clap when left mouse button is clicked and player is not already clapping
-        if (!particleSystem.isPlaying)
-        {
-            if (Input.GetKeyDown(KeyCode.C))
-                //clap when left mouse button is clicked and player is not already clapping
-                if (!particleSystem.isPlaying)
-                {
-                    if (Input.GetKeyDown(KeyCode.Mouse0))
-                    {
-                        audioSource.PlayOneShot(clapSound);
-                        particleSystem.Play();
-                    }
-                }
+        walkingH.SetActive(walking);
+        sneakingH.SetActive(sneaking);
 
-            walkingH.SetActive(walking);
-            sneakingH.SetActive(sneaking);
+        //clap when left mouse button is clicked and player is not already clapping
+        if (!clap.isPlaying)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                audioSource.PlayOneShot(clapSound);
+                clap.Play();
+
+            }
         }
+
+        
     }
 
     // Update is called once per frame

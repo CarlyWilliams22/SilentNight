@@ -144,7 +144,7 @@ public class ComboPlayerScript : Echolocator
         if (!flashlightDead)
         {
             //toggle flashlight
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 if (flashlightOn)
                 {
@@ -253,7 +253,7 @@ public class ComboPlayerScript : Echolocator
         //clap when left mouse button is clicked and player is not already clapping
         if (!clap.isPlaying)
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 sound.PlayOneShot(clapSound);
                 clap.Play();

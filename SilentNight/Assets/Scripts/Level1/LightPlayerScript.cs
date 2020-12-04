@@ -97,7 +97,7 @@ public class LightPlayerScript : MonoBehaviour
         //toggle flashlight
         if (!flashlightDead)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 if (flashlightOn)
                 {
@@ -157,7 +157,7 @@ public class LightPlayerScript : MonoBehaviour
         }
 
         //toggle sneaking
-        if (Input.GetKeyDown(KeyCode.Tab))
+        /*if (Input.GetKeyDown(KeyCode.Tab))
         {
             //walk if already sneaking
             if (curSpeed == sneakSpeed)
@@ -175,7 +175,7 @@ public class LightPlayerScript : MonoBehaviour
                 running = false;
             }
         }
-
+        */
         //set player animation speed based on player speed
         if (rbody.velocity == Vector2.zero)
         {

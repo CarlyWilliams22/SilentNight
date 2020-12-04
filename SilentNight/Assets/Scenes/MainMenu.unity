@@ -7098,26 +7098,30 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.05
-  m_Text: 'Level 1:
+  m_Text: 'Use WASD to move
 
 
-    Use WASD to move
+    Level 1:
 
-    R to run and tab to sneak
+    R to run
 
-    Left
-    Click to toggle flashlight
+    Right click to toggle
+    flashlight
 
 
     Level 2:
 
+    Tab to sneak
 
-    Use WASD to move
+    Space to clap
 
-    Tab to
-    sneak
 
-    Left Click to clap'
+    Level 3:
+
+    Left
+    click to shoot
+
+'
 --- !u!222 &2125850441
 CanvasRenderer:
   m_ObjectHideFlags: 0
