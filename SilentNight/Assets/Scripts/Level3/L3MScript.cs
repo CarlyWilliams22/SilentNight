@@ -10,7 +10,7 @@ public class L3MScript : MonoBehaviour
     public ComboPlayerScript player;
     public Animator playerAnimator;
     public Slider lives;
-    public GameObject lhhud, rhhud, pauseMenu;
+    public GameObject lhhud, rhhud, pauseMenu, achievementBox, achievement2txt;
     public LevelLoaderScript levelLoader;
     public PlayableDirector timeline;
     bool paused, once, setup = false;
@@ -18,12 +18,22 @@ public class L3MScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //TODO remove when done testing
+        PlayerPrefs.SetInt("Trophy2", 0);
+
         PlayerPrefs.SetInt("damage", 3);
         PlayerPrefs.SetInt("hits", 0);
         lhhud.SetActive(false);
         rhhud.SetActive(false);
         player.enabled = false;
         playerAnimator.enabled = false;
+
+        if (PlayerPrefs.GetInt("Trophy2") == 0)
+        {
+            PlayerPrefs.SetInt("Trophy2", 1);
+            achievementBox.SetActive(true);
+            achievement2txt.SetActive(true);
+        }
     }
 
     // Update is called once per frame
