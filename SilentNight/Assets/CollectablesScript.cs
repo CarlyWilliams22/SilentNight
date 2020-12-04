@@ -7,6 +7,8 @@ public class CollectablesScript : MonoBehaviour
     Animator animator;
     public GameObject soundPlayer;
     public GameObject comboPlayer;
+    public GameObject boss;
+    public GameObject timeline;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +28,9 @@ public class CollectablesScript : MonoBehaviour
         {
             soundPlayer.SetActive(false);
             comboPlayer.transform.position = soundPlayer.transform.position;
-            //change camera background color? How to do this?
             comboPlayer.SetActive(true);
+          //  boss.SetActive(true);
+           // timeline.SetActive(true);
             Destroy(gameObject);
         }
     }

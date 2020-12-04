@@ -790,7 +790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!320 &297482294
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -801,7 +801,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: b7a4bb514a88e5d40858be07a5a51489, type: 2}
-  m_InitialState: 0
+  m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -3012,6 +3012,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundPlayer: {fileID: 100189770}
   comboPlayer: {fileID: 6616968642432209489}
+  boss: {fileID: 430001475}
+  timeline: {fileID: 297482293}
 --- !u!95 &724367510
 Animator:
   serializedVersion: 3
