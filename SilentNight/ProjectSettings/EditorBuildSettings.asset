@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2.unity
     guid: 95859f9cd6e4ce64e8280217545809c6
   - enabled: 1
+    path: Assets/Scenes/Level3Transition.unity
+    guid: 4d2944af04098be42a373cb9c6f412f8
+  - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 6762738000a9d0643832d4577237dbaf
   - enabled: 1
