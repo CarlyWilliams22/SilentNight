@@ -5,20 +5,19 @@ using UnityEngine;
 public class CollectablesScript : MonoBehaviour
 {
     Animator animator;
-    public GameObject player;
-    public GameObject boss;
-    public GameObject timeline;
+    ComboPlayerScript player;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        player = FindObjectOfType<ComboPlayerScript>();
     }
 
     // Update is called once per frame
     void Update()
     { 
-        animator.SetBool("Dark", player.GetComponent<ComboPlayerScript>().isBlinded()); 
+        animator.SetBool("Dark", player.isBlinded());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,11 +27,11 @@ public class CollectablesScript : MonoBehaviour
 
             if(gameObject.tag == "BulletC")
             {
-                player.GetComponent<ComboPlayerScript>().addBullet();
+                player.addBullet();
             }
             else if(gameObject.tag == "BatteryC")
             {
-                player.GetComponent<ComboPlayerScript>().addBattery();
+                player.addBattery();
             }
             Destroy(gameObject);
         }
