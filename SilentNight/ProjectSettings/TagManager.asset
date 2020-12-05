@@ -10,6 +10,8 @@ TagManager:
   - DetectionArea
   - Blockade
   - Bullet
+  - BulletC
+  - BatteryC
   layers:
   - Default
   - TransparentFX
