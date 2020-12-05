@@ -29,8 +29,8 @@ public class CollectablesScript : MonoBehaviour
             soundPlayer.SetActive(false);
             comboPlayer.transform.position = soundPlayer.transform.position;
             comboPlayer.SetActive(true);
-          //  boss.SetActive(true);
-           // timeline.SetActive(true);
+            boss.SetActive(true);
+            timeline.SetActive(true);
             Destroy(gameObject);
         }
     }

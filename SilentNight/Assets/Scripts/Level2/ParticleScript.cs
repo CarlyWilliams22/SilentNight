@@ -18,14 +18,6 @@ public class ParticleScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         soundWaves = GetComponent<ParticleSystem>();
         main = soundWaves.main;
-
-      /*  if (SceneManager.GetActiveScene().name.Equals("Level2")){
-            player = transform.parent.GetComponent<SoundPlayerScript>();
-        }
-        else
-        {
-            player = transform.parent.GetComponent<ComboPlayerScript>();
-        }*/
         soundWaves.Stop();
     }
 

@@ -72,6 +72,8 @@ public class ComboPlayerScript : Echolocator
 
         stamina.maxValue = maxStamina;
         stamina.value = maxStamina;
+
+        Camera.main.backgroundColor = new Color(.25f, .25f, .25f);
     }
 
     // Update is called once per frame
@@ -81,37 +83,65 @@ public class ComboPlayerScript : Echolocator
         batteries.text = "x" + batteryNum.ToString();
         bullets.text = "x" + bulletNum.ToString();
 
-        if (flashlightOn)
+        if (!blinded)
         {
-            battery.value = batteryLevel - (int)(Time.time - batteryStart);
-        }
-
-        if (battery.value == 0)
-        {
-            if (batteryNum == 0)
+            if (flashlightOn)
             {
-                flashlightDead = true;
-                flashlight.SetActive(false);
+                battery.value = batteryLevel - (int)(Time.time - batteryStart);
+            }
+
+            if (battery.value == 0)
+            {
+                if (batteryNum == 0)
+                {
+                    flashlightDead = true;
+                    flashlight.SetActive(false);
+                }
+                else
+                {
+                    batteryNum--;
+                    NewBattery();
+                }
+
+            }
+
+            if (flashlightOn && !flashlightDead)
+            {
+                batteryLevel -= Time.deltaTime;
+                if (batteryLevel <= 0)
+                {
+                    flashlightDead = true;
+                }
+            }
+
+            if (!flashlightDead)
+            {
+                //toggle flashlight
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    if (flashlightOn)
+                    {
+                        flashlightOn = false;
+                        sound.PlayOneShot(flashlightOffClip);
+                        batteryLevel = battery.value;
+                    }
+                    else
+                    {
+                        batteryStart = Time.time;
+                        flashlightOn = true;
+                        sound.PlayOneShot(flashlightOnClip);
+                    }
+                    if (!flashlightDead)
+                    {
+                        flashlight.SetActive(flashlightOn);
+                    }
+                }
             }
             else
             {
-                batteryNum--;
-                NewBattery();
+                flashlight.SetActive(false);
             }
 
-        }
-
-        if (blinded)
-        {
-            soundwaves.SetActive(true);
-            flashlight.SetActive(false);
-            srender.enabled = false;
-        }
-        else
-        {
-            soundwaves.SetActive(false);
-            flashlight.SetActive(flashlightOn);
-            srender.enabled = true;
 
             //set player animation speed based on player speed
             if (rbody.velocity == Vector2.zero)
@@ -130,44 +160,32 @@ public class ComboPlayerScript : Echolocator
             {
                 movement.speed = .2f;
             }
-        }
 
-        if (flashlightOn && !flashlightDead)
-        {
-            batteryLevel -= Time.deltaTime;
-            if (batteryLevel <= 0)
+            //sync player footsteps to player animation
+            if (srender.sprite.name == "PlayerWithGunSpriteSheet_1" && lastSprite == "PlayerWithGunSpriteSheet_2")
             {
-                flashlightDead = true;
+                lastSprite = "PlayerWithGunSpriteSheet_1";
+                sound.PlayOneShot(footstep);
             }
-        }
-
-        if (!flashlightDead)
-        {
-            //toggle flashlight
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (srender.sprite.name == "PlayerWithGunSpriteSheet_2" && lastSprite == "PlayerWithGunSpriteSheet_1")
             {
-                if (flashlightOn)
-                {
-                    flashlightOn = false;
-                    sound.PlayOneShot(flashlightOffClip);
-                    batteryLevel = battery.value;
-                }
-                else
-                {
-                    batteryStart = Time.time;
-                    flashlightOn = true;
-                    sound.PlayOneShot(flashlightOnClip);
-                }
-                if (!flashlightDead)
-                {
-                    flashlight.SetActive(flashlightOn);
-                }
+                lastSprite = "PlayerWithGunSpriteSheet_2";
+                sound.PlayOneShot(footstep);
             }
         }
         else
         {
-            flashlight.SetActive(false);
+            //clap when left mouse button is clicked and player is not already clapping
+            if (!clap.isPlaying)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    sound.PlayOneShot(clapSound);
+                    clap.Play();
+                }
+            }
         }
+
 
         runningH.SetActive(running);
         walkingH.SetActive(walking);
@@ -230,18 +248,6 @@ public class ComboPlayerScript : Echolocator
             }
         }
 
-        //sync player footsteps to player animation
-        if (srender.sprite.name == "PlayerWithGunSpriteSheet_1" && lastSprite == "PlayerWithGunSpriteSheet_2")
-        {
-            lastSprite = "PlayerWithGunSpriteSheet_1";
-            sound.PlayOneShot(footstep);
-        }
-        if (srender.sprite.name == "PlayerWithGunSpriteSheet_2" && lastSprite == "PlayerWithGunSpriteSheet_1")
-        {
-            lastSprite = "PlayerWithGunSpriteSheet_2";
-            sound.PlayOneShot(footstep);
-        }
-
         //make the player face the mouse position
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 center = transform.position + new Vector3(-.15f, -.0005f, 0);
@@ -250,15 +256,6 @@ public class ComboPlayerScript : Echolocator
         Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, dest, 5 * Time.deltaTime);
 
-        //clap when left mouse button is clicked and player is not already clapping
-        if (!clap.isPlaying)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                sound.PlayOneShot(clapSound);
-                clap.Play();
-            }
-        }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && (bulletNum != 0))
         {
@@ -328,6 +325,9 @@ public class ComboPlayerScript : Echolocator
         {
             //Destroy(gameObject);
             PlayerPrefs.SetInt("damage", PlayerPrefs.GetInt("damage") - 1);
+
+            blinded = true;
+            StartCoroutine(WhileBlinded());
         }
     }
 
@@ -335,5 +335,22 @@ public class ComboPlayerScript : Echolocator
     {
         batteryStart = Time.time;
         batteryLevel = 30;
+    }
+
+    IEnumerator WhileBlinded()
+    {
+        soundwaves.SetActive(true);
+        flashlight.SetActive(false);
+        flashlightOn = false;
+        srender.enabled = false;
+        Camera.main.backgroundColor = Color.black;
+
+        yield return new WaitForSeconds(10);
+        
+        soundwaves.SetActive(false);
+        flashlight.SetActive(flashlightOn);
+        srender.enabled = true;
+        Camera.main.backgroundColor = new Color(.25f,.25f,.25f);
+        blinded = false;
     }
 }
