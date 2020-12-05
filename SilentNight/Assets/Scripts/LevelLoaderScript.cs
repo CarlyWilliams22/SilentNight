@@ -19,6 +19,11 @@ public class LevelLoaderScript : MonoBehaviour
         StartCoroutine(LoadLevel("MainMenu"));
     }
 
+    public void LoadCutscene()
+    {
+        StartCoroutine(LoadLevel("IntroScene"));
+    }
+
     public void LoadLevel1()
     {
         StartCoroutine(LoadLevel("Level1"));

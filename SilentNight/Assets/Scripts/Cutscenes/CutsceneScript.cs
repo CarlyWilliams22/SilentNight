@@ -8,6 +8,7 @@ public class CutsceneScript : MonoBehaviour
     public Canvas screen;
     public List<Sprite> images;
     public Animator animator;
+    public LevelLoaderScript levelLoader;
 
     public float delay = 0.1f;
     string fullText, currentTextName;
@@ -35,6 +36,17 @@ public class CutsceneScript : MonoBehaviour
             screen.transform.Find("Image").GetComponent<Image>().sprite = images[1];
             animator.SetTrigger("StartPicture");
         }
+        if (!running && page == 3)
+        {
+            currentTextName = "BossText";
+            screen.transform.Find(currentTextName).GetComponent<Text>().gameObject.SetActive(true);
+            fullText = screen.transform.Find(currentTextName).GetComponent<Text>().text;
+            screen.transform.Find(currentTextName).GetComponent<Text>().text = "";
+            StartCoroutine(ShowText(fullText));
+            screen.transform.Find("Image").GetComponent<Image>().sprite = images[2];
+            animator.SetTrigger("StartPicture");
+            Invoke("LoadLevel1", 7);
+        }
     }
     IEnumerator ShowText(string text)
     {
@@ -52,4 +64,8 @@ public class CutsceneScript : MonoBehaviour
         page++;
     }
 
+    void LoadLevel1()
+    {
+        levelLoader.LoadLevel1();
+    }
 }

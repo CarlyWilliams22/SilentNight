@@ -217,6 +217,7 @@ RectTransform:
   - {fileID: 1422263971}
   - {fileID: 1981050580}
   - {fileID: 1266163878}
+  - {fileID: 826485532}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -244,6 +245,96 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &826485531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 826485532}
+  - component: {fileID: 826485534}
+  - component: {fileID: 826485533}
+  m_Layer: 5
+  m_Name: BossText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &826485532
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826485531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 716280171}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 242.4, y: -11.08}
+  m_SizeDelta: {x: 255.97058, y: 47.639755}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &826485533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826485531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'But this was no animal... I have to get out of here! '
+--- !u!222 &826485534
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826485531}
+  m_CullTransparentMesh: 0
+--- !u!114 &900598767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1078404733160368024, guid: fc1707b106102d34bb4c000b7541a9d4, type: 3}
+  m_PrefabInstance: {fileID: 1838347961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3091435ed6316454e870b34d9b8c3cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1174808775
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,8 +435,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 222.28, y: 0.00028086}
-  m_SizeDelta: {x: 293.1361, y: 436.12042}
+  m_AnchoredPosition: {x: 237.58, y: -3.7597}
+  m_SizeDelta: {x: 293.1361, y: 185.30103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1266163879
 MonoBehaviour:
@@ -380,11 +471,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' [carves "V" into poster on wall] The only verdict is vengeance; a vendetta,
-    held as a votive, not in vain, for the value and veracity of such shall one day
-    vindicate the vigilant and the virtuous. Verily, this vichyssoise of verbiage
-    veers most verbose, so let me simply add that it''s my very good honor to meet
-    you and you may call me V.'
+  m_Text: 'I cleared the trees and built the cabin myself many years ago to escape
+    the confines of the city. I have not had many visitors during my years in solitude.
+    I never expect visitors. Seeing the front door open was always a suprise. Dang
+    animals always sneaking in. '
 --- !u!222 &1266163880
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -428,8 +518,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -144, y: -0.0000038147}
-  m_SizeDelta: {x: 451.02832, y: 249.13629}
+  m_AnchoredPosition: {x: -155.95, y: -0.0000038147}
+  m_SizeDelta: {x: 400, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1422263972
 MonoBehaviour:
@@ -663,8 +753,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 151, y: 5.1841}
-  m_SizeDelta: {x: 293.13232, y: 436.1209}
+  m_AnchoredPosition: {x: 166.3, y: 2.1133}
+  m_SizeDelta: {x: 293.13232, y: 177.78143}
   m_Pivot: {x: 0.25683084, y: 0.5118868}
 --- !u!114 &1981050581
 MonoBehaviour:
@@ -699,12 +789,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Voil\xE0! In view, a humble vaudevillian veteran, cast vicariously as
-    both victim and villain by the vicissitudes of Fate. This visage, no mere veneer
-    of vanity, is a vestige of the vox populi, now vacant, vanished. However, this
-    valorous visitation of a by-gone vexation, stands vivified and has vowed to vanquish
-    these venal and virulent vermin vanguarding vice and vouchsafing the violently
-    vicious and voracious violation of volition."
+  m_Text: 'I am a humble man, not one to live in luxury with things of this world.
+    I live peaceably by myself in the far outreaches of man''s grasp, the forest.
+    Trees so dense I could never see the sunset over the horizon; the treetops were
+    my horizon. '
 --- !u!222 &1981050582
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -723,6 +811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2134312861}
   - component: {fileID: 2134312860}
+  - component: {fileID: 2134312862}
   m_Layer: 0
   m_Name: CutSceneManager
   m_TagString: Untagged
@@ -745,9 +834,11 @@ MonoBehaviour:
   screen: {fileID: 716280170}
   images:
   - {fileID: 21300000, guid: 3dfc859b108d2e240a4f699e9e22b95f, type: 3}
-  - {fileID: 21300000, guid: 85e621cc410d80745bc0b6334b3bd401, type: 3}
+  - {fileID: 21300000, guid: 7200549d18e66cb41b430fb3319c8be6, type: 3}
+  - {fileID: 21300000, guid: 9fdd9981796c2574a83c61ef40c8f2c2, type: 3}
   animator: {fileID: 716280172}
-  delay: 0.05
+  levelLoader: {fileID: 900598767}
+  delay: 0.1
 --- !u!4 &2134312861
 Transform:
   m_ObjectHideFlags: 0
@@ -762,3 +853,99 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2134312862
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134312859}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 42ec7beefe9b352479eec61efab93dbe, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.209
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

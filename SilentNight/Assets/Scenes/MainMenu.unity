@@ -1715,7 +1715,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2083166486}
         m_TargetAssemblyTypeName: LevelLoaderScript, Assembly-CSharp
-        m_MethodName: LoadLevel1
+        m_MethodName: LoadCutscene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
