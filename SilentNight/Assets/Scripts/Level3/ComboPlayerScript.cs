@@ -25,12 +25,12 @@ public class ComboPlayerScript : Echolocator
     bool flashlightOn;
     bool flashlightDead = false;
     float batteryLevel = 30;
-    int batteryNum = 0;
+    int batteryNum = 1;
     float batteryStart;
     public Text batteries;
 
     public Text bullets;
-    int bulletNum = 0;
+    int bulletNum = 1;
 
     AudioSource sound;
     public AudioClip flashlightOnClip;
@@ -354,17 +354,17 @@ public class ComboPlayerScript : Echolocator
         blinded = false;
     }
 
-    public void addBullet()
+    new public void addBullet()
     {
         bulletNum++;
     }
 
-    public void addBattery()
+    new public void addBattery()
     {
         batteryNum++;
     }
 
-    public bool isBlinded()
+    new public bool isBlinded()
     {
         return blinded;
     }

@@ -5,13 +5,13 @@ using UnityEngine;
 public class CollectablesScript : MonoBehaviour
 {
     Animator animator;
-    ComboPlayerScript player;
+    Echolocator player;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        player = FindObjectOfType<ComboPlayerScript>();
+        player = FindObjectOfType<Echolocator>();
     }
 
     // Update is called once per frame

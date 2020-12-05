@@ -12,6 +12,8 @@ TagManager:
   - Bullet
   - BulletC
   - BatteryC
+  - Exit
+  - Gun
   layers:
   - Default
   - TransparentFX

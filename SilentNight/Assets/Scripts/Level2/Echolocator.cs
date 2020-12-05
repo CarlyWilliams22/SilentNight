@@ -7,4 +7,19 @@ public abstract class Echolocator: MonoBehaviour
     public bool running;
     public bool sneaking;
     public bool walking;
+
+    public bool isBlinded()
+    {
+        return true;
+    }
+
+    public void addBullet()
+    {
+       
+    }
+
+    public void addBattery()
+    {
+
+    }
 }
