@@ -18,6 +18,7 @@ public class CutsceneScript : MonoBehaviour
 
     private void Start()
     {
+        //First image
         currentTextName = "DrivingText";
         fullText = screen.transform.Find(currentTextName).GetComponent<Text>().text;
         screen.transform.Find(currentTextName).GetComponent<Text>().text = "";
@@ -26,6 +27,13 @@ public class CutsceneScript : MonoBehaviour
 
     private void Update()
     {
+        //Player ability to skip cutscene
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            LoadLevel1();
+        }
+
+        //Second image
         if (!running && page == 2)
         {
             currentTextName = "CabinText";
@@ -36,6 +44,8 @@ public class CutsceneScript : MonoBehaviour
             screen.transform.Find("Image").GetComponent<Image>().sprite = images[1];
             animator.SetTrigger("StartPicture");
         }
+
+        //Last image
         if (!running && page == 3)
         {
             currentTextName = "BossText";
@@ -48,6 +58,8 @@ public class CutsceneScript : MonoBehaviour
             Invoke("LoadLevel1", 7);
         }
     }
+
+    //Type writter text
     IEnumerator ShowText(string text)
     {
         running = true;
