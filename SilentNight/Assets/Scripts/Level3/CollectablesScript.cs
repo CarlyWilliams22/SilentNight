@@ -5,8 +5,7 @@ using UnityEngine;
 public class CollectablesScript : MonoBehaviour
 {
     Animator animator;
-    public GameObject soundPlayer;
-    public GameObject comboPlayer;
+    public GameObject player;
     public GameObject boss;
     public GameObject timeline;
 
@@ -19,18 +18,32 @@ public class CollectablesScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        GetComponent<SpriteRenderer>().color = Color.clear;
+
+        //if (player.GetComponent<ComboPlayerScript>().isBlinded())
+        //{
+        //    //r.color = Color.clear;
+        //}
+        //else if(!player.GetComponent<ComboPlayerScript>().isBlinded())
+        //{
+        //    //r.color = Color.white;
+        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            soundPlayer.SetActive(false);
-            comboPlayer.transform.position = soundPlayer.transform.position;
-            comboPlayer.SetActive(true);
-            boss.SetActive(true);
-            timeline.SetActive(true);
+
+            if(gameObject.tag == "BulletC")
+            {
+                player.GetComponent<ComboPlayerScript>().addBullet();
+            }
+            else if(gameObject.tag == "BatteryC")
+            {
+                player.GetComponent<ComboPlayerScript>().addBattery();
+            }
             Destroy(gameObject);
         }
     }

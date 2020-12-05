@@ -30,7 +30,7 @@ public class ComboPlayerScript : Echolocator
     public Text batteries;
 
     public Text bullets;
-    int bulletNum = 5;
+    int bulletNum = 0;
 
     AudioSource sound;
     public AudioClip flashlightOnClip;
@@ -352,5 +352,20 @@ public class ComboPlayerScript : Echolocator
         srender.enabled = true;
         Camera.main.backgroundColor = new Color(.25f,.25f,.25f);
         blinded = false;
+    }
+
+    public void addBullet()
+    {
+        bulletNum++;
+    }
+
+    public void addBattery()
+    {
+        batteryNum++;
+    }
+
+    public bool isBlinded()
+    {
+        return blinded;
     }
 }
