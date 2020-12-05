@@ -19,20 +19,22 @@ public class L3MScript : MonoBehaviour
 
     ObjectPool poolBattery, poolBullet;
 
+    GameObject bullet, battery;
+
     // Start is called before the first frame update
     void Start()
     {
         poolBattery = new ObjectPool(batteryPrefab, 3, false);
         poolBullet = new ObjectPool(bulletPrefab, 5, false);
 
-        GameObject battery = poolBattery.getObject();
+        battery = poolBattery.getObject();
         battery.transform.position = new Vector3(-20, -6, 0);
         battery = poolBattery.getObject();
         battery.transform.position = new Vector3(4, -6, 0);
         battery = poolBattery.getObject();
         battery.transform.position = new Vector3(-1, -20, 0);
 
-        GameObject bullet = poolBullet.getObject();
+        bullet = poolBullet.getObject();
         bullet.transform.position = new Vector3(20, -6, 0);
         bullet = poolBullet.getObject();
         bullet.transform.position = new Vector3(-4, -6, 0);
@@ -115,6 +117,26 @@ public class L3MScript : MonoBehaviour
             boss.CancelInvoke();    //Stop shooting cuz its dead
             boss.audio.PlayOneShot(boss.death);
             levelLoader.LoadNextLevel("EndScene");
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+        bullet = poolBullet.getObject();
+        if (bullet)
+        {
+            float x = Random.Range(-20f, 20f);
+            float y = Random.Range(-20f, -6f);
+            bullet.transform.position = new Vector3(x, y, 0);
+        }
+
+        battery = poolBattery.getObject();
+        if (battery)
+        {
+            float x = Random.Range(-20f, 20f);
+            float y = Random.Range(-20f, -6f);
+            battery.transform.position = new Vector3(x, y, 0);
         }
     }
 
