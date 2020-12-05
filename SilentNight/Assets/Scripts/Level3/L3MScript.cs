@@ -10,18 +10,39 @@ public class L3MScript : MonoBehaviour
     public ComboPlayerScript player;
     public Animator playerAnimator;
     public Slider lives;
-    public GameObject lhhud, rhhud, pauseMenu, achievementBox, achievement2txt;
+    public GameObject lhhud, rhhud, pauseMenu, achievementBox, achievement2txt, bulletPrefab, batteryPrefab;
     public LevelLoaderScript levelLoader;
     public PlayableDirector timeline;
     public AudioClip achievement;
     public FinalBossScript boss;
     bool paused, once, setup, playOnce = false;
 
+    ObjectPool poolBattery, poolBullet;
+
     // Start is called before the first frame update
     void Start()
     {
-        //TODO remove when done testing
-        PlayerPrefs.SetInt("Trophy2", 0);
+        poolBattery = new ObjectPool(batteryPrefab, 3, false);
+        poolBullet = new ObjectPool(bulletPrefab, 5, false);
+
+        GameObject battery = poolBattery.getObject();
+        battery.transform.position = new Vector3(-20, -6, 0);
+        battery = poolBattery.getObject();
+        battery.transform.position = new Vector3(4, -6, 0);
+        battery = poolBattery.getObject();
+        battery.transform.position = new Vector3(-1, -20, 0);
+
+        GameObject bullet = poolBullet.getObject();
+        bullet.transform.position = new Vector3(20, -6, 0);
+        bullet = poolBullet.getObject();
+        bullet.transform.position = new Vector3(-4, -6, 0);
+        bullet = poolBullet.getObject();
+        bullet.transform.position = new Vector3(1, -20, 0);
+        bullet = poolBullet.getObject();
+        bullet.transform.position = new Vector3(-20, -20, 0);
+        bullet = poolBullet.getObject();
+        bullet.transform.position = new Vector3(20, -20, 0);
+
 
         PlayerPrefs.SetInt("damage", 3);
         PlayerPrefs.SetInt("hits", 0);

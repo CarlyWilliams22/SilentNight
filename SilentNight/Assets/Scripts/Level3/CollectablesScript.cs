@@ -33,7 +33,7 @@ public class CollectablesScript : MonoBehaviour
             {
                 player.addBattery();
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
   
