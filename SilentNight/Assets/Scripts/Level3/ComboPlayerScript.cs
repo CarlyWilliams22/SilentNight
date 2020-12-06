@@ -26,7 +26,7 @@ public class ComboPlayerScript : Echolocator
 
     SpriteRenderer srender;
     string lastSprite = "PlayerWithGunSpriteSheet_2";
-    public AudioClip footstep;
+    public AudioClip footstep, gunshot;
 
     GameObject soundwaves;
 
@@ -193,6 +193,7 @@ public class ComboPlayerScript : Echolocator
             {
                 shotFired = true;
                 ShootGun();
+                sound.PlayOneShot(gunshot);
                 Invoke("Reload", 1);
             }
         }
