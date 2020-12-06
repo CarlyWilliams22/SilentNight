@@ -42,9 +42,11 @@ public class LightPlayerScript : MonoBehaviour
 
         curSpeed = walkSpeed; //start out walking
 
+        //set up flashlight
         flashlight = transform.GetChild(0).gameObject;
         flashlight.SetActive(flashlightOn);
 
+        //set up stamina
         stamina.maxValue = maxStamina;
         stamina.value = maxStamina;
         
@@ -54,8 +56,10 @@ public class LightPlayerScript : MonoBehaviour
     void Update()
     {
  
+        //displays the number of batteries the player has to the screen
         batteries.text = "x" + batteryNum.ToString();
 
+        // if flashlight is on start to drain the battery
         if (flashlightOn)
         {
             battery.value = batteryLevel - (int)(Time.time - batteryStart);
@@ -63,11 +67,13 @@ public class LightPlayerScript : MonoBehaviour
 
         if (battery.value == 0)
         {
+            //if battery is dead and no more batteries keep the flashlight off
             if (batteryNum == 0)
             {
                 flashlightDead = true;
                 flashlight.SetActive(false);
             }
+            //else give the player a new battery
             else
             {
                 batteryNum--;
@@ -97,9 +103,11 @@ public class LightPlayerScript : MonoBehaviour
             }
         }
 
+        //set the movement icon on the hud
         runningH.SetActive(running);
         walkingH.SetActive(walking);
 
+        //checks if player has run out of stamina
         if (stamina.value < 0.00001f)
         {
             tired = true;
@@ -127,6 +135,7 @@ public class LightPlayerScript : MonoBehaviour
             }
         }
 
+        //if tired player has to walk
         if (tired)
         {
             curSpeed = walkSpeed;
@@ -170,6 +179,7 @@ public class LightPlayerScript : MonoBehaviour
     private void FixedUpdate()
     {
 
+        //if running drain players stamina
         if (running && rbody.velocity != Vector2.zero)
         {
             if (!currRunnning)
@@ -179,15 +189,18 @@ public class LightPlayerScript : MonoBehaviour
             stamina.value -= .005f;
 
         }
+        //otherwise recharge stamina
         else
         {
             currRunnning = false;
+            //only recharge if stamina isn't full
             if (stamina.value < maxStamina)
             {
                 stamina.value += .005f;
             }
         }
 
+        //player movement
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         Vector2 vel = new Vector2(x, y);
@@ -233,6 +246,7 @@ public class LightPlayerScript : MonoBehaviour
         }
     }
 
+    //Restarts the battery slider if player has new battery
     void NewBattery()
     {
         batteryStart = Time.time;

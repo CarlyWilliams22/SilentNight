@@ -21,7 +21,6 @@ public class Level1ManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         deadDeer = bridge = blockade = false; //Keep track of what area has been visited
         bridgeDeath = false; //Tracks if player has died from falling of the bridge
         gameOverCanvas.SetActive(false); //Hide the death screen
@@ -47,25 +46,32 @@ public class Level1ManagerScript : MonoBehaviour
             caveBlockade.SetActive(false);
         }
 
+        //disable monsters so they don't attack player during transition
         m1.SetActive(false);
         m2.SetActive(false);
         m3.SetActive(false);
 
+        //makes sure the monsters reactivate at the right time
         Invoke("waitForFade", 1);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //set the game to pause
         if (Input.GetKeyDown(KeyCode.Escape)) {
             paused = !paused;
         }
 
+        //if paused pull up the pause menu
         if (paused)
         {
+            //makes sure to only pull up the pause menu once
             if (!once)
             {
+                //don't let it repause
                 once = true;
+                //disable the rest of the game
                 Time.timeScale = 0;
                 player.enabled = false;
                 lhhud.SetActive(false);
@@ -74,7 +80,9 @@ public class Level1ManagerScript : MonoBehaviour
             }
         } else if (!paused && !textbox.active)
         {
+            //reset the pause menu
             once = false;
+            //reenable the rest of the game
             Time.timeScale = 1;
             if (!dialog)
             {
@@ -88,8 +96,10 @@ public class Level1ManagerScript : MonoBehaviour
             pauseMenu.SetActive(false);
         }
 
+        //set the lives value
         lives.value = PlayerPrefs.GetInt("Lives");
 
+        //if the player runs out of lives then game over
         if (PlayerPrefs.GetInt("Lives") == 0)
         {
             gameOver();
@@ -125,6 +135,7 @@ public class Level1ManagerScript : MonoBehaviour
                     Time.timeScale = 0;
                     deadDeerText.gameObject.SetActive(true);
                     deadDeer = true;
+                    //Give the player the achievement if they don't already have it
                     if (PlayerPrefs.GetInt("Trophy4") == 0)
                     {
                         PlayerPrefs.SetInt("Trophy4", 1);
@@ -187,14 +198,19 @@ public class Level1ManagerScript : MonoBehaviour
         }
     }
 
+    //called if the player runs out of lives
     private void gameOver()
     {
         SceneManager.LoadScene("GameOver");
     }
 
+
+    //call if the player walks off the bridge
     public void deathByBridge()
     {
         bridgeDeath = true;
+
+        //Give the player the achievement if they don't already have it
         if (PlayerPrefs.GetInt("Trophy5") == 0)
         {
             PlayerPrefs.SetInt("Trophy5", 1);
@@ -205,11 +221,13 @@ public class Level1ManagerScript : MonoBehaviour
         }
     }
 
+    //used to play from the pause menu
     public void Play()
     {
         paused = false;
     }
 
+    //activates the monsters once the inital fade is over
     void waitForFade()
     {
         m1.SetActive(true);
@@ -218,6 +236,7 @@ public class Level1ManagerScript : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    //resets the achievement box so it can be used again
     void resetBox()
     {
         achievementBox.SetActive(false);
