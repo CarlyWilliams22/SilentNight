@@ -35,6 +35,7 @@ public class ComboPlayerScript : Echolocator
 
     public GameObject bulletPrefab;
     public GameObject gunBarrel;
+    bool shotFired = false;
 
     bool paused;
 
@@ -188,7 +189,12 @@ public class ComboPlayerScript : Echolocator
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && (bulletNum != 0))
         {
-            ShootGun();
+            if (!shotFired)
+            {
+                shotFired = true;
+                ShootGun();
+                Invoke("Reload", 1);
+            }
         }
     }
 
@@ -268,4 +274,8 @@ public class ComboPlayerScript : Echolocator
         blinded = false;
     }
 
+    public void Reload()
+    {
+        shotFired = false;
+    }
 }
