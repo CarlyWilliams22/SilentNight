@@ -9,8 +9,8 @@ public class CutsceneScript : MonoBehaviour
     public List<Sprite> images;
     public Animator animator;
     public LevelLoaderScript levelLoader;
-
     public float delay = 0.1f;
+
     string fullText, currentTextName;
     string currentText = "";
     bool running = false;

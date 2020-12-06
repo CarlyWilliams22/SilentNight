@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class FinalBossScript : MonoBehaviour
 {
+    Animator animator;
+
     public GameObject snotShotPrefab, bullet;
     public Transform playerPos, firePoint;
-    public int snotSpeed = 5;
-
-    Animator animator;
     public AudioSource audio;
     public AudioClip death;
+
+    public int snotSpeed = 5;
 
     private void Start()
     {
@@ -28,7 +29,6 @@ public class FinalBossScript : MonoBehaviour
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.GetChild(0).transform.rotation = Quaternion.Slerp(transform.GetChild(0).transform.rotation, q, 1f);
         }
-
     }
 
     void ShootSnot()

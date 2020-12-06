@@ -8,22 +8,23 @@ public class TSMScript : MonoBehaviour
 {
     public GameObject lhhud, rhhud, pauseMenu, Exit, bulletH, achievementBox, achievement2txt;
     public Text bulletCountH;
-    int numBatteries, numBullets;
-    public GameObject Textbox, openingDialog, foundBulletsDialog,foundGunDialog;
-    bool foundBullets, foundGun;
+    public GameObject Textbox, openingDialog, foundBulletsDialog, foundGunDialog;
     public GameObject bulletC, gunC;
     public SoundPlayerScript player;
-    bool paused, once = false;
     public Slider lives;
     public LevelLoaderScript levelLoader;
     public AudioClip achievement;
+
+    int numBullets;
+    bool foundBullets, foundGun;
+    bool paused, once = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
 
         lives.value = PlayerPrefs.GetInt("Lives");
-
         foundBullets = foundGun = false;
         numBullets = 0;
 
@@ -92,7 +93,6 @@ public class TSMScript : MonoBehaviour
                 Textbox.SetActive(false);
                 Time.timeScale = 1;
             }
-
 
             if (foundBullets && foundGun)
             {

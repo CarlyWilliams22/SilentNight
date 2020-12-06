@@ -9,9 +9,11 @@ public class L2MScript : MonoBehaviour
     public GameObject gameOverCanvas, openingDialog, monster1, monster2, lhhud, rhhud, pauseMenu, achievementBox, achievement1txt;
     public Text openingDialogText, instructionText;
     public SoundPlayerScript player;
-    bool paused, once = false;
     public Slider lives;
     public AudioClip achievement;
+
+    bool paused, once = false;
+
 
     // Update is called once per frame
     void Update()

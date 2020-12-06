@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ParticleScript : MonoBehaviour
 {
     ParticleSystem soundWaves;
     ParticleSystem.MainModule main;
-    public Echolocator player;
     AudioSource audioSource;
+
+    public Echolocator player;
 
     bool walkOnce, sneakOnce, playOnce = false;
 

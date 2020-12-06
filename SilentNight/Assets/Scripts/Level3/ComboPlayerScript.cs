@@ -6,38 +6,26 @@ using UnityEngine.UI;
 public class ComboPlayerScript : Echolocator
 {
     Rigidbody2D rbody;
+    Animator movement;
+    AudioSource sound;
+    SpriteRenderer srender;
+    GameObject soundwaves;
+    ParticleSystem clap;
+
+    public GameObject walkingH, runningH, sneakingH, bulletPrefab, gunBarrel;
+    public Slider stamina;
+    public Text bullets;
+    public AudioClip footstep, gunshot, clapSound;
 
     public int walkSpeed = 2;
     public int runSpeed = 4;
     public int sneakSpeed = 1;
-    Animator movement;
-
-    int curSpeed;
-
-    public GameObject walkingH, runningH, sneakingH;
-    public Slider stamina;
     public float maxStamina = 5;
-    bool currRunnning = false;
     public bool tired = false;
 
-    public Text bullets;
-
-    AudioSource sound;
-
-    SpriteRenderer srender;
+    int curSpeed;
+    bool currRunnning, shotFired = false;
     string lastSprite = "PlayerWithGunSpriteSheet_2";
-    public AudioClip footstep, gunshot;
-
-    GameObject soundwaves;
-
-    ParticleSystem clap;
-    public AudioClip clapSound;
-
-    public GameObject bulletPrefab;
-    public GameObject gunBarrel;
-    bool shotFired = false;
-
-    bool paused;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +41,6 @@ public class ComboPlayerScript : Echolocator
         curSpeed = walkSpeed; //start out walking
         running = sneaking = false;
         walking = true;
-
 
         soundwaves = transform.GetChild(2).gameObject;
         clap = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
@@ -182,10 +169,8 @@ public class ComboPlayerScript : Echolocator
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 center = transform.position + new Vector3(-.15f, -.0005f, 0);
         Vector2 diff = mousePos - center;
-        //transform.up = diff;
         Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, dest, 5 * Time.deltaTime);
-
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && (bulletNum != 0))
         {
@@ -246,14 +231,12 @@ public class ComboPlayerScript : Echolocator
         angle *= Mathf.Deg2Rad;
         bulletRbody.velocity = new Vector2(10 * Mathf.Cos(angle), 10 * Mathf.Sin(angle));
         bulletNum--;
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Equals("Monster"))
         {
-            //Destroy(gameObject);
             PlayerPrefs.SetInt("damage", PlayerPrefs.GetInt("damage") - 1);
 
             blinded = true;

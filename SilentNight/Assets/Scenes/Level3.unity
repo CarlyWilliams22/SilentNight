@@ -1290,9 +1290,9 @@ MonoBehaviour:
   bullet: {fileID: 3468435622840319555, guid: b160360471177da40a37dc47954f101b, type: 3}
   playerPos: {fileID: 1164505608}
   firePoint: {fileID: 568098177}
-  snotSpeed: 5
   audio: {fileID: 0}
   death: {fileID: 8300000, guid: 035bebeae66a9a0498327d95313f8d23, type: 3}
+  snotSpeed: 5
 --- !u!114 &430001477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1481,7 +1481,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9f74562d7ef0fdf40807b63191ee0dba, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0

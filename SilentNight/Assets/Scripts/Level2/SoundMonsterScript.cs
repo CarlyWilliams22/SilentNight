@@ -7,14 +7,13 @@ public class SoundMonsterScript : MonoBehaviour
 {
     AIDestinationSetter destinationSetter;
     Patrol patrol;
-    public Transform lastKnownPosition;
-
-    public L2MScript l2ms;
-
     AudioSource audioSource;
+
+    public Transform lastKnownPosition;
+    public L2MScript l2ms;
     public AudioClip growl;
-    bool isGrowling  = false;
-    bool alive;
+
+    bool isGrowling, alive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,9 +45,7 @@ public class SoundMonsterScript : MonoBehaviour
         if (!audioSource.isPlaying)
         {
             isGrowling = false;
-
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

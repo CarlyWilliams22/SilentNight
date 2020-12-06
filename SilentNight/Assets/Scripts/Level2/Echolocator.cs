@@ -4,10 +4,7 @@ using UnityEngine;
 
 public abstract class Echolocator: MonoBehaviour
 {
-    public bool running;
-    public bool sneaking;
-    public bool walking;
-    public bool blinded;
+    public bool running, blinded, sneaking, walking;
     public int bulletNum;
     public int MAX_BULLETS = 4;
 
@@ -23,5 +20,4 @@ public abstract class Echolocator: MonoBehaviour
             bulletNum++;
         }
     }
-
 }

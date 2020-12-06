@@ -6,13 +6,16 @@ using Pathfinding;
 
 public class LightMonsterScript : MonoBehaviour
 {
-    private AIDestinationSetter destinationScript;
-    public LightPlayerScript playerLocation;
     Transform runAwayLocation;
-    public bool chasing = false;
-    public bool runningAway = false;
-    public float runDistance = 3;   //how far the monster runs when hit by the flashlight
+
+    private AIDestinationSetter destinationScript;
+
+    public LightPlayerScript playerLocation;
     public AudioClip screech;
+
+    public bool chasing, runningAway = false;
+    public float runDistance = 3;   //how far the monster runs when hit by the flashlight
+
 
     // Start is called before the first frame update
     void Start()
@@ -59,17 +62,10 @@ public class LightMonsterScript : MonoBehaviour
     {
         if (playerLocation)
         {
-            float playerX = playerLocation.transform.position.x;
-            float playerY = playerLocation.transform.position.y;
             Vector2 playerPos = playerLocation.transform.position;
-            float monsterX = transform.position.x;
-            float monsterY = transform.position.y;
             Vector2 monsterPos = transform.position;
-            float diffX = playerX - monsterX;
-            float diffY = playerY - monsterY;
             Vector2 runPos = monsterPos + (monsterPos - playerPos).normalized * runDistance;
             runAwayLocation.position = runPos;
-            print("player at " + playerPos + ", monster at " + monsterPos + ", running to " + runPos);
             destinationScript.target = runAwayLocation;
         }
     }

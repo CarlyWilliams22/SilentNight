@@ -7,18 +7,16 @@ using UnityEngine.SceneManagement;
 public class SoundPlayerScript : Echolocator
 {
     Rigidbody2D rbody;
-    public ParticleSystem clap;
-    ParticleSystem.MainModule clapping;
     AudioSource audioSource;
+
+    public GameObject walkingH, sneakingH;
+    public ParticleSystem clap;
     public AudioClip clapSound;
     public LevelLoaderScript levelLoader;
 
-    public int walkSpeed;
-    public int runSpeed;
-    public int sneakSpeed;
-    int curSpeed;
+    public int walkSpeed, sneakSpeed;
 
-    public GameObject walkingH, sneakingH;
+    int curSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +24,8 @@ public class SoundPlayerScript : Echolocator
         audioSource = GetComponent<AudioSource>();
         rbody = GetComponent<Rigidbody2D>();
         curSpeed = walkSpeed; //start out walking
-        clapping = clap.main;
 
-        running = sneaking = false;
+        sneaking = false;
         walking = true;
     }
 
@@ -43,14 +40,12 @@ public class SoundPlayerScript : Echolocator
                 curSpeed = walkSpeed;
                 walking = true;
                 sneaking = false;
-                running = false;
             }
             else //start sneaking
             {
                 curSpeed = sneakSpeed;
                 walking = false;
                 sneaking = true;
-                running = false;
             }
         }
 
@@ -64,11 +59,8 @@ public class SoundPlayerScript : Echolocator
             {
                 audioSource.PlayOneShot(clapSound);
                 clap.Play();
-
             }
         }
-
-        
     }
 
     // Update is called once per frame
@@ -103,5 +95,4 @@ public class SoundPlayerScript : Echolocator
             levelLoader.LoadNextLevel("Level3Transition");
         }
     }
-
 }

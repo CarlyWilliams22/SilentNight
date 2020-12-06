@@ -15,11 +15,12 @@ public class L3MScript : MonoBehaviour
     public PlayableDirector timeline;
     public AudioClip achievement;
     public FinalBossScript boss;
+
     public int bossHealth = 10;
+
     bool paused, once, setup, playOnce, nearDeath = false;
 
     ObjectPool poolBullet;
-
     GameObject bullet;
 
     // Start is called before the first frame update
@@ -38,15 +39,12 @@ public class L3MScript : MonoBehaviour
         bullet = poolBullet.getObject();
         bullet.transform.position = new Vector3(14, -11, 0);
 
-
         PlayerPrefs.SetInt("damage", 3);
         PlayerPrefs.SetInt("hits", 0);
         lhhud.SetActive(false);
         rhhud.SetActive(false);
         player.enabled = false;
         playerAnimator.enabled = false;
-
-        
     }
 
     // Update is called once per frame

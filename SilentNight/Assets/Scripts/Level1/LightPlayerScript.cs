@@ -8,45 +8,28 @@ using UnityEngine.UI;
 public class LightPlayerScript : MonoBehaviour
 {
     Rigidbody2D rbody;
-    public LevelLoaderScript levelLoader;
-
-    public int walkSpeed;
-    public int runSpeed;
-    public int sneakSpeed;
     Animator movement;
-    
-    int curSpeed;
-    public bool running = false;
-    public bool walking = true;
-    public bool sneaking = false;
-    public GameObject walkingH, runningH, sneakingH;
-    public Slider stamina;
-    public float maxStamina = 5;
-    bool currRunnning = false;
-    public bool tired = false;
-
-    public Level1ManagerScript l1ms;
-    public GameObject bridgeCanvas;
-
     GameObject flashlight;
-    public Slider battery;
-    bool flashlightOn;
-    bool flashlightDead = false;
-    float batteryLevel = 30;
-    int batteryNum = 0;
-    float batteryStart;
-    public Text batteries;
-
     AudioSource sound;
-    public AudioClip flashlightOnClip;
-    public AudioClip flashlightOffClip;
-    
-
     SpriteRenderer srender;
-    string lastSprite = "PlayerSpriteSheet_3";
-    public AudioClip footstep;
 
-    bool paused;
+    public LevelLoaderScript levelLoader;
+    public Level1ManagerScript l1ms;
+    public GameObject walkingH, runningH, bridgeCanvas;
+    public Slider stamina, battery;
+    public Text batteries;
+    public AudioClip flashlightOnClip, flashlightOffClip, footstep;
+
+    public int walkSpeed, runSpeed;
+    public bool tired, running, currRunnning, flashlightDead, flashlightOn = false;
+    public bool walking = true;
+    public float maxStamina = 5;
+
+    int curSpeed;
+    int batteryNum = 0;
+    float batteryLevel = 30;
+    float batteryStart;
+    string lastSprite = "PlayerSpriteSheet_3";
 
 
     // Start is called before the first frame update
@@ -59,7 +42,6 @@ public class LightPlayerScript : MonoBehaviour
 
         curSpeed = walkSpeed; //start out walking
 
-        flashlightOn = false;
         flashlight = transform.GetChild(0).gameObject;
         flashlight.SetActive(flashlightOn);
 
@@ -117,7 +99,6 @@ public class LightPlayerScript : MonoBehaviour
 
         runningH.SetActive(running);
         walkingH.SetActive(walking);
-        sneakingH.SetActive(sneaking);
 
         if (stamina.value < 0.00001f)
         {
@@ -137,14 +118,12 @@ public class LightPlayerScript : MonoBehaviour
                 curSpeed = walkSpeed;
                 walking = true;
                 running = false;
-                sneaking = false;
             }
             else //start running
             {
                 curSpeed = runSpeed;
                 running = true;
                 walking = false;
-                sneaking = false;
             }
         }
 
@@ -153,29 +132,8 @@ public class LightPlayerScript : MonoBehaviour
             curSpeed = walkSpeed;
             walking = true;
             running = false;
-            sneaking = false;
         }
 
-        //toggle sneaking
-        /*if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            //walk if already sneaking
-            if (curSpeed == sneakSpeed)
-            {
-                curSpeed = walkSpeed;
-                walking = true;
-                sneaking = false;
-                running = false;
-            }
-            else //start sneaking
-            {
-                curSpeed = sneakSpeed;
-                walking = false;
-                sneaking = true;
-                running = false;
-            }
-        }
-        */
         //set player animation speed based on player speed
         if (rbody.velocity == Vector2.zero)
         {
@@ -188,10 +146,6 @@ public class LightPlayerScript : MonoBehaviour
         else if (walking)
         {
             movement.speed = .3f;
-        }
-        else
-        {
-            movement.speed = .2f;
         }
 
         //sync player footsteps to player animation
@@ -232,7 +186,6 @@ public class LightPlayerScript : MonoBehaviour
             {
                 stamina.value += .005f;
             }
-
         }
 
         float x = Input.GetAxis("Horizontal");
