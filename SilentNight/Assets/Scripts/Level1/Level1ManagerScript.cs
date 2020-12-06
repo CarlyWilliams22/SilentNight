@@ -15,7 +15,7 @@ public class Level1ManagerScript : MonoBehaviour
     public AudioClip achievement;
 
     bool deadDeer, bridge, blockade;
-    bool bridgeDeath, paused, dialog, once = false;
+    bool bridgeDeath, dialog;
 
 
     // Start is called before the first frame update
@@ -60,40 +60,11 @@ public class Level1ManagerScript : MonoBehaviour
     {
         //set the game to pause
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            paused = !paused;
-        }
-
-        //if paused pull up the pause menu
-        if (paused)
-        {
-            //makes sure to only pull up the pause menu once
-            if (!once)
-            {
-                //don't let it repause
-                once = true;
-                //disable the rest of the game
-                Time.timeScale = 0;
-                player.enabled = false;
-                lhhud.SetActive(false);
-                rhhud.SetActive(false);
-                pauseMenu.SetActive(true);
-            }
-        } else if (!paused && !textbox.active)
-        {
-            //reset the pause menu
-            once = false;
-            //reenable the rest of the game
-            Time.timeScale = 1;
-            if (!dialog)
-            {
-                if (player)
-                {
-                    player.enabled = true;
-                }
-            }
-            lhhud.SetActive(true);
-            rhhud.SetActive(true);
-            pauseMenu.SetActive(false);
+            Time.timeScale = 0;
+            player.enabled = false;
+            lhhud.SetActive(false);
+            rhhud.SetActive(false);
+            pauseMenu.SetActive(true);
         }
 
         //set the lives value
@@ -224,7 +195,17 @@ public class Level1ManagerScript : MonoBehaviour
     //used to play from the pause menu
     public void Play()
     {
-        paused = false;
+        Time.timeScale = 1;
+        if (!dialog)
+        {
+            if (player)
+            {
+                player.enabled = true;
+            }
+        }
+        lhhud.SetActive(true);
+        rhhud.SetActive(true);
+        pauseMenu.SetActive(false);
     }
 
     //activates the monsters once the inital fade is over
@@ -233,7 +214,12 @@ public class Level1ManagerScript : MonoBehaviour
         m1.SetActive(true);
         m2.SetActive(true);
         m3.SetActive(true);
-        Time.timeScale = 0;
+
+        //don't pause if dialog doesn't come up
+        if (dialog)
+        {
+            Time.timeScale = 0;
+        }
     }
 
     //resets the achievement box so it can be used again

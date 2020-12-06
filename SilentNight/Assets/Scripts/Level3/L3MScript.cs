@@ -18,7 +18,7 @@ public class L3MScript : MonoBehaviour
 
     public int bossHealth = 10;
 
-    bool paused, once, setup, playOnce, nearDeath = false;
+    bool setup, playOnce, nearDeath = false;
 
     ObjectPool poolBullet;
     GameObject bullet;
@@ -65,29 +65,11 @@ public class L3MScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                paused = !paused;
-            }
-
-            if (paused)
-            {
-                if (!once)
-                {
-                    once = true;
-                    lhhud.SetActive(false);
-                    rhhud.SetActive(false);
-                    pauseMenu.SetActive(true);
-                    player.enabled = false;
-                    Time.timeScale = 0;
-                }
-            }
-            else
-            {
-                once = false;
-                lhhud.SetActive(true);
-                rhhud.SetActive(true);
-                pauseMenu.SetActive(false);
-                player.enabled = true;
-                Time.timeScale = 1;
+                lhhud.SetActive(false);
+                rhhud.SetActive(false);
+                pauseMenu.SetActive(true);
+                player.enabled = false;
+                Time.timeScale = 0;
             }
         }
 
@@ -127,6 +109,10 @@ public class L3MScript : MonoBehaviour
 
     public void Play()
     {
-        paused = false;
+        lhhud.SetActive(true);
+        rhhud.SetActive(true);
+        pauseMenu.SetActive(false);
+        player.enabled = true;
+        Time.timeScale = 1;
     }
 }

@@ -17,17 +17,18 @@ public class TSMScript : MonoBehaviour
 
     int numBullets;
     bool foundBullets, foundGun;
-    bool paused, once = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //update lives in hud
         lives.value = PlayerPrefs.GetInt("Lives");
+       
         foundBullets = foundGun = false;
         numBullets = 0;
 
+        //unlock finished level 2 achievement
         if (PlayerPrefs.GetInt("Trophy2") == 0)
         {
             PlayerPrefs.SetInt("Trophy2", 1);
@@ -36,41 +37,27 @@ public class TSMScript : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(achievement);
         }
 
+        //allow the scene to transition before freezing the player
         Invoke("waitForFade", 1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (paused)
-        {
-            if (!once)
-            {
-                once = true;
-                player.enabled = false;
-                Time.timeScale = 0;
-                lhhud.SetActive(false);
-                rhhud.SetActive(false);
-                pauseMenu.SetActive(true);
-            }
-        }
-        else if(!Textbox.activeInHierarchy)
-        {
-            once = false;
-            player.enabled = true;
-            Time.timeScale = 1;
-            lhhud.SetActive(true);
-            rhhud.SetActive(true);
-            pauseMenu.SetActive(false);
-        }
-
+        //pause game
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            paused = !paused;
+            player.enabled = false;
+            Time.timeScale = 0;
+            lhhud.SetActive(false);
+            rhhud.SetActive(false);
+            pauseMenu.SetActive(true);
         }
 
+        //update number of bullets in hud
         bulletCountH.text = "x" + numBullets;
 
+        //exit from dialog boxes
         if (Input.GetKeyDown(KeyCode.Return)) //hit enter
         {
             if (openingDialog.activeInHierarchy)
@@ -80,7 +67,6 @@ public class TSMScript : MonoBehaviour
                 player.gameObject.SetActive(true);
                 Time.timeScale = 1;
             }
-
             if (foundBulletsDialog.activeInHierarchy)
             {
                 foundBulletsDialog.SetActive(false);
@@ -94,6 +80,7 @@ public class TSMScript : MonoBehaviour
                 Time.timeScale = 1;
             }
 
+            //if both bullets and gun found, allow the player to move on to level 3
             if (foundBullets && foundGun)
             {
                 Exit.GetComponent<SpriteRenderer>().color = Color.white;
@@ -103,6 +90,7 @@ public class TSMScript : MonoBehaviour
         }
     }
 
+    //Player found the bullet collectable so activate bullets
     public void BulletsFound()
     {
         foundBullets = true;
@@ -114,7 +102,7 @@ public class TSMScript : MonoBehaviour
         Time.timeScale = 0;
     }
 
-
+    //player found the gun
     public void GunFound()
     {
         foundGun = true;
@@ -123,20 +111,26 @@ public class TSMScript : MonoBehaviour
         Time.timeScale = 0;
 
     }
-
+    
+    //allow scene to fade in before pausing for the opening dialog
     void waitForFade()
     {
         Time.timeScale = 0;
     }
 
-
+    //load the next level
     public void NextLevel()
     {
         levelLoader.LoadNextLevel("Level3");
     }
 
+    //unpause the game
     public void Play()
     {
-        paused = false;
+        player.enabled = true;
+        Time.timeScale = 1;
+        lhhud.SetActive(true);
+        rhhud.SetActive(true);
+        pauseMenu.SetActive(false);
     }
 }

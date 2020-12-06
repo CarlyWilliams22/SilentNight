@@ -12,49 +12,36 @@ public class L2MScript : MonoBehaviour
     public Slider lives;
     public AudioClip achievement;
 
-    bool paused, once = false;
 
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if(PlayerPrefs.GetInt("Trophy1") == 0)
+        //unlock finished level 1 achievement
+        if (PlayerPrefs.GetInt("Trophy1") == 0)
         {
             PlayerPrefs.SetInt("Trophy1", 1);
             achievementBox.SetActive(true);
             achievement1txt.SetActive(true);
             GetComponent<AudioSource>().PlayOneShot(achievement);
         }
+    }
 
-        if (paused)
-        {
-            if (!once)
-            {
-                once = true;
-                player.enabled = false;
-                Time.timeScale = 0;
-                lhhud.SetActive(false);
-                rhhud.SetActive(false);
-                pauseMenu.SetActive(true);
-            }
-        }
-        else
-        {
-            once = false;
-            player.enabled = true;
-            Time.timeScale = 1;
-            lhhud.SetActive(true);
-            rhhud.SetActive(true);
-            pauseMenu.SetActive(false);
-        }
-
+    // Update is called once per frame
+    void Update()
+    {
+        //pause the level
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            paused = !paused;
+            player.enabled = false;
+            Time.timeScale = 0;
+            lhhud.SetActive(false);
+            rhhud.SetActive(false);
+            pauseMenu.SetActive(true);
         }
 
+        //update lives in hud
         lives.value = PlayerPrefs.GetInt("Lives");
 
+        //end game if out of lives
         if (PlayerPrefs.GetInt("Lives") == 0)
         {
             gameOver();
@@ -107,6 +94,10 @@ public class L2MScript : MonoBehaviour
 
     public void Play()
     {
-        paused = false;
+        player.enabled = true;
+        Time.timeScale = 1;
+        lhhud.SetActive(true);
+        rhhud.SetActive(true);
+        pauseMenu.SetActive(false);
     }
 }

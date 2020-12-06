@@ -49,6 +49,7 @@ public class SoundPlayerScript : Echolocator
             }
         }
 
+        //update hud with current type of movement
         walkingH.SetActive(walking);
         sneakingH.SetActive(sneaking);
 
@@ -89,7 +90,7 @@ public class SoundPlayerScript : Echolocator
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //load the ending screen if the player reaches the end of the maze
+        //load the next scene if the player reaches the end of the cave
         if (collision.gameObject.tag.Equals("Finish"))
         {
             levelLoader.LoadNextLevel("Level3Transition");

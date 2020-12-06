@@ -12,22 +12,19 @@ public class PlayerTransitionScript : MonoBehaviour
         manager = FindObjectOfType<TSMScript>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //tell manager if player found the bullets
         if (collision.gameObject.tag == "BulletC")
         {
             manager.BulletsFound();
         }
+        //tell manager if player found the gun
         else if (collision.gameObject.tag == "Gun")
         {
             manager.GunFound();
         }
+        //move on to the next level if exit is found
         else if(collision.gameObject.tag == "Exit")
         {
             manager.NextLevel();

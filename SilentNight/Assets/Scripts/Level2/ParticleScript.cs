@@ -32,7 +32,7 @@ public class ParticleScript : MonoBehaviour
             audioSource.Play();
             playOnce = true;
         }
-        //if player is still no soundwaves
+        //if player is still, no soundwaves
         else if (player.GetComponent<Rigidbody2D>().velocity.magnitude < 0.1)
         {
             soundWaves.Stop();
