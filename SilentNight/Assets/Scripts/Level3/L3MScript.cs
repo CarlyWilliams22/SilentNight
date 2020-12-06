@@ -120,7 +120,7 @@ public class L3MScript : MonoBehaviour
         if (bullet)
         {
             float x = Random.Range(-15f, 15f);
-            float y = Random.Range(-12f, 0f);
+            float y = Random.Range(-11f, 0f);
             bullet.transform.position = new Vector3(x, y, 0);
         }
     }

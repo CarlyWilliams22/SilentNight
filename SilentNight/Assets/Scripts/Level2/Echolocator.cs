@@ -9,6 +9,7 @@ public abstract class Echolocator: MonoBehaviour
     public bool walking;
     public bool blinded;
     public int bulletNum;
+    public int MAX_BULLETS = 4;
 
     public bool isBlinded()
     {
@@ -17,7 +18,10 @@ public abstract class Echolocator: MonoBehaviour
 
     public void addBullet()
     {
-        bulletNum++;
+        if (bulletNum < MAX_BULLETS)
+        {
+            bulletNum++;
+        }
     }
 
 }
