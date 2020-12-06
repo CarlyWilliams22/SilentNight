@@ -80,7 +80,7 @@ public class Level1ManagerScript : MonoBehaviour
                     rhhud.SetActive(false);
                     pauseMenu.SetActive(true);
                 }
-            } else
+            } else if (!paused && !textbox.active)
             {
                 once = false;
                 Time.timeScale = 1;
