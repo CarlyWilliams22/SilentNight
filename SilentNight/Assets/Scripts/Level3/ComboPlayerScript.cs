@@ -25,12 +25,10 @@ public class ComboPlayerScript : Echolocator
     bool flashlightOn;
     bool flashlightDead = false;
     float batteryLevel = 30;
-    int batteryNum = 1;
     float batteryStart;
     public Text batteries;
 
     public Text bullets;
-    int bulletNum = 4;
 
     AudioSource sound;
     public AudioClip flashlightOnClip;
@@ -53,6 +51,9 @@ public class ComboPlayerScript : Echolocator
     // Start is called before the first frame update
     void Start()
     {
+        bulletNum = 4;
+        batteryNum = 1;
+
         blinded = false;
         rbody = GetComponent<Rigidbody2D>();
         movement = GetComponent<Animator>();
@@ -352,16 +353,6 @@ public class ComboPlayerScript : Echolocator
         srender.enabled = true;
         Camera.main.backgroundColor = new Color(.25f,.25f,.25f);
         blinded = false;
-    }
-
-    new public void addBullet()
-    {
-        bulletNum++;
-    }
-
-    new public void addBattery()
-    {
-        batteryNum++;
     }
 
 }
