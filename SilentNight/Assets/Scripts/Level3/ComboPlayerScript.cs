@@ -40,7 +40,6 @@ public class ComboPlayerScript : Echolocator
     string lastSprite = "PlayerWithGunSpriteSheet_2";
     public AudioClip footstep;
 
-    public bool blinded = false;
     GameObject soundwaves;
 
     ParticleSystem clap;
@@ -54,6 +53,7 @@ public class ComboPlayerScript : Echolocator
     // Start is called before the first frame update
     void Start()
     {
+        blinded = false;
         rbody = GetComponent<Rigidbody2D>();
         movement = GetComponent<Animator>();
         sound = GetComponent<AudioSource>();
@@ -364,8 +364,4 @@ public class ComboPlayerScript : Echolocator
         batteryNum++;
     }
 
-    new public bool isBlinded()
-    {
-        return blinded;
-    }
 }

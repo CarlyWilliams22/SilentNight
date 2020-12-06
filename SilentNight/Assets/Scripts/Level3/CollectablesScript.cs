@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollectablesScript : MonoBehaviour
 {
@@ -16,8 +17,15 @@ public class CollectablesScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-        animator.SetBool("Dark", player.isBlinded());
+    {
+
+        if (SceneManager.GetActiveScene().Equals(SceneManager.GetSceneByName("Level3"))){
+            animator.SetBool("Dark", player.isBlinded());
+        }
+        else
+        {
+            animator.SetBool("Dark", true);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

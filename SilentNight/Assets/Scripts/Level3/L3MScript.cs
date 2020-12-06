@@ -53,13 +53,7 @@ public class L3MScript : MonoBehaviour
         player.enabled = false;
         playerAnimator.enabled = false;
 
-        if (PlayerPrefs.GetInt("Trophy2") == 0)
-        {
-            PlayerPrefs.SetInt("Trophy2", 1);
-            achievementBox.SetActive(true);
-            achievement2txt.SetActive(true);
-            GetComponent<AudioSource>().PlayOneShot(achievement);
-        }
+        
     }
 
     // Update is called once per frame
