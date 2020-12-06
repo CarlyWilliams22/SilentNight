@@ -21,7 +21,6 @@ public class TSMScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("Trophy2", 0);
 
         lives.value = PlayerPrefs.GetInt("Lives");
 
