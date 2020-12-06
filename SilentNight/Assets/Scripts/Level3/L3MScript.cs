@@ -9,7 +9,7 @@ public class L3MScript : MonoBehaviour
 {
     public ComboPlayerScript player;
     public Animator playerAnimator;
-    public Slider lives;
+    public Slider lives, bossHealthS;
     public GameObject lhhud, rhhud, pauseMenu, achievementBox, achievement2txt, bulletPrefab, batteryPrefab;
     public LevelLoaderScript levelLoader;
     public PlayableDirector timeline;
@@ -50,6 +50,8 @@ public class L3MScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bossHealthS.value = bossHealth - PlayerPrefs.GetInt("hits"); 
+
         if (timeline.state != PlayState.Playing)
         {
             if (!setup)

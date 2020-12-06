@@ -13,7 +13,7 @@ public class ComboPlayerScript : Echolocator
     ParticleSystem clap;
 
     public GameObject walkingH, runningH, sneakingH, bulletPrefab, gunBarrel;
-    public Slider stamina;
+    public Slider stamina, playerHealth;
     public Text bullets;
     public AudioClip footstep, gunshot, clapSound;
 
@@ -54,6 +54,7 @@ public class ComboPlayerScript : Echolocator
     // Update is called once per frame
     void Update()
     {
+        playerHealth.value = PlayerPrefs.GetInt("damage");
 
         bullets.text = "x" + bulletNum.ToString();
 
