@@ -10,8 +10,6 @@ public class ESManager : MonoBehaviour
     public AudioClip achievement;
     private void Start()
     {
-        PlayerPrefs.SetInt("Trophy3", 0);
-        PlayerPrefs.SetInt("Trophy6", 0);
 
         if (PlayerPrefs.GetInt("Trophy3") == 0)
         {

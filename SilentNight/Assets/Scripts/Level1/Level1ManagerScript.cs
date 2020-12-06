@@ -22,9 +22,6 @@ public class Level1ManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //TODO remove these when done testing achievements
-        PlayerPrefs.SetInt("Trophy4", 0);
-        PlayerPrefs.SetInt("Trophy5", 0);
 
         deadDeer = bridge = blockade = false; //Keep track of what area has been visited
         bridgeDeath = false; //Tracks if player has died from falling of the bridge

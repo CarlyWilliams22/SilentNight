@@ -13,12 +13,6 @@ public class L2MScript : MonoBehaviour
     public Slider lives;
     public AudioClip achievement;
 
-    //TODO remove when done testing
-    private void Start()
-    {
-        PlayerPrefs.SetInt("Trophy1", 0);
-    }
-
     // Update is called once per frame
     void Update()
     {
