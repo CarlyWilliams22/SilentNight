@@ -7387,6 +7387,10 @@ PrefabInstance:
       propertyPath: sneakSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4526293397421163346, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
+      propertyPath: gunshot
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ff1bb158e7ee934096827b8988a3cb1, type: 3}
     - target: {fileID: 4526293397421163351, guid: 54f356ed440d0aa469c8b53a14af6fa7, type: 3}
       propertyPath: m_Sprite
       value: 
