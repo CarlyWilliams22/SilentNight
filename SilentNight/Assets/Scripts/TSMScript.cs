@@ -146,4 +146,9 @@ public class TSMScript : MonoBehaviour
     {
         levelLoader.LoadNextLevel("Level3");
     }
+
+    public void Play()
+    {
+        paused = false;
+    }
 }

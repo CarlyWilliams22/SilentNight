@@ -432,7 +432,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2080166789}
         m_TargetAssemblyTypeName: LevelLoaderScript, Assembly-CSharp
         m_MethodName: LoadMenu
         m_Mode: 1
@@ -1040,8 +1040,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: L2MScript, Assembly-CSharp
+      - m_Target: {fileID: 582192910}
+        m_TargetAssemblyTypeName: TSMScript, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -1282,7 +1282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lhhud: {fileID: 1034956262}
   rhhud: {fileID: 624104279}
-  pauseMenu: {fileID: 1818328128}
+  pauseMenu: {fileID: 1880106319}
   Exit: {fileID: 1257152542}
   bulletH: {fileID: 623669832}
   batteryH: {fileID: 1998667283}
