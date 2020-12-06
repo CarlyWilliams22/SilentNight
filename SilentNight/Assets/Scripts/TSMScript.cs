@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TSMScript : MonoBehaviour
 {
-    public GameObject lhhud, rhhud, pauseMenu, Exit, bulletH, batteryH;
+    public GameObject lhhud, rhhud, pauseMenu, Exit, bulletH, batteryH, achievementBox, achievement2txt;
     public Text batteryCountH, bulletCountH;
     int numBatteries, numBullets;
     public GameObject Textbox, openingDialog, foundBulletsDialog, foundBatteriesDialog, foundGunDialog, foundFlashlightDialog;
@@ -16,15 +16,26 @@ public class TSMScript : MonoBehaviour
     bool paused, once = false;
     public Slider lives;
     public LevelLoaderScript levelLoader;
+    public AudioClip achievement;
 
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("Trophy2", 0);
+
         lives.value = PlayerPrefs.GetInt("Lives");
 
         foundBatteries = foundBullets = foundFlashlight = foundGun = false;
         numBatteries = 0;
         numBullets = 0;
+
+        if (PlayerPrefs.GetInt("Trophy2") == 0)
+        {
+            PlayerPrefs.SetInt("Trophy2", 1);
+            achievementBox.SetActive(true);
+            achievement2txt.SetActive(true);
+            GetComponent<AudioSource>().PlayOneShot(achievement);
+        }
     }
 
     // Update is called once per frame
