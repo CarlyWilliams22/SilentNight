@@ -24,17 +24,9 @@ public class PlayerTransitionScript : MonoBehaviour
         {
             manager.BulletsFound();
         }
-        else if (collision.gameObject.tag == "BatteryC")
-        {
-            manager.BatteryFound();
-        }
         else if (collision.gameObject.tag == "Gun")
         {
             manager.GunFound();
-        }
-        else if (collision.gameObject.tag == "Light")
-        {
-            manager.FlashlightFound();
         }
         else if(collision.gameObject.tag == "Exit")
         {

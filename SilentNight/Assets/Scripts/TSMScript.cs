@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class TSMScript : MonoBehaviour
 {
-    public GameObject lhhud, rhhud, pauseMenu, Exit, bulletH, batteryH, achievementBox, achievement2txt;
-    public Text batteryCountH, bulletCountH;
+    public GameObject lhhud, rhhud, pauseMenu, Exit, bulletH, achievementBox, achievement2txt;
+    public Text bulletCountH;
     int numBatteries, numBullets;
-    public GameObject Textbox, openingDialog, foundBulletsDialog, foundBatteriesDialog, foundGunDialog, foundFlashlightDialog;
-    bool foundBullets, foundBatteries, foundGun, foundFlashlight;
-    public GameObject bulletC, batteryC, gunC, flashlightC;
+    public GameObject Textbox, openingDialog, foundBulletsDialog,foundGunDialog;
+    bool foundBullets, foundGun;
+    public GameObject bulletC, gunC;
     public SoundPlayerScript player;
     bool paused, once = false;
     public Slider lives;
@@ -24,8 +24,7 @@ public class TSMScript : MonoBehaviour
 
         lives.value = PlayerPrefs.GetInt("Lives");
 
-        foundBatteries = foundBullets = foundFlashlight = foundGun = false;
-        numBatteries = 0;
+        foundBullets = foundGun = false;
         numBullets = 0;
 
         if (PlayerPrefs.GetInt("Trophy2") == 0)
@@ -35,6 +34,8 @@ public class TSMScript : MonoBehaviour
             achievement2txt.SetActive(true);
             GetComponent<AudioSource>().PlayOneShot(achievement);
         }
+
+        Invoke("waitForFade", 1);
     }
 
     // Update is called once per frame
@@ -52,7 +53,7 @@ public class TSMScript : MonoBehaviour
                 pauseMenu.SetActive(true);
             }
         }
-        else
+        else if(!Textbox.activeInHierarchy)
         {
             once = false;
             player.enabled = true;
@@ -68,7 +69,6 @@ public class TSMScript : MonoBehaviour
         }
 
         bulletCountH.text = "x" + numBullets;
-        batteryCountH.text = "x" + numBatteries;
 
         if (Input.GetKeyDown(KeyCode.Return)) //hit enter
         {
@@ -77,31 +77,24 @@ public class TSMScript : MonoBehaviour
                 openingDialog.SetActive(false);
                 Textbox.SetActive(false);
                 player.gameObject.SetActive(true);
+                Time.timeScale = 1;
             }
 
             if (foundBulletsDialog.activeInHierarchy)
             {
                 foundBulletsDialog.SetActive(false);
                 Textbox.SetActive(false);
-            }
-            if (foundBatteriesDialog.activeInHierarchy)
-            {
-                foundBatteriesDialog.SetActive(false);
-                Textbox.SetActive(false);
+                Time.timeScale = 1;
             }
             if (foundGunDialog.activeInHierarchy)
             {
                 foundGunDialog.SetActive(false);
                 Textbox.SetActive(false);
-            }
-            if (foundFlashlightDialog.activeInHierarchy)
-            {
-                foundFlashlightDialog.SetActive(false);
-                Textbox.SetActive(false);
+                Time.timeScale = 1;
             }
 
 
-            if (foundBullets && foundBatteries && foundGun && foundFlashlight)
+            if (foundBullets && foundGun)
             {
                 Exit.GetComponent<SpriteRenderer>().color = Color.white;
                 Exit.tag = "Exit";
@@ -114,31 +107,26 @@ public class TSMScript : MonoBehaviour
     {
         foundBullets = true;
         foundBulletsDialog.SetActive(true);
+        Textbox.SetActive(true);
         bulletH.GetComponent<SpriteRenderer>().color = Color.white;
         bulletCountH.color = Color.white;
         numBullets+=4;
+        Time.timeScale = 0;
     }
 
-    public void BatteryFound()
-    {
-        foundBatteries = true;
-        foundBatteriesDialog.SetActive(true);
-        batteryH.GetComponent<SpriteRenderer>().color = Color.white;
-        batteryCountH.color = Color.white;
-        numBatteries++;
-    }
 
     public void GunFound()
     {
         foundGun = true;
         foundGunDialog.SetActive(true);
+        Textbox.SetActive(true);
+        Time.timeScale = 0;
+
     }
 
-
-    public void FlashlightFound()
+    void waitForFade()
     {
-        foundFlashlight = true;
-        foundFlashlightDialog.SetActive(true);
+        Time.timeScale = 0;
     }
 
 
