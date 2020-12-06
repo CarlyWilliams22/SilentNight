@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4388840247059908807}
   - component: {fileID: 4388840247059908804}
   - component: {fileID: 4388840247059908805}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BatteryCollectable
   m_TagString: BatteryC
   m_Icon: {fileID: 0}

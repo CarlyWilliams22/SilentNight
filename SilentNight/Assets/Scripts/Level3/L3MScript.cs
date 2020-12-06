@@ -15,6 +15,7 @@ public class L3MScript : MonoBehaviour
     public PlayableDirector timeline;
     public AudioClip achievement;
     public FinalBossScript boss;
+    public int bossHealth = 10;
     bool paused, once, setup, playOnce = false;
 
     ObjectPool poolBattery, poolBullet;
@@ -28,22 +29,22 @@ public class L3MScript : MonoBehaviour
         poolBullet = new ObjectPool(bulletPrefab, 5, false);
 
         battery = poolBattery.getObject();
-        battery.transform.position = new Vector3(-20, -6, 0);
+        battery.transform.position = new Vector3(-14, -6, 0);
         battery = poolBattery.getObject();
         battery.transform.position = new Vector3(4, -6, 0);
         battery = poolBattery.getObject();
-        battery.transform.position = new Vector3(-1, -20, 0);
+        battery.transform.position = new Vector3(-1, -11, 0);
 
         bullet = poolBullet.getObject();
-        bullet.transform.position = new Vector3(20, -6, 0);
+        bullet.transform.position = new Vector3(14, -6, 0);
         bullet = poolBullet.getObject();
         bullet.transform.position = new Vector3(-4, -6, 0);
         bullet = poolBullet.getObject();
-        bullet.transform.position = new Vector3(1, -20, 0);
+        bullet.transform.position = new Vector3(1, -11, 0);
         bullet = poolBullet.getObject();
-        bullet.transform.position = new Vector3(-20, -20, 0);
+        bullet.transform.position = new Vector3(-14, -11, 0);
         bullet = poolBullet.getObject();
-        bullet.transform.position = new Vector3(20, -20, 0);
+        bullet.transform.position = new Vector3(14, -11, 0);
 
 
         PlayerPrefs.SetInt("damage", 3);
@@ -105,7 +106,7 @@ public class L3MScript : MonoBehaviour
             levelLoader.LoadNextLevel("Level3");
         }
 
-        if(PlayerPrefs.GetInt("hits") >= 3 && !playOnce)
+        if(PlayerPrefs.GetInt("hits") >= bossHealth && !playOnce)
         {
             playOnce = true;
             boss.CancelInvoke();    //Stop shooting cuz its dead
@@ -120,8 +121,8 @@ public class L3MScript : MonoBehaviour
         bullet = poolBullet.getObject();
         if (bullet)
         {
-            float x = Random.Range(-20f, 20f);
-            float y = Random.Range(-20f, -6f);
+            float x = Random.Range(-15f, 15f);
+            float y = Random.Range(-12f, 0f);
             bullet.transform.position = new Vector3(x, y, 0);
         }
 

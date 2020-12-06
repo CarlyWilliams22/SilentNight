@@ -301,12 +301,6 @@ public class ComboPlayerScript : Echolocator
         }
     }
 
-    private void LateUpdate()
-    {
-        //camera follows the player
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
-    }
-
     private void ShootGun()
     {
         GameObject bullet = Instantiate(bulletPrefab);
