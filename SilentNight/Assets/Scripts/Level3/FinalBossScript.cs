@@ -40,4 +40,10 @@ public class FinalBossScript : MonoBehaviour
         angle = (angle + 270) * Mathf.Deg2Rad;
         bulletRbody.velocity = new Vector2(snotSpeed * Mathf.Cos(angle), snotSpeed * Mathf.Sin(angle));
     }
+
+    public void LastResort()
+    {
+        CancelInvoke();
+        InvokeRepeating("ShootSnot", 0f, 0.5f);
+    }
 }

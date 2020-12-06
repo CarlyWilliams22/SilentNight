@@ -16,7 +16,7 @@ public class L3MScript : MonoBehaviour
     public AudioClip achievement;
     public FinalBossScript boss;
     public int bossHealth = 10;
-    bool paused, once, setup, playOnce = false;
+    bool paused, once, setup, playOnce, nearDeath = false;
 
     ObjectPool poolBattery, poolBullet;
 
@@ -104,6 +104,12 @@ public class L3MScript : MonoBehaviour
         if (PlayerPrefs.GetInt("damage") <= 0)
         {
             levelLoader.LoadNextLevel("Level3");
+        }
+
+        if (PlayerPrefs.GetInt("hits") >= 5 && !nearDeath)
+        {
+            nearDeath = true;
+            boss.LastResort();
         }
 
         if(PlayerPrefs.GetInt("hits") >= bossHealth && !playOnce)
