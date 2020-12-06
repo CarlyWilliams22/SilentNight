@@ -57,7 +57,9 @@ public class TSMScript : MonoBehaviour
             paused = !paused;
         }
 
-        
+        bulletCountH.text = "x" + numBullets;
+        batteryCountH.text = "x" + numBatteries;
+
         if (Input.GetKeyDown(KeyCode.Return)) //hit enter
         {
             if (openingDialog.activeInHierarchy)
@@ -89,14 +91,11 @@ public class TSMScript : MonoBehaviour
             }
 
 
-            if(foundBullets && foundBatteries && foundGun && foundFlashlight)
+            if (foundBullets && foundBatteries && foundGun && foundFlashlight)
             {
                 Exit.GetComponent<SpriteRenderer>().color = Color.white;
                 Exit.tag = "Exit";
             }
-
-            bulletCountH.text = "x" + numBullets;
-            batteryCountH.text = "x" + numBatteries;
 
         }
     }
@@ -107,7 +106,7 @@ public class TSMScript : MonoBehaviour
         foundBulletsDialog.SetActive(true);
         bulletH.GetComponent<SpriteRenderer>().color = Color.white;
         bulletCountH.color = Color.white;
-        numBullets++;
+        numBullets+=4;
     }
 
     public void BatteryFound()

@@ -30,7 +30,7 @@ public class ComboPlayerScript : Echolocator
     public Text batteries;
 
     public Text bullets;
-    int bulletNum = 1;
+    int bulletNum = 4;
 
     AudioSource sound;
     public AudioClip flashlightOnClip;
