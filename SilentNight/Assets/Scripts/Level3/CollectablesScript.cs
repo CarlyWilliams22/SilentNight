@@ -32,15 +32,7 @@ public class CollectablesScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-
-            if(gameObject.tag == "BulletC")
-            {
-                player.addBullet();
-            }
-            else if(gameObject.tag == "BatteryC")
-            {
-                player.addBattery();
-            }
+            player.addBullet();
             gameObject.SetActive(false);
         }
     }

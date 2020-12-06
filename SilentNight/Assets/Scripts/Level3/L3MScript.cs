@@ -18,22 +18,14 @@ public class L3MScript : MonoBehaviour
     public int bossHealth = 10;
     bool paused, once, setup, playOnce, nearDeath = false;
 
-    ObjectPool poolBattery, poolBullet;
+    ObjectPool poolBullet;
 
-    GameObject bullet, battery;
+    GameObject bullet;
 
     // Start is called before the first frame update
     void Start()
     {
-        poolBattery = new ObjectPool(batteryPrefab, 3, false);
         poolBullet = new ObjectPool(bulletPrefab, 5, false);
-
-        battery = poolBattery.getObject();
-        battery.transform.position = new Vector3(-14, -6, 0);
-        battery = poolBattery.getObject();
-        battery.transform.position = new Vector3(4, -6, 0);
-        battery = poolBattery.getObject();
-        battery.transform.position = new Vector3(-1, -11, 0);
 
         bullet = poolBullet.getObject();
         bullet.transform.position = new Vector3(14, -6, 0);
@@ -130,14 +122,6 @@ public class L3MScript : MonoBehaviour
             float x = Random.Range(-15f, 15f);
             float y = Random.Range(-12f, 0f);
             bullet.transform.position = new Vector3(x, y, 0);
-        }
-
-        battery = poolBattery.getObject();
-        if (battery)
-        {
-            float x = Random.Range(-20f, 20f);
-            float y = Random.Range(-20f, -6f);
-            battery.transform.position = new Vector3(x, y, 0);
         }
     }
 

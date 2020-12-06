@@ -9,7 +9,6 @@ public abstract class Echolocator: MonoBehaviour
     public bool walking;
     public bool blinded;
     public int bulletNum;
-    public int batteryNum;
 
     public bool isBlinded()
     {
@@ -21,8 +20,4 @@ public abstract class Echolocator: MonoBehaviour
         bulletNum++;
     }
 
-    public void addBattery()
-    {
-        batteryNum++;
-    }
 }

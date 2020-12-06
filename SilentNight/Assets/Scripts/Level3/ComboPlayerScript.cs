@@ -20,19 +20,9 @@ public class ComboPlayerScript : Echolocator
     bool currRunnning = false;
     public bool tired = false;
 
-    GameObject flashlight;
-    public Slider battery;
-    bool flashlightOn;
-    bool flashlightDead = false;
-    float batteryLevel = 30;
-    float batteryStart;
-    public Text batteries;
-
     public Text bullets;
 
     AudioSource sound;
-    public AudioClip flashlightOnClip;
-    public AudioClip flashlightOffClip;
 
     SpriteRenderer srender;
     string lastSprite = "PlayerWithGunSpriteSheet_2";
@@ -52,7 +42,6 @@ public class ComboPlayerScript : Echolocator
     void Start()
     {
         bulletNum = 4;
-        batteryNum = 1;
 
         blinded = false;
         rbody = GetComponent<Rigidbody2D>();
@@ -64,9 +53,6 @@ public class ComboPlayerScript : Echolocator
         running = sneaking = false;
         walking = true;
 
-        flashlightOn = false;
-        flashlight = transform.GetChild(0).gameObject;
-        flashlight.SetActive(flashlightOn);
 
         soundwaves = transform.GetChild(2).gameObject;
         clap = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
@@ -81,68 +67,10 @@ public class ComboPlayerScript : Echolocator
     void Update()
     {
 
-        batteries.text = "x" + batteryNum.ToString();
         bullets.text = "x" + bulletNum.ToString();
 
         if (!blinded)
         {
-            if (flashlightOn)
-            {
-                battery.value = batteryLevel - (int)(Time.time - batteryStart);
-            }
-
-            if (battery.value == 0)
-            {
-                if (batteryNum == 0)
-                {
-                    flashlightDead = true;
-                    flashlight.SetActive(false);
-                }
-                else
-                {
-                    batteryNum--;
-                    NewBattery();
-                }
-
-            }
-
-            if (flashlightOn && !flashlightDead)
-            {
-                batteryLevel -= Time.deltaTime;
-                if (batteryLevel <= 0)
-                {
-                    flashlightDead = true;
-                }
-            }
-
-            if (!flashlightDead)
-            {
-                //toggle flashlight
-                if (Input.GetKeyDown(KeyCode.Mouse1))
-                {
-                    if (flashlightOn)
-                    {
-                        flashlightOn = false;
-                        sound.PlayOneShot(flashlightOffClip);
-                        batteryLevel = battery.value;
-                    }
-                    else
-                    {
-                        batteryStart = Time.time;
-                        flashlightOn = true;
-                        sound.PlayOneShot(flashlightOnClip);
-                    }
-                    if (!flashlightDead)
-                    {
-                        flashlight.SetActive(flashlightOn);
-                    }
-                }
-            }
-            else
-            {
-                flashlight.SetActive(false);
-            }
-
 
             //set player animation speed based on player speed
             if (rbody.velocity == Vector2.zero)
@@ -326,24 +254,15 @@ public class ComboPlayerScript : Echolocator
         }
     }
 
-    void NewBattery()
-    {
-        batteryStart = Time.time;
-        batteryLevel = 30;
-    }
-
     IEnumerator WhileBlinded()
     {
         soundwaves.SetActive(true);
-        flashlight.SetActive(false);
-        flashlightOn = false;
         srender.enabled = false;
         Camera.main.backgroundColor = Color.black;
 
         yield return new WaitForSeconds(10);
         
         soundwaves.SetActive(false);
-        flashlight.SetActive(flashlightOn);
         srender.enabled = true;
         Camera.main.backgroundColor = new Color(.25f,.25f,.25f);
         blinded = false;
