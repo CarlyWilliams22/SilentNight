@@ -18,7 +18,7 @@ public class CollectablesScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Check if the player is blind or not
         if (SceneManager.GetActiveScene().Equals(SceneManager.GetSceneByName("Level3"))){
             animator.SetBool("Dark", player.isBlinded());
         }
@@ -28,6 +28,7 @@ public class CollectablesScript : MonoBehaviour
         }
     }
 
+    //Player hits collectable and picks up a bullet
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -37,13 +38,15 @@ public class CollectablesScript : MonoBehaviour
         }
     }
   
+    //A soundwave hits the collectable while the player is blinded
+    //and glows to reveal its location
     private void OnParticleCollision(GameObject other)
     {
         animator.SetBool("Collision", true);
         StartCoroutine(ResetGlow());
     }
 
-
+    //Coroutine to make the glow go away
     IEnumerator ResetGlow()
     {
         yield return new WaitForSeconds(.5f);

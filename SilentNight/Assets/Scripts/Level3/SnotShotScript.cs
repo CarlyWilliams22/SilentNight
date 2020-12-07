@@ -4,19 +4,7 @@ using UnityEngine;
 
 public class SnotShotScript : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Destroy object when it hits something
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);

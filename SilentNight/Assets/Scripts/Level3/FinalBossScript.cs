@@ -16,14 +16,18 @@ public class FinalBossScript : MonoBehaviour
     private void Start()
     {
         audio = GetComponent<AudioSource>();
+        
+        //Start shooting after the intro scene is over
         InvokeRepeating("ShootSnot", 5f, 2f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //While the player is still alive...
         if (playerPos)
         {
+            //Rotate his body to always face and shoot at the player
             Vector3 vectorToTarget = playerPos.position - transform.GetChild(0).transform.position;
             float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -31,6 +35,7 @@ public class FinalBossScript : MonoBehaviour
         }
     }
 
+    //Shoot at the player and rotate the shots towards the player
     void ShootSnot()
     {
         GameObject snotShot = Instantiate(snotShotPrefab, firePoint.position, firePoint.rotation);
@@ -41,6 +46,7 @@ public class FinalBossScript : MonoBehaviour
         bulletRbody.velocity = new Vector2(snotSpeed * Mathf.Cos(angle), snotSpeed * Mathf.Sin(angle));
     }
 
+    //The boss is about to die so he begins shooting rapidly
     public void LastResort()
     {
         CancelInvoke();

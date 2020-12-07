@@ -12,7 +12,7 @@ public class L3MScript : MonoBehaviour
     public Slider lives, bossHealthS;
     public GameObject lhhud, rhhud, pauseMenu, achievementBox, achievement2txt, bulletPrefab, batteryPrefab;
     public LevelLoaderScript levelLoader;
-    public PlayableDirector timeline;
+    public PlayableDirector timeline;   //Intro scene controller
     public AudioClip achievement;
     public FinalBossScript boss;
 
@@ -26,8 +26,11 @@ public class L3MScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //Make our collectable object pool
         poolBullet = new ObjectPool(bulletPrefab, 5, false);
 
+        //Manually spawn the first collectable bullets
         bullet = poolBullet.getObject();
         bullet.transform.position = new Vector3(14, -6, 0);
         bullet = poolBullet.getObject();
@@ -39,8 +42,11 @@ public class L3MScript : MonoBehaviour
         bullet = poolBullet.getObject();
         bullet.transform.position = new Vector3(14, -11, 0);
 
+        //Set the players life amount and how many times they have been hit
         PlayerPrefs.SetInt("damage", 3);
         PlayerPrefs.SetInt("hits", 0);
+
+        //Disable the hub while the intro plays
         lhhud.SetActive(false);
         rhhud.SetActive(false);
         player.enabled = false;
@@ -50,10 +56,13 @@ public class L3MScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Set the bosses health to the previous value from the last fight
         bossHealthS.value = bossHealth - PlayerPrefs.GetInt("hits"); 
 
+        //Enter only if the intro is done playing
         if (timeline.state != PlayState.Playing)
         {
+            //Show the hub and re-enable the player
             if (!setup)
             {
                 setup = true;
@@ -63,6 +72,7 @@ public class L3MScript : MonoBehaviour
                 rhhud.SetActive(true);
             }
 
+            //Access the pause menu
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 lhhud.SetActive(false);
@@ -73,19 +83,23 @@ public class L3MScript : MonoBehaviour
             }
         }
 
+        //Get the players life count
         lives.value = PlayerPrefs.GetInt("Lives");
 
+        //Reload the scene if the player dies
         if (PlayerPrefs.GetInt("damage") <= 0)
         {
             levelLoader.LoadNextLevel("Level3");
         }
 
+        //Activate the bosses "Last Resort" when reaching below 5 health
         if (PlayerPrefs.GetInt("hits") >= 5 && !nearDeath)
         {
             nearDeath = true;
             boss.LastResort();
         }
 
+        //Enter when the player kills the boss
         if(PlayerPrefs.GetInt("hits") >= bossHealth && !playOnce)
         {
             playOnce = true;
@@ -98,6 +112,7 @@ public class L3MScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Respawn a bullet collectable if there is one available
         bullet = poolBullet.getObject();
         if (bullet)
         {
@@ -107,6 +122,7 @@ public class L3MScript : MonoBehaviour
         }
     }
 
+    //Unpause the game from the pause menu
     public void Play()
     {
         lhhud.SetActive(true);

@@ -30,9 +30,12 @@ public class ComboPlayerScript : Echolocator
     // Start is called before the first frame update
     void Start()
     {
+        //Starting bullet count
         bulletNum = 4;
 
+        //Player can see
         blinded = false;
+
         rbody = GetComponent<Rigidbody2D>();
         movement = GetComponent<Animator>();
         sound = GetComponent<AudioSource>();
@@ -42,22 +45,27 @@ public class ComboPlayerScript : Echolocator
         running = sneaking = false;
         walking = true;
 
+        //Grab the particle system
         soundwaves = transform.GetChild(2).gameObject;
         clap = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
 
         stamina.maxValue = maxStamina;
         stamina.value = maxStamina;
 
+        //Set the camera color to a grayish background
         Camera.main.backgroundColor = new Color(.25f, .25f, .25f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Set the players health
         playerHealth.value = PlayerPrefs.GetInt("damage");
 
+        //Update the bullet count in the hud
         bullets.text = "x" + bulletNum.ToString();
 
+        //While the player is not blinded...
         if (!blinded)
         {
 
@@ -104,11 +112,12 @@ public class ComboPlayerScript : Echolocator
             }
         }
 
-
+        //Set player motion booleans
         runningH.SetActive(running);
         walkingH.SetActive(walking);
         sneakingH.SetActive(sneaking);
 
+        //Track the players stamina to see if they are tired from running
         if (stamina.value < 0.00001f)
         {
             tired = true;
@@ -138,6 +147,7 @@ public class ComboPlayerScript : Echolocator
             }
         }
 
+        //Player is too tired to run anymore
         if (tired)
         {
             curSpeed = walkSpeed;
@@ -173,6 +183,7 @@ public class ComboPlayerScript : Echolocator
         Quaternion dest = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * 180 / Mathf.PI - 90, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, dest, 5 * Time.deltaTime);
 
+        //Shoot their gun with a 1 second reload time
         if (Input.GetKeyDown(KeyCode.Mouse0) && (bulletNum != 0))
         {
             if (!shotFired)
@@ -187,7 +198,7 @@ public class ComboPlayerScript : Echolocator
 
     private void FixedUpdate()
     {
-
+        //Decrement the stamina value if the player is running
         if (running && rbody.velocity != Vector2.zero)
         {
             if (!currRunnning)
@@ -197,6 +208,7 @@ public class ComboPlayerScript : Echolocator
             stamina.value -= .005f;
 
         }
+        //Slowly regain stamina when not running
         else
         {
             currRunnning = false;
@@ -207,6 +219,7 @@ public class ComboPlayerScript : Echolocator
 
         }
 
+        //Average movement controls
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         Vector2 vel = new Vector2(x, y);
@@ -222,6 +235,7 @@ public class ComboPlayerScript : Echolocator
         }
     }
 
+    //Player control to shoot their gun
     private void ShootGun()
     {
         GameObject bullet = Instantiate(bulletPrefab);
@@ -234,6 +248,7 @@ public class ComboPlayerScript : Echolocator
         bulletNum--;
     }
 
+    //Take damage if the player runs into the boss or one of the bosses projectiles
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Equals("Monster"))
@@ -245,6 +260,9 @@ public class ComboPlayerScript : Echolocator
         }
     }
 
+    //If the player is hit by the bosses projectiles, they are blinded and cannot see
+    //Player resorts to using the sound waves to find bullets on the ground
+    //Player can see again after 10 seconds
     IEnumerator WhileBlinded()
     {
         soundwaves.SetActive(true);

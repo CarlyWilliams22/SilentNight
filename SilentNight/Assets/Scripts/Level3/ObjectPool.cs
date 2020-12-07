@@ -37,7 +37,6 @@ public class ObjectPool
         if (canGrow)
         {
             GameObject temp = GameObject.Instantiate(prefab);
-            //temp.SetActive(false);
             pool.Add(temp);
             return temp;
         }
